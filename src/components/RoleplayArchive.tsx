@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useGameStore } from '../store/gameStore';
 import type { Role } from '../types';
 
@@ -16,18 +15,11 @@ const ROLE_ORDER: { key: Role | 'all'; label: string; icon: string }[] = [
 
 export function RoleplayArchive() {
   const { roleplayCases, roleplayState, roleplayRoleFilter, setRoleplayRoleFilter, loadRoleplayArchiveCase } = useGameStore();
-  const [search, setSearch] = useState('');
 
-  const searchLower = search.trim().toLowerCase();
-  const filtered = roleplayCases.filter((c) => {
-    const matchesRole = roleplayRoleFilter === 'all' || c.role === roleplayRoleFilter;
-    const matchesSearch =
-      searchLower === '' ||
-      c.diagnosis.some((d) => d.toLowerCase().includes(searchLower)) ||
-      c.clues.some((clue) => clue.toLowerCase().includes(searchLower)) ||
-      c.roleName.toLowerCase().includes(searchLower);
-    return matchesRole && matchesSearch;
-  });
+  const filtered =
+    roleplayRoleFilter === 'all'
+      ? roleplayCases
+      : roleplayCases.filter((c) => c.role === roleplayRoleFilter);
 
   return (
     <section id="roleplayArchive" className="section active">
@@ -45,16 +37,6 @@ export function RoleplayArchive() {
               {icon} {label}
             </button>
           ))}
-        </div>
-        <div style={{ marginBottom: '16px' }}>
-          <input
-            type="text"
-            className="diagnosis-input"
-            placeholder="🔍 Поиск по диагнозу, симптому или роли..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={{ width: '100%' }}
-          />
         </div>
         <div className="archive-grid">
           {filtered.map((c) => {

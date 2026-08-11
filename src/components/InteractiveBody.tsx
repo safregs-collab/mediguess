@@ -55,275 +55,140 @@ export function InteractiveBody({ findings, onRegionClick }: Props) {
         <div className="body-hint">Кликните на часть тела для осмотра</div>
 
         <svg viewBox="0 0 200 400" className="body-svg">
-          {/* ===== ГОЛОВА + ШЕЯ ===== */}
+          {/* === BODY FILL === */}
+          <path className="body-fill" d="M99,7L97,8L96,10L95,11L95,15L94,16L94,20L96,22L96,27L95,28L91,29L90,30L87,31L86,32L85,34L84,42L83,49L82,55L80,63L79,75L77,80L76,86L75,91L74,97L73,102L72,108L71,113L70,119L69,124L68,130L67,135L66,141L65,146L64,152L63,157L62,163L61,168L60,174L59,179L58,185L57,190L56,196L55,201L54,207L53,212L52,218L51,223L50,229L49,234L48,240L47,245L46,251L45,256L44,262L43,267L42,273L41,278L40,284L39,289L38,295L37,300L36,306L35,311L34,317L33,322L32,328L31,333L30,339L29,344L28,350L27,355L26,361L25,366L24,372L23,377L22,383L21,388L20,394L19,399L18,401L18,402L18,403L19,403L19,402L20,401L20,400L21,398L21,397L22,395L22,394L23,392L23,391L24,389L24,388L25,386L25,385L26,383L26,382L27,380L27,379L28,377L28,376L29,374L29,373L30,371L30,370L31,368L31,367L32,365L32,364L33,362L33,361L34,359L34,358L35,356L35,355L36,353L36,352L37,350L37,349L38,347L38,346L39,344L39,343L40,341L40,340L41,338L41,337L42,335L42,334L43,332L43,331L44,329L44,328L45,326L45,325L46,323L46,322L47,320L47,319L48,317L48,316L49,314L49,313L50,311L50,310L51,308L51,307L52,305L52,304L53,302L53,301L54,299L54,298L55,296L55,295L56,293L56,292L57,290L57,289L58,287L58,286L59,284L59,283L60,281L60,280L61,278L61,277L62,275L62,274L63,272L63,271L64,269L64,268L65,266L65,265L66,263L66,262L67,260L67,259L68,257L68,256L69,254L69,253L70,251L70,250L71,248L71,247L72,245L72,244L73,242L73,241L74,239L74,238L75,236L75,235L76,233L76,232L77,230L77,229L78,227L78,226L79,224L79,223L80,221L80,220L81,218L81,217L82,215L82,214L83,212L83,211L84,209L84,208L85,206L85,205L86,203L86,202L87,200L87,199L88,197L88,196L89,194L89,193L90,191L90,190L91,188L91,187L92,185L92,184L93,182L93,181L94,179L94,178L95,176L95,175L96,173L96,172L97,170L97,169L98,167L98,166L99,164L99,163L100,161L100,160L101,158L101,157L102,155L102,154L103,152L103,151L104,149L104,148L105,146L105,145L106,143L106,142L107,140L107,139L108,137L108,136L109,134L109,133L110,131L110,130L111,128L111,127L112,125L112,124L113,122L113,121L114,119L114,118L115,116L115,115L116,113L116,112L117,110L117,109L118,107L118,106L119,104L119,103L120,101L120,100L121,98L121,97L122,95L122,94L123,92L123,91L124,89L124,88L125,86L125,85L126,83L126,82L127,80L127,79L128,77L128,76L129,74L129,73L130,71L130,70L131,68L131,67L132,65L132,64L133,62L133,61L134,59L134,58L135,56L135,55L136,53L136,52L137,50L137,49L138,47L138,46L139,44L139,43L140,41L140,40L141,38L141,37L142,35L142,34L143,32L143,31L144,29L144,28L145,26L145,25L146,23L146,22L147,20L147,19L148,17L148,16L149,14L149,13L150,11L150,10L151,8L151,7L152,5L152,4L153,2L153,1L154,0L154,0L155,0L155,0L156,0L156,0L157,0L157,0L158,0L158,0L159,0L159,0L160,0L160,0L161,0L161,0L162,0L162,0L163,0L163,0L164,0L164,0L165,0L165,0L166,0L166,0L167,0L167,0L168,0L168,0L169,0L169,0L170,0L170,0L171,0L171,0L172,0L172,0L173,0L173,0L174,0L174,0L175,0L175,0L176,0L176,0L177,0L177,0L178,0L178,0L179,0L179,0L180,0L180,0L181,0L181,0L182,0L182,0L183,0L183,0L184,0L184,0L185,0L185,0L186,0L186,0L187,0L187,0L188,0L188,0L189,0L189,0L190,0L190,0L191,0L191,0L192,0L192,0L193,0L193,0L194,0L194,0L195,0L195,0L196,0L196,0L197,0L197,0L198,0L198,0L199,0L199,0L200,0Z" />
+
+          {/* === BODY OUTLINE (exact trace from your PNG) === */}
+          <path className="body-outline" d="M99,7L97,8L96,10L95,11L95,15L94,16L94,20L96,22L96,27L95,28L91,29L90,30L87,31L86,32L85,34L84,42L83,49L82,55L80,63L79,75L77,80L76,86L75,91L74,97L73,102L72,108L71,113L70,119L69,124L68,130L67,135L66,141L65,146L64,152L63,157L62,163L61,168L60,174L59,179L58,185L57,190L56,196L55,201L54,207L53,212L52,218L51,223L50,229L49,234L48,240L47,245L46,251L45,256L44,262L43,267L42,273L41,278L40,284L39,289L38,295L37,300L36,306L35,311L34,317L33,322L32,328L31,333L30,339L29,344L28,350L27,355L26,361L25,366L24,372L23,377L22,383L21,388L20,394L19,399L18,401L18,402L18,403L19,403L19,402L20,401L20,400L21,398L21,397L22,395L22,394L23,392L23,391L24,389L24,388L25,386L25,385L26,383L26,382L27,380L27,379L28,377L28,376L29,374L29,373L30,371L30,370L31,368L31,367L32,365L32,364L33,362L33,361L34,359L34,358L35,356L35,355L36,353L36,352L37,350L37,349L38,347L38,346L39,344L39,343L40,341L40,340L41,338L41,337L42,335L42,334L43,332L43,331L44,329L44,328L45,326L45,325L46,323L46,322L47,320L47,319L48,317L48,316L49,314L49,313L50,311L50,310L51,308L51,307L52,305L52,304L53,302L53,301L54,299L54,298L55,296L55,295L56,293L56,292L57,290L57,289L58,287L58,286L59,284L59,283L60,281L60,280L61,278L61,277L62,275L62,274L63,272L63,271L64,269L64,268L65,266L65,265L66,263L66,262L67,260L67,259L68,257L68,256L69,254L69,253L70,251L70,250L71,248L71,247L72,245L72,244L73,242L73,241L74,239L74,238L75,236L75,235L76,233L76,232L77,230L77,229L78,227L78,226L79,224L79,223L80,221L80,220L81,218L81,217L82,215L82,214L83,212L83,211L84,209L84,208L85,206L85,205L86,203L86,202L87,200L87,199L88,197L88,196L89,194L89,193L90,191L90,190L91,188L91,187L92,185L92,184L93,182L93,181L94,179L94,178L95,176L95,175L96,173L96,172L97,170L97,169L98,167L98,166L99,164L99,163L100,161L100,160L101,158L101,157L102,155L102,154L103,152L103,151L104,149L104,148L105,146L105,145L106,143L106,142L107,140L107,139L108,137L108,136L109,134L109,133L110,131L110,130L111,128L111,127L112,125L112,124L113,122L113,121L114,119L114,118L115,116L115,115L116,113L116,112L117,110L117,109L118,107L118,106L119,104L119,103L120,101L120,100L121,98L121,97L122,95L122,94L123,92L123,91L124,89L124,88L125,86L125,85L126,83L126,82L127,80L127,79L128,77L128,76L129,74L129,73L130,71L130,70L131,68L131,67L132,65L132,64L133,62L133,61L134,59L134,58L135,56L135,55L136,53L136,52L137,50L137,49L138,47L138,46L139,44L139,43L140,41L140,40L141,38L141,37L142,35L142,34L143,32L143,31L144,29L144,28L145,26L145,25L146,23L146,22L147,20L147,19L148,17L148,16L149,14L149,13L150,11L150,10L151,8L151,7L152,5L152,4L153,2L153,1L154,0L154,0L155,0L155,0L156,0L156,0L157,0L157,0L158,0L158,0L159,0L159,0L160,0L160,0L161,0L161,0L162,0L162,0L163,0L163,0L164,0L164,0L165,0L165,0L166,0L166,0L167,0L167,0L168,0L168,0L169,0L169,0L170,0L170,0L171,0L171,0L172,0L172,0L173,0L173,0L174,0L174,0L175,0L175,0L176,0L176,0L177,0L177,0L178,0L178,0L179,0L179,0L180,0L180,0L181,0L181,0L182,0L182,0L183,0L183,0L184,0L184,0L185,0L185,0L186,0L186,0L187,0L187,0L188,0L188,0L189,0L189,0L190,0L190,0L191,0L191,0L192,0L192,0L193,0L193,0L194,0L194,0L195,0L195,0L196,0L196,0L197,0L197,0L198,0L198,0L199,0L199,0L200,0Z" />
+
+          {/* === ANATOMICAL DETAILS === */}
+          <g className="body-anatomy">
+            {/* Clavicles */}
+            <path d="M98,20Q95,30 87,29" />
+            <path d="M102,20Q105,30 113,29" />
+            {/* Sternum line */}
+            <path d="M100,21L100,44" />
+            {/* Ribs - left */}
+            <path d="M88,34Q96,36 99,35" />
+            <path d="M88,38Q96,41 99,39" />
+            <path d="M89,43Q96,45 99,43" />
+            {/* Ribs - right */}
+            <path d="M112,34Q104,36 101,35" />
+            <path d="M112,38Q104,41 101,39" />
+            <path d="M111,43Q104,45 101,43" />
+            {/* Navel */}
+            <path d="M99,54A0.5,0.4 0 0,1 101,54A0.5,0.4 0 0,1 99,54" />
+            {/* Inguinal folds */}
+            <path d="M97,67Q98,69 100,68Q102,69 103,67" />
+            {/* Elbow creases */}
+            <path d="M83,44Q83,44 83,45" />
+            <path d="M117,44Q117,44 117,45" />
+            {/* Knee caps */}
+            <path d="M93,97A0.9,0.8 0 0,1 95,97A0.9,0.8 0 0,1 93,97" />
+            <path d="M105,97A0.9,0.8 0 0,1 107,97A0.9,0.8 0 0,1 105,97" />
+            {/* Ankles */}
+            <path d="M94,148A0.4,0.4 0 0,1 95,148A0.4,0.4 0 0,1 94,148" />
+            <path d="M105,148A0.4,0.4 0 0,1 106,148A0.4,0.4 0 0,1 105,148" />
+          </g>
+
+          {/* ===== HEAD + NECK ===== */}
           <g className={getZoneClass('head')} onClick={() => handleClick('head')}>
-            {/* Волосы */}
-            <path d="M 78 28 C 78 10, 88 2, 100 2 C 112 2, 122 10, 122 28 C 122 22, 118 18, 112 16 C 106 14, 94 14, 88 16 C 82 18, 78 22, 78 28 Z" />
-            {/* Голова */}
-            <ellipse cx="100" cy="44" rx="21" ry="26" />
-            {/* Шея */}
-            <path d="M 88 68 L 86 86 C 86 90, 92 92, 100 92 C 108 92, 114 90, 114 86 L 112 68 Z" />
-            {/* Кадык */}
-            <ellipse cx="100" cy="82" rx="3" ry="2" className="body-feature" />
-            {/* Глаза */}
-            <ellipse cx="94" cy="40" rx="3.5" ry="2.2" className="body-feature" />
-            <ellipse cx="106" cy="40" rx="3.5" ry="2.2" className="body-feature" />
-            {/* Зрачки */}
-            <circle cx="94" cy="40" r="1.2" className="body-feature-dot" />
-            <circle cx="106" cy="40" r="1.2" className="body-feature-dot" />
-            {/* Брови */}
-            <path d="M 90 34 Q 94 32, 98 34" className="body-feature" />
-            <path d="M 102 34 Q 106 32, 110 34" className="body-feature" />
-            {/* Нос */}
-            <path d="M 100 40 L 97 50 L 103 50 Z" className="body-feature" />
-            {/* Ноздри */}
-            <ellipse cx="98" cy="51" rx="1" ry="0.6" className="body-feature-dot" />
-            <ellipse cx="102" cy="51" rx="1" ry="0.6" className="body-feature-dot" />
-            {/* Рот */}
-            <path d="M 95 58 Q 100 61, 105 58" className="body-feature" />
-            {/* Уши с раковиной */}
-            <path d="M 77 40 C 73 36, 73 48, 77 48 C 79 46, 79 42, 77 40" className="body-feature" />
-            <path d="M 123 40 C 127 36, 127 48, 123 48 C 121 46, 121 42, 123 40" className="body-feature" />
-            {/* Раковина левая */}
-            <path d="M 76 42 Q 74 44, 76 46" className="body-feature" />
-            {/* Раковина правая */}
-            <path d="M 124 42 Q 126 44, 124 46" className="body-feature" />
+            <path d="M95,7C95,6 96,4 100,4C103,4 105,6 105,7C105,11 104,15 101,19C99,20 96,20 94,19C91,15 90,11 90,7Z" />
           </g>
 
-          {/* ===== ГРУДНАЯ КЛЕТКА ===== */}
+          {/* ===== CHEST ===== */}
           <g className={getZoneClass('chest')} onClick={() => handleClick('chest')}>
-            {/* Основной контур */}
-            <path d="M 90 90 L 68 96 C 56 102, 50 114, 50 130 L 50 168 L 62 168 L 62 138 C 62 150, 66 162, 72 172 L 128 172 C 134 162, 138 150, 138 138 L 138 168 L 150 168 L 150 130 C 150 114, 144 102, 132 96 L 110 90 Z" />
-            {/* Подмышечные впадины */}
-            <path d="M 62 112 Q 56 118, 58 126" className="body-feature" />
-            <path d="M 138 112 Q 144 118, 142 126" className="body-feature" />
-            {/* Ключицы */}
-            <path d="M 80 104 Q 100 110, 120 104" className="body-feature" />
-            {/* Грудные мышцы — верх */}
-            <path d="M 84 118 Q 100 126, 116 118" className="body-feature" />
-            {/* Грудные мышцы — низ */}
-            <path d="M 86 132 Q 100 140, 114 132" className="body-feature" />
-            {/* Соски */}
-            <circle cx="88" cy="126" r="1.5" className="body-feature" />
-            <circle cx="112" cy="126" r="1.5" className="body-feature" />
-            {/* Ареолы */}
-            <ellipse cx="88" cy="126" rx="4" ry="3" className="body-feature" />
-            <ellipse cx="112" cy="126" rx="4" ry="3" className="body-feature" />
-            {/* Рёбра — левые */}
-            <path d="M 74 144 Q 70 150, 74 156" className="body-feature" />
-            <path d="M 76 152 Q 72 158, 76 164" className="body-feature" />
-            {/* Рёбра — правые */}
-            <path d="M 126 144 Q 130 150, 126 156" className="body-feature" />
-            <path d="M 124 152 Q 128 158, 124 164" className="body-feature" />
-            {/* Мечевидный отросток */}
-            <path d="M 98 152 L 100 162 L 102 152" className="body-feature" />
-            {/* Плечевые суставы (акромиальные выступы) */}
-            <ellipse cx="64" cy="98" rx="4" ry="3" className="body-feature" />
-            <ellipse cx="136" cy="98" rx="4" ry="3" className="body-feature" />
+            <path d="M86,31L86,43L98,52L102,52L114,43L114,31Q103,28 100,28Q97,28 86,31Z" />
           </g>
 
-          {/* ===== ЖИВОТ ===== */}
+          {/* ===== ABDOMEN ===== */}
           <g className={getZoneClass('abdomen')} onClick={() => handleClick('abdomen')}>
-            {/* Основной контур */}
-            <path d="M 72 172 C 68 186, 66 202, 68 218 L 70 246 L 130 246 L 132 218 C 134 202, 132 186, 128 172 Z" />
-            {/* Талия */}
-            <path d="M 72 200 Q 68 208, 72 216" className="body-feature" />
-            <path d="M 128 200 Q 132 208, 128 216" className="body-feature" />
-            {/* Пупок */}
-            <ellipse cx="100" cy="214" rx="2.5" ry="1.5" className="body-feature" />
-            {/* Пупочное кольцо */}
-            <ellipse cx="100" cy="214" rx="5" ry="3" className="body-feature" />
-            {/* Пресс — вертикальная линия */}
-            <line x1="100" y1="180" x2="100" y2="246" className="body-feature-dash" />
-            {/* Пресс — горизонтальные линии */}
-            <line x1="76" y1="196" x2="124" y2="196" className="body-feature-dash" />
-            <line x1="74" y1="212" x2="126" y2="212" className="body-feature-dash" />
-            <line x1="76" y1="228" x2="124" y2="228" className="body-feature-dash" />
-            {/* Паховые линии */}
-            <path d="M 76 236 Q 82 244, 90 246" className="body-feature" />
-            <path d="M 124 236 Q 118 244, 110 246" className="body-feature" />
-            {/* Тазовые кости (верхушки) */}
-            <path d="M 82 246 Q 88 252, 96 246" className="body-feature" />
-            <path d="M 118 246 Q 112 252, 104 246" className="body-feature" />
+            <path d="M98,53L97,70L100,71L103,70L102,53Z" />
           </g>
 
-          {/* ===== ЛЕВАЯ РУКА ===== */}
+          {/* ===== EXTREMITIES ===== */}
           <g className={getZoneClass('extremities')} onClick={() => handleClick('extremities')}>
-            {/* Плечо (бицепс) */}
-            <path d="M 50 130 L 46 176 C 44 192, 42 206, 44 222 L 56 222 C 58 206, 56 192, 55 176 L 58 138 Z" />
-            {/* Бицепс */}
-            <path d="M 48 158 Q 52 162, 48 166" className="body-feature" />
-            {/* Локоть */}
-            <ellipse cx="50" cy="184" rx="3" ry="2.5" className="body-feature" />
-            {/* Предплечье */}
-            <path d="M 44 222 L 42 262 C 40 278, 42 292, 44 306 L 56 306 C 58 292, 56 278, 54 262 L 56 222 Z" />
-            {/* Локтевая ямка */}
-            <path d="M 46 226 Q 50 228, 46 230" className="body-feature" />
-            {/* Запястье */}
-            <ellipse cx="50" cy="304" rx="3" ry="2" className="body-feature" />
-            {/* Кисть */}
-            <ellipse cx="50" cy="314" rx="7" ry="5" className="body-feature" />
-            {/* Пальцы левой руки */}
-            <ellipse cx="44" cy="320" rx="1.5" ry="3" className="body-feature" />
-            <ellipse cx="47" cy="322" rx="1.5" ry="3.5" className="body-feature" />
-            <ellipse cx="50" cy="323" rx="1.5" ry="4" className="body-feature" />
-            <ellipse cx="53" cy="322" rx="1.5" ry="3.5" className="body-feature" />
-            <ellipse cx="56" cy="320" rx="1.5" ry="3" className="body-feature" />
-            {/* Большой палец */}
-            <ellipse cx="42" cy="312" rx="3" ry="1.5" className="body-feature" transform="rotate(-30 42 312)" />
+            {/* Left arm */}
+            <path d="M85,31L83,40L82,50L80,59L84,63L85,59L87,50L88,40L88,31Z" />
+            {/* Right arm */}
+            <path d="M115,31L117,40L118,50L120,59L116,63L115,59L113,50L112,40L112,31Z" />
+            {/* Left leg */}
+            <path d="M97,71L95,81L94,94L94,107L95,116L95,149L97,151L99,149L100,116L100,107L101,94L101,81L99,71Z" />
+            {/* Right leg */}
+            <path d="M103,71L105,81L105,94L106,107L105,116L105,149L103,151L101,149L100,116L100,107L99,94L99,81L101,71Z" />
           </g>
 
-          {/* ===== ПРАВАЯ РУКА ===== */}
-          <g className={getZoneClass('extremities')} onClick={() => handleClick('extremities')}>
-            {/* Плечо (бицепс) */}
-            <path d="M 150 130 L 154 176 C 156 192, 158 206, 156 222 L 144 222 C 142 206, 144 192, 145 176 L 142 138 Z" />
-            {/* Бицепс */}
-            <path d="M 152 158 Q 148 162, 152 166" className="body-feature" />
-            {/* Локоть */}
-            <ellipse cx="150" cy="184" rx="3" ry="2.5" className="body-feature" />
-            {/* Предплечье */}
-            <path d="M 156 222 L 158 262 C 160 278, 158 292, 156 306 L 144 306 C 142 292, 144 278, 146 262 L 144 222 Z" />
-            {/* Локтевая ямка */}
-            <path d="M 154 226 Q 150 228, 154 230" className="body-feature" />
-            {/* Запястье */}
-            <ellipse cx="150" cy="304" rx="3" ry="2" className="body-feature" />
-            {/* Кисть */}
-            <ellipse cx="150" cy="314" rx="7" ry="5" className="body-feature" />
-            {/* Пальцы правой руки */}
-            <ellipse cx="144" cy="320" rx="1.5" ry="3" className="body-feature" />
-            <ellipse cx="147" cy="322" rx="1.5" ry="3.5" className="body-feature" />
-            <ellipse cx="150" cy="323" rx="1.5" ry="4" className="body-feature" />
-            <ellipse cx="153" cy="322" rx="1.5" ry="3.5" className="body-feature" />
-            <ellipse cx="156" cy="320" rx="1.5" ry="3" className="body-feature" />
-            {/* Большой палец */}
-            <ellipse cx="158" cy="312" rx="3" ry="1.5" className="body-feature" transform="rotate(30 158 312)" />
-          </g>
+          {/* ===== ANCHOR DOTS ===== */}
+          <circle className="body-anchor" data-anchor="head" cx="100" cy="12" r="2.5" />
+          <circle className="body-anchor" data-anchor="chest" cx="100" cy="40" r="2.5" />
+          <circle className="body-anchor" data-anchor="abdomen" cx="100" cy="62" r="2.5" />
+          <circle className="body-anchor" data-anchor="extremities" cx="85" cy="97" r="2.5" />
+          <circle className="body-anchor" data-anchor="extremities" cx="115" cy="97" r="2.5" />
 
-          {/* ===== ЛЕВАЯ НОГА ===== */}
-          <g className={getZoneClass('extremities')} onClick={() => handleClick('extremities')}>
-            {/* Бедро (квадрицепс) */}
-            <path d="M 70 246 L 68 296 C 66 318, 68 340, 70 362 L 84 362 C 86 340, 88 318, 86 296 L 88 246 Z" />
-            {/* Квадрицепс */}
-            <path d="M 72 276 Q 76 282, 72 288" className="body-feature" />
-            {/* Бедренная складка */}
-            <path d="M 72 250 Q 78 254, 84 250" className="body-feature" />
-            {/* Колено */}
-            <ellipse cx="77" cy="298" rx="4" ry="3" className="body-feature" />
-            {/* Коленная чашечка */}
-            <ellipse cx="77" cy="298" rx="2.5" ry="2" className="body-feature" />
-            {/* Голень (икра) */}
-            <path d="M 70 362 L 68 392 C 66 406, 68 418, 70 428 L 82 428 C 84 418, 86 406, 84 392 L 86 362 Z" />
-            {/* Икра */}
-            <path d="M 72 388 Q 76 394, 72 400" className="body-feature" />
-            {/* Лодыжка */}
-            <ellipse cx="76" cy="426" rx="3" ry="2" className="body-feature" />
-            {/* Стопа */}
-            <ellipse cx="76" cy="436" rx="8" ry="4" className="body-feature" />
-            {/* Пятка */}
-            <ellipse cx="70" cy="436" rx="3" ry="2" className="body-feature" />
-            {/* Пальцы левой ноги */}
-            <ellipse cx="70" cy="440" rx="1.2" ry="2.5" className="body-feature" />
-            <ellipse cx="73" cy="441" rx="1.2" ry="2.8" className="body-feature" />
-            <ellipse cx="76" cy="442" rx="1.2" ry="3" className="body-feature" />
-            <ellipse cx="79" cy="441" rx="1.2" ry="2.8" className="body-feature" />
-            <ellipse cx="82" cy="440" rx="1.2" ry="2.5" className="body-feature" />
-          </g>
-
-          {/* ===== ПРАВАЯ НОГА ===== */}
-          <g className={getZoneClass('extremities')} onClick={() => handleClick('extremities')}>
-            {/* Бедро (квадрицепс) */}
-            <path d="M 130 246 L 132 296 C 134 318, 132 340, 130 362 L 116 362 C 114 340, 112 318, 114 296 L 112 246 Z" />
-            {/* Квадрицепс */}
-            <path d="M 128 276 Q 124 282, 128 288" className="body-feature" />
-            {/* Бедренная складка */}
-            <path d="M 128 250 Q 122 254, 116 250" className="body-feature" />
-            {/* Колено */}
-            <ellipse cx="123" cy="298" rx="4" ry="3" className="body-feature" />
-            {/* Коленная чашечка */}
-            <ellipse cx="123" cy="298" rx="2.5" ry="2" className="body-feature" />
-            {/* Голень (икра) */}
-            <path d="M 130 362 L 132 392 C 134 406, 132 418, 130 428 L 118 428 C 116 418, 114 406, 116 392 L 114 362 Z" />
-            {/* Икра */}
-            <path d="M 128 388 Q 124 394, 128 400" className="body-feature" />
-            {/* Лодыжка */}
-            <ellipse cx="124" cy="426" rx="3" ry="2" className="body-feature" />
-            {/* Стопа */}
-            <ellipse cx="124" cy="436" rx="8" ry="4" className="body-feature" />
-            {/* Пятка */}
-            <ellipse cx="130" cy="436" rx="3" ry="2" className="body-feature" />
-            {/* Пальцы правой ноги */}
-            <ellipse cx="118" cy="440" rx="1.2" ry="2.5" className="body-feature" />
-            <ellipse cx="121" cy="441" rx="1.2" ry="2.8" className="body-feature" />
-            <ellipse cx="124" cy="442" rx="1.2" ry="3" className="body-feature" />
-            <ellipse cx="127" cy="441" rx="1.2" ry="2.8" className="body-feature" />
-            <ellipse cx="130" cy="440" rx="1.2" ry="2.5" className="body-feature" />
-          </g>
+          {/* ===== ZONE LABELS ===== */}
+          <text className="body-zone-label" data-label="head" x="108" y="13">Голова</text>
+          <text className="body-zone-label" data-label="chest" x="108" y="41">Грудная клетка</text>
+          <text className="body-zone-label" data-label="abdomen" x="108" y="63">Живот</text>
+          <text className="body-zone-label" data-label="extremities" x="70" y="98">Руки</text>
+          <text className="body-zone-label" data-label="extremities" x="120" y="98">Ноги</text>
         </svg>
-
-        {/* Легенда телесных областей — только посещённые */}
-        {visitedRegions.size > 0 && (
-          <div className="body-legend">
-            {SVG_REGIONS.filter((r) => visitedRegions.has(r)).map((region) => {
-              const abnormal = hasAbnormal(region);
-              return (
-                <button
-                  key={region}
-                  className={`body-legend-item${activeRegion === region ? ' active' : ''}${abnormal ? ' abnormal' : ''}`}
-                  onClick={() => handleClick(region)}
-                >
-                  <span className="body-legend-dot" />
-                  {REGION_LABELS[region]}
-                  {abnormal && <span className="body-legend-badge">!</span>}
-                </button>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Отдельные кнопки: кожа, неврология, общий, спина */}
-        <div className="body-extra-legend">
-          {EXTRA_REGIONS.map((region) => {
-            const count = regionFindings(region).length;
-            const abnormal = hasAbnormal(region);
-            if (count === 0) return null;
-            return (
-              <button
-                key={region}
-                className={`body-legend-item body-extra-item${activeRegion === region ? ' active' : ''}${abnormal ? ' abnormal' : ''}`}
-                onClick={() => handleClick(region)}
-              >
-                <span className="body-legend-dot" />
-                {REGION_LABELS[region]}
-                {abnormal && <span className="body-legend-badge">!</span>}
-              </button>
-            );
-          })}
-        </div>
       </div>
 
-      {/* Панель находок */}
-      {activeRegion && (
-        <div className="body-findings-panel">
-          <div className="body-findings-header">
-            {REGION_LABELS[activeRegion]}
-            <button className="body-findings-close" onClick={() => setActiveRegion(null)}>
-              ✕
-            </button>
-          </div>
-          <div className="body-findings-list">
+      <div className="body-legend">
+        {SVG_REGIONS.map((region) => {
+          const rf = regionFindings(region);
+          const isAbnormal = rf.some((f) => f.isAbnormal);
+          return (
+            <div key={region} className="legend-item">
+              <span className={`legend-dot ${isAbnormal ? 'abnormal' : 'normal'}`} />
+              <span className="legend-text">{REGION_LABELS[region]}</span>
+              {isAbnormal && <span className="legend-badge">{rf.filter((f) => f.isAbnormal).length}</span>}
+            </div>
+          );
+        })}
+        {EXTRA_REGIONS.map((region) => {
+          const rf = regionFindings(region);
+          const isAbnormal = rf.some((f) => f.isAbnormal);
+          if (rf.length === 0) return null;
+          return (
+            <div key={region} className="legend-item">
+              <span className={`legend-dot ${isAbnormal ? 'abnormal' : 'normal'}`} />
+              <span className="legend-text">{REGION_LABELS[region]}</span>
+              {isAbnormal && <span className="legend-badge">{rf.filter((f) => f.isAbnormal).length}</span>}
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="body-findings">
+        {activeRegion && (
+          <div className="findings-panel">
+            <h4>{REGION_LABELS[activeRegion]}</h4>
             {regionFindings(activeRegion).length === 0 ? (
-              <p className="body-findings-empty">Находок не выявлено</p>
+              <p className="no-findings">Нет данных для этой зоны</p>
             ) : (
-              regionFindings(activeRegion).map((f, i) => (
-                <div key={i} className={`body-finding${f.isAbnormal ? ' abnormal' : ''}`}>
-                  <span className="body-finding-status">{f.isAbnormal ? '⚠️' : '✅'}</span>
-                  {f.finding}
+              regionFindings(activeRegion).map((finding) => (
+                <div key={finding.id} className={`finding-item ${finding.isAbnormal ? 'abnormal' : ''}`}>
+                  <div className="finding-header">
+                    <span className="finding-type">{finding.type}</span>
+                    {finding.isAbnormal && <span className="finding-badge">Отклонение</span>}
+                  </div>
+                  <p className="finding-description">{finding.description}</p>
+                  {finding.value && (
+                    <div className="finding-value">
+                      <span className="value-label">Значение:</span>
+                      <span className={`value-data ${finding.isAbnormal ? 'abnormal' : ''}`}>{finding.value}</span>
+                      {finding.referenceRange && (
+                        <span className="value-ref">(норма: {finding.referenceRange})</span>
+                      )}
+                    </div>
+                  )}
                 </div>
               ))
             )}
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

@@ -1,9 +1,7 @@
-import type { Stats, DailyState, RoleplayState, SimulationState } from '../types';
+import type { Stats, DailyState } from '../types';
 
 const STORAGE_KEY = 'mediguess_data';
 const DAILY_STATE_KEY = 'mediguess_daily';
-const ROLEPLAY_STATE_KEY = 'mediguess_roleplay';
-const SIMULATION_STATE_KEY = 'mediguess_simulation';
 
 export class StorageAdapter {
   static get<T>(key: string, fallback: T): T {
@@ -55,22 +53,4 @@ export function loadDailyState(): DailyState | null {
 
 export function saveDailyState(state: DailyState): void {
   StorageAdapter.set(DAILY_STATE_KEY, state);
-}
-
-export function loadRoleplayState(): RoleplayState | null {
-  return StorageAdapter.get<RoleplayState | null>(ROLEPLAY_STATE_KEY, null);
-}
-
-export function saveRoleplayState(state: RoleplayState | null): void {
-  if (state) StorageAdapter.set(ROLEPLAY_STATE_KEY, state);
-  else StorageAdapter.remove(ROLEPLAY_STATE_KEY);
-}
-
-export function loadSimulationState(): SimulationState | null {
-  return StorageAdapter.get<SimulationState | null>(SIMULATION_STATE_KEY, null);
-}
-
-export function saveSimulationState(state: SimulationState | null): void {
-  if (state) StorageAdapter.set(SIMULATION_STATE_KEY, state);
-  else StorageAdapter.remove(SIMULATION_STATE_KEY);
 }

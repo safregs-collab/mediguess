@@ -1022,6 +1022,50 @@ footer p { margin-bottom: 4px; }
     pointer-events: none;
 }
 
+/* === НОВЫЕ АНАТОМИЧЕСКИЕ ДЕТАЛИ (из body_final.svg) === */
+.body-anatomy {
+    fill: none;
+    stroke: #b8b2ab;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    opacity: 0.5;
+    pointer-events: none;
+}
+.body-anchor {
+    fill: var(--primary);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+.body-zone:hover ~ .body-anchor,
+.body-zone.active ~ .body-anchor,
+.body-anchor.active {
+    opacity: 1;
+}
+.body-zone-label {
+    font-family: inherit;
+    font-size: 9px;
+    fill: #8c857e;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+.body-zone:hover ~ .body-zone-label,
+.body-zone.active ~ .body-zone-label,
+.body-zone-label.active {
+    opacity: 1;
+}
+
+[data-theme="dark"] .body-anatomy {
+    stroke: #78716c;
+}
+[data-theme="dark"] .body-anchor {
+    fill: #14b8a6;
+}
+[data-theme="dark"] .body-zone-label {
+    fill: #a8a29e;
+}
+
 /* Подсказка */
 .body-hint {
     font-size: 0.75rem;

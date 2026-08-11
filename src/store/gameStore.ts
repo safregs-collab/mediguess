@@ -9,7 +9,7 @@ import {
   shouldResetStreak,
   getTodayStr,
 } from '../lib/gameLogic';
-import { getDefaultStats, loadRoleplayState, saveRoleplayState, loadSimulationState, saveSimulationState } from '../lib/storage';
+import { getDefaultStats } from '../lib/storage';
 import { processRoleplayGuess } from '../lib/roleplayLogic';
 import { getRandomRoleplayCase } from '../lib/roleplayCases';
 import { getRandomSimulationCase } from '../lib/simulationCases';
@@ -93,8 +93,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
     let savedDaily = db.loadDailyState();
     let stats = db.loadStats();
-    const savedRoleplay = loadRoleplayState();
-    const savedSimulation = loadSimulationState();
 
     // TauriDatabase имеет async-методы для загрузки из Rust-backend
     const tauriDb = db as any;
@@ -114,22 +112,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }
 
     set({ cases, roleplayCases, dailyState, stats, loading: false });
-
-    // Восстанавливаем ролевое состояние, если кейс всё ещё существует
-    if (savedRoleplay) {
-      const caseExists = roleplayCases.some((c) => c.id === savedRoleplay.caseId);
-      if (caseExists && !savedRoleplay.finished) {
-        set({ roleplayState: savedRoleplay });
-      } else if (savedRoleplay.finished) {
-        // Сохраняем завершённое состояние для отображения статуса в архиве
-        set({ roleplayState: savedRoleplay });
-      }
-    }
-
-    // Восстанавливаем симуляционное состояние
-    if (savedSimulation) {
-      set({ simulationState: savedSimulation });
-    }
   },
 
   switchMode: (mode) => {
@@ -235,7 +217,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
       toast: result.message,
       confetti: result.won,
     });
-    saveRoleplayState(newRoleplayState);
   },
 
   loadEndlessCase: () => {
@@ -268,7 +249,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
         won: false,
       },
     });
-    saveRoleplayState(get().roleplayState);
   },
 
   setActiveFilter: (filter) => set({ activeFilter: filter }),
@@ -311,13 +291,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
       },
       currentMode: 'roleplay',
     });
-    saveRoleplayState(get().roleplayState);
   },
 
-  resetRoleplayState: () => {
-    set({ roleplayState: null });
-    saveRoleplayState(null);
-  },
+  resetRoleplayState: () => set({ roleplayState: null }),
 
   loadSimulationCase: () => {
     const newCase = getRandomSimulationCase();
@@ -338,13 +314,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
       },
       currentMode: 'simulation',
     });
-    saveSimulationState(get().simulationState);
   },
 
-  resetSimulationState: () => {
-    set({ simulationCase: null, simulationState: null });
-    saveSimulationState(null);
-  },
+  resetSimulationState: () => set({ simulationCase: null, simulationState: null }),
 
   askSimulationQuestion: (questionId) => {
     const state = get().simulationState;
@@ -355,7 +327,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
         askedQuestions: [...state.askedQuestions, questionId],
       },
     });
-    saveSimulationState(get().simulationState);
   },
 
   orderSimulationTest: (testId: string) => {
@@ -369,21 +340,18 @@ export const useGameStore = create<GameStore>((set, get) => ({
         orderedTests: [...state.orderedTests, { testId, orderedAtStage: stageIdx, resultReady: true }],
       },
     });
-    saveSimulationState(get().simulationState);
   },
 
   setSimulationDiagnosis: (diagnosis: string) => {
     const state = get().simulationState;
     if (!state) return;
     set({ simulationState: { ...state, diagnosis } });
-    saveSimulationState(get().simulationState);
   },
 
   setSimulationTreatment: (treatmentInput: string) => {
     const state = get().simulationState;
     if (!state) return;
     set({ simulationState: { ...state, treatmentInput } });
-    saveSimulationState(get().simulationState);
   },
 
   checkSimulationResult: () => {
@@ -426,7 +394,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
         score: { diagnosisCorrect, treatmentCorrect, unnecessaryTests, missedKeyTests, total },
       },
     });
-    saveSimulationState(get().simulationState);
   },
 
   nextSimulationStage: () => {
@@ -439,7 +406,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (next === 'vitals') updates.revealedVitals = true;
     if (next === 'exam') updates.revealedExam = true;
     set({ simulationState: { ...state, ...updates } });
-    saveSimulationState(get().simulationState);
   },
 
   prevSimulationStage: () => {
@@ -449,7 +415,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const idx = stages.indexOf(state.stage);
     const prev = stages[Math.max(idx - 1, 0)];
     set({ simulationState: { ...state, stage: prev } });
-    saveSimulationState(get().simulationState);
   },
 
   dismissConfetti: () => set({ confetti: false }),
