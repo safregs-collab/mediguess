@@ -27,6 +27,11 @@ export interface PhysicalFinding {
   region: 'general' | 'head' | 'chest' | 'abdomen' | 'skin' | 'neuro' | 'extremities' | 'back';
   finding: string;
   isAbnormal: boolean;
+  id?: string;
+  type?: string;
+  description?: string;
+  value?: string;
+  referenceRange?: string;
 }
 
 export interface AvailableTest {
