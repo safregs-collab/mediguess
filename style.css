@@ -964,8 +964,8 @@ footer p { margin-bottom: 4px; }
     flex-shrink: 0;
 }
 .body-svg {
-    width: 160px;
-    height: 320px;
+    width: 260px;
+    height: 173px;
     cursor: pointer;
 }
 .body-zone {
@@ -993,6 +993,37 @@ footer p { margin-bottom: 4px; }
 }
 .body-zone.visited-abnormal {
     fill: #fee2e2;
+    stroke: #ef4444;
+    stroke-width: 2;
+    animation: bodyPulse 2s infinite;
+}
+
+/* === ЗОНЫ из body_final.svg === */
+.zone {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 12;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.zone:hover {
+    fill: rgba(192, 57, 43, 0.12);
+    stroke: #c0392b;
+    stroke-width: 3;
+}
+.zone.active {
+    fill: rgba(13, 148, 136, 0.15);
+    stroke: var(--primary);
+    stroke-width: 3;
+    filter: drop-shadow(0 0 6px rgba(13, 148, 136, 0.4));
+}
+.zone.visited-normal {
+    fill: rgba(34, 197, 94, 0.12);
+    stroke: #22c55e;
+    stroke-width: 2;
+}
+.zone.visited-abnormal {
+    fill: rgba(239, 68, 68, 0.15);
     stroke: #ef4444;
     stroke-width: 2;
     animation: bodyPulse 2s infinite;
@@ -1039,6 +1070,8 @@ footer p { margin-bottom: 4px; }
 }
 .body-zone:hover ~ .body-anchor,
 .body-zone.active ~ .body-anchor,
+.zone:hover ~ .body-anchor,
+.zone.active ~ .body-anchor,
 .body-anchor.active {
     opacity: 1;
 }
@@ -1052,6 +1085,8 @@ footer p { margin-bottom: 4px; }
 }
 .body-zone:hover ~ .body-zone-label,
 .body-zone.active ~ .body-zone-label,
+.zone:hover ~ .body-zone-label,
+.zone.active ~ .body-zone-label,
 .body-zone-label.active {
     opacity: 1;
 }
@@ -1092,6 +1127,26 @@ footer p { margin-bottom: 4px; }
     stroke: #4ade80;
 }
 [data-theme="dark"] .body-zone.visited-abnormal {
+    fill: rgba(248, 113, 113, 0.2);
+    stroke: #f87171;
+}
+[data-theme="dark"] .zone {
+    fill: transparent;
+    stroke: transparent;
+}
+[data-theme="dark"] .zone:hover {
+    fill: rgba(20, 184, 166, 0.15);
+    stroke: #14b8a6;
+}
+[data-theme="dark"] .zone.active {
+    fill: rgba(20, 184, 166, 0.2);
+    stroke: #14b8a6;
+}
+[data-theme="dark"] .zone.visited-normal {
+    fill: rgba(74, 222, 128, 0.15);
+    stroke: #4ade80;
+}
+[data-theme="dark"] .zone.visited-abnormal {
     fill: rgba(248, 113, 113, 0.2);
     stroke: #f87171;
 }
@@ -1251,8 +1306,8 @@ footer p { margin-bottom: 4px; }
         align-items: center;
     }
     .body-svg {
-        width: 120px;
-        height: 240px;
+        width: 200px;
+        height: 133px;
     }
     .body-findings-panel {
         width: 100%;
