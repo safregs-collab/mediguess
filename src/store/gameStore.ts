@@ -1,0 +1,421 @@
+import { create } from 'zustand';
+import type { Case, DailyState, EndlessState, Stats, GameMode, Role, RoleplayState, RoleplayCase, SimulationCase, SimulationState } from '../types';
+import { createDatabase } from '../lib/db';
+import {
+  getDailyCase,
+  initDailyState,
+  processGuess,
+  updateStats,
+  shouldResetStreak,
+  getTodayStr,
+} from '../lib/gameLogic';
+import { getDefaultStats } from '../lib/storage';
+import { processRoleplayGuess } from '../lib/roleplayLogic';
+import { getRandomRoleplayCase } from '../lib/roleplayCases';
+import { getRandomSimulationCase } from '../lib/simulationCases';
+
+const db = createDatabase();
+
+interface GameStore {
+  cases: readonly Case[];
+  roleplayCases: readonly RoleplayCase[];
+  loading: boolean;
+  currentMode: GameMode;
+  dailyState: DailyState | null;
+  endlessState: EndlessState | null;
+  roleplayState: RoleplayState | null;
+  simulationCase: SimulationCase | null;
+  simulationState: SimulationState | null;
+  stats: Stats;
+  activeFilter: string;
+  roleplayRoleFilter: Role | 'all';
+  toast: string | null;
+  statsOpen: boolean;
+  howtoOpen: boolean;
+  selectedAutocomplete: number;
+  currentMatches: string[];
+  confetti: boolean;
+
+  init: () => Promise<void>;
+  switchMode: (mode: GameMode) => void;
+  checkDiagnosis: (mode: 'daily' | 'endless', input: string) => void;
+  checkRoleplayDiagnosis: (input: string) => void;
+  loadEndlessCase: () => void;
+  loadRoleplayCase: (role?: Role | null) => void;
+  setActiveFilter: (filter: string) => void;
+  setRoleplayRoleFilter: (filter: Role | 'all') => void;
+  showToast: (msg: string) => void;
+  dismissToast: () => void;
+  openStats: () => void;
+  closeStats: () => void;
+  openHowto: () => void;
+  closeHowto: () => void;
+  setSelectedAutocomplete: (idx: number) => void;
+  setCurrentMatches: (matches: string[]) => void;
+  loadArchiveCase: (caseId: number) => void;
+  loadRoleplayArchiveCase: (caseId: number) => void;
+  resetRoleplayState: () => void;
+  loadSimulationCase: () => void;
+  resetSimulationState: () => void;
+  askSimulationQuestion: (questionId: string) => void;
+  orderSimulationTest: (testId: string) => void;
+  setSimulationDiagnosis: (diagnosis: string) => void;
+  setSimulationTreatment: (treatment: string) => void;
+  checkSimulationResult: () => void;
+  nextSimulationStage: () => void;
+  prevSimulationStage: () => void;
+  dismissConfetti: () => void;
+}
+
+export const useGameStore = create<GameStore>((set, get) => ({
+  cases: [],
+  roleplayCases: [],
+  loading: true,
+  currentMode: 'daily',
+  dailyState: null,
+  endlessState: null,
+  roleplayState: null,
+  simulationCase: null,
+  simulationState: null,
+  stats: getDefaultStats(),
+  activeFilter: 'all',
+  roleplayRoleFilter: 'all',
+  toast: null,
+  statsOpen: false,
+  howtoOpen: false,
+  selectedAutocomplete: -1,
+  currentMatches: [],
+  confetti: false,
+
+  init: async () => {
+    const cases = await db.loadCases();
+    const roleplayCases = await db.loadRoleplayCases();
+
+    let savedDaily = db.loadDailyState();
+    let stats = db.loadStats();
+
+    // TauriDatabase имеет async-методы для загрузки из Rust-backend
+    const tauriDb = db as any;
+    if (typeof tauriDb.asyncLoadStats === 'function') {
+      stats = await tauriDb.asyncLoadStats();
+    }
+    if (typeof tauriDb.asyncLoadDailyState === 'function') {
+      savedDaily = await tauriDb.asyncLoadDailyState();
+    }
+
+    const dailyState = initDailyState(savedDaily, cases);
+
+    const today = getTodayStr();
+    if (shouldResetStreak(stats.lastPlayedDate, today)) {
+      stats = { ...stats, currentStreak: 0 };
+      db.saveStats(stats);
+    }
+
+    set({ cases, roleplayCases, dailyState, stats, loading: false });
+  },
+
+  switchMode: (mode) => {
+    set({ currentMode: mode });
+    if (mode === 'endless' && !get().endlessState) {
+      get().loadEndlessCase();
+    }
+    if (mode === 'roleplay') {
+      // Сбрасываем состояние ролевого режима, чтобы показать экран выбора роли
+      set({ roleplayState: null });
+    }
+    if (mode === 'simulation') {
+      set({ simulationCase: null, simulationState: null });
+    }
+  },
+
+  checkDiagnosis: (mode, input) => {
+    const state = get();
+    const currentCase =
+      mode === 'daily'
+        ? getDailyCase(state.cases)
+        : state.cases.find((c) => c.id === state.endlessState?.caseId) || null;
+
+    if (!currentCase) return;
+
+    const gameState = mode === 'daily' ? state.dailyState! : state.endlessState!;
+    const result = processGuess(input, currentCase, gameState.attempts);
+
+    if (mode === 'daily') {
+      const newDaily: DailyState = {
+        ...state.dailyState!,
+        attempts: result.attempts,
+        history: [...state.dailyState!.history, result.correct ? 'correct' : 'wrong'],
+        finished: result.finished,
+        won: result.won,
+      };
+      db.saveDailyState(newDaily);
+
+      let newStats = state.stats;
+      if (result.finished) {
+        newStats = updateStats(state.stats, result.won, result.attempts, currentCase.specialty);
+        db.saveStats(newStats);
+      }
+
+      set({
+        dailyState: newDaily,
+        stats: newStats,
+        toast: result.message,
+        confetti: result.won,
+      });
+    } else {
+      const newEndless: EndlessState = {
+        ...state.endlessState!,
+        attempts: result.attempts,
+        history: [...state.endlessState!.history, result.correct ? 'correct' : 'wrong'],
+        finished: result.finished,
+        won: result.won,
+      };
+      set({
+        endlessState: newEndless,
+        toast: result.message,
+        confetti: result.won,
+      });
+    }
+  },
+
+  checkRoleplayDiagnosis: (input) => {
+    const state = get();
+    const currentCase = state.roleplayCases.find((c) => c.id === state.roleplayState?.caseId);
+    if (!currentCase || !state.roleplayState) return;
+
+    const result = processRoleplayGuess(input, currentCase, state.roleplayState.attempts);
+
+    const newRoleplayState: RoleplayState = {
+      ...state.roleplayState,
+      attempts: result.attempts,
+      history: [...state.roleplayState.history, result.correct ? 'correct' : 'wrong'],
+      finished: result.finished,
+      won: result.won,
+    };
+
+    let newStats = state.stats;
+    if (result.finished) {
+      newStats = { ...state.stats };
+      if (!newStats.roleplayStats) {
+        newStats.roleplayStats = {};
+      }
+      const roleKey = currentCase.role;
+      const currentRoleStats = newStats.roleplayStats[roleKey] || { games: 0, wins: 0 };
+      newStats.roleplayStats = {
+        ...newStats.roleplayStats,
+        [roleKey]: {
+          games: currentRoleStats.games + 1,
+          wins: currentRoleStats.wins + (result.won ? 1 : 0),
+        },
+      };
+      db.saveStats(newStats);
+    }
+
+    set({
+      roleplayState: newRoleplayState,
+      stats: newStats,
+      toast: result.message,
+      confetti: result.won,
+    });
+  },
+
+  loadEndlessCase: () => {
+    const cases = get().cases;
+    if (cases.length === 0) return;
+    const idx = Math.floor(Math.random() * cases.length);
+    set({
+      endlessState: {
+        caseId: cases[idx].id,
+        attempts: 0,
+        history: [],
+        finished: false,
+        won: false,
+      },
+    });
+  },
+
+  loadRoleplayCase: (role) => {
+    const roleplayCases = get().roleplayCases;
+    if (roleplayCases.length === 0) return;
+    const newCase = getRandomRoleplayCase(role);
+    if (!newCase) return;
+    set({
+      roleplayState: {
+        caseId: newCase.id,
+        role: newCase.role,
+        attempts: 0,
+        history: [],
+        finished: false,
+        won: false,
+      },
+    });
+  },
+
+  setActiveFilter: (filter) => set({ activeFilter: filter }),
+  setRoleplayRoleFilter: (filter) => set({ roleplayRoleFilter: filter }),
+  showToast: (msg) => set({ toast: msg }),
+  dismissToast: () => set({ toast: null }),
+  openStats: () => set({ statsOpen: true }),
+  closeStats: () => set({ statsOpen: false }),
+  openHowto: () => set({ howtoOpen: true }),
+  closeHowto: () => set({ howtoOpen: false }),
+  setSelectedAutocomplete: (idx) => set({ selectedAutocomplete: idx }),
+  setCurrentMatches: (matches) => set({ currentMatches: matches }),
+
+  loadArchiveCase: (caseId) => {
+    const c = get().cases.find((c) => c.id === caseId);
+    if (!c) return;
+    set({
+      endlessState: {
+        caseId: c.id,
+        attempts: 0,
+        history: [],
+        finished: false,
+        won: false,
+      },
+      currentMode: 'endless',
+    });
+  },
+
+  loadRoleplayArchiveCase: (caseId) => {
+    const c = get().roleplayCases.find((c) => c.id === caseId);
+    if (!c) return;
+    set({
+      roleplayState: {
+        caseId: c.id,
+        role: c.role,
+        attempts: 0,
+        history: [],
+        finished: false,
+        won: false,
+      },
+      currentMode: 'roleplay',
+    });
+  },
+
+  resetRoleplayState: () => set({ roleplayState: null }),
+
+  loadSimulationCase: () => {
+    const newCase = getRandomSimulationCase();
+    set({
+      simulationCase: newCase,
+      simulationState: {
+        caseId: newCase.id,
+        stage: 'patient',
+        askedQuestions: [],
+        revealedVitals: false,
+        revealedExam: false,
+        orderedTests: [],
+        diagnosis: '',
+        treatmentInput: '',
+        finished: false,
+        won: false,
+        score: { diagnosisCorrect: false, treatmentCorrect: false, unnecessaryTests: 0, missedKeyTests: 0, total: 0 },
+      },
+      currentMode: 'simulation',
+    });
+  },
+
+  resetSimulationState: () => set({ simulationCase: null, simulationState: null }),
+
+  askSimulationQuestion: (questionId) => {
+    const state = get().simulationState;
+    if (!state) return;
+    set({
+      simulationState: {
+        ...state,
+        askedQuestions: [...state.askedQuestions, questionId],
+      },
+    });
+  },
+
+  orderSimulationTest: (testId: string) => {
+    const state = get().simulationState;
+    if (!state) return;
+    if (state.orderedTests.find((t) => t.testId === testId)) return;
+    const stageIdx = ['patient', 'vitals', 'exam', 'tests', 'diagnosis', 'treatment', 'result'].indexOf(state.stage);
+    set({
+      simulationState: {
+        ...state,
+        orderedTests: [...state.orderedTests, { testId, orderedAtStage: stageIdx, resultReady: true }],
+      },
+    });
+  },
+
+  setSimulationDiagnosis: (diagnosis: string) => {
+    const state = get().simulationState;
+    if (!state) return;
+    set({ simulationState: { ...state, diagnosis } });
+  },
+
+  setSimulationTreatment: (treatmentInput: string) => {
+    const state = get().simulationState;
+    if (!state) return;
+    set({ simulationState: { ...state, treatmentInput } });
+  },
+
+  checkSimulationResult: () => {
+    const state = get();
+    const simCase = state.simulationCase;
+    const simState = state.simulationState;
+    if (!simCase || !simState) return;
+
+    const diagnosisCorrect = simCase.correctDiagnosis.some(
+      (d) => simState.diagnosis.toLowerCase().includes(d.toLowerCase())
+    );
+
+    // Простая проверка лечения — наличие ключевых препаратов
+    const treatmentLower = simState.treatmentInput.toLowerCase();
+    const treatmentCorrect = simCase.correctTreatment.drugs.every((drug) => {
+      const names = [drug.name.toLowerCase(), ...(drug.synonyms || []).map((s) => s.toLowerCase())];
+      return names.some((n) => treatmentLower.includes(n.split(" ")[0]));
+    });
+
+    // Подсчёт лишних и пропущенных анализов
+    const keyTests = simCase.availableTests.filter((t) =>
+      ['ecg', 'troponin', 'd_dimer', 'ct_angio', 'usg_abdomen', 'usg_legs'].includes(t.id)
+    );
+    const orderedIds = simState.orderedTests.map((t) => t.testId);
+    const missedKeyTests = keyTests.filter((t) => !orderedIds.includes(t.id)).length;
+    const unnecessaryTests = Math.max(0, simState.orderedTests.length - keyTests.length);
+
+    let total = 0;
+    if (diagnosisCorrect) total += 40;
+    if (treatmentCorrect) total += 30;
+    total += Math.max(0, 20 - missedKeyTests * 5);
+    total += Math.max(0, 10 - unnecessaryTests * 3);
+    total = Math.min(100, total);
+
+    set({
+      simulationState: {
+        ...simState,
+        finished: true,
+        won: diagnosisCorrect,
+        score: { diagnosisCorrect, treatmentCorrect, unnecessaryTests, missedKeyTests, total },
+      },
+    });
+  },
+
+  nextSimulationStage: () => {
+    const state = get().simulationState;
+    if (!state) return;
+    const stages: SimulationState['stage'][] = ['patient', 'vitals', 'exam', 'tests', 'diagnosis', 'treatment', 'result'];
+    const idx = stages.indexOf(state.stage);
+    const next = stages[Math.min(idx + 1, stages.length - 1)];
+    const updates: Partial<SimulationState> = { stage: next };
+    if (next === 'vitals') updates.revealedVitals = true;
+    if (next === 'exam') updates.revealedExam = true;
+    set({ simulationState: { ...state, ...updates } });
+  },
+
+  prevSimulationStage: () => {
+    const state = get().simulationState;
+    if (!state) return;
+    const stages: SimulationState['stage'][] = ['patient', 'vitals', 'exam', 'tests', 'diagnosis', 'treatment', 'result'];
+    const idx = stages.indexOf(state.stage);
+    const prev = stages[Math.max(idx - 1, 0)];
+    set({ simulationState: { ...state, stage: prev } });
+  },
+
+  dismissConfetti: () => set({ confetti: false }),
+}));
