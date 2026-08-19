@@ -6,12 +6,6 @@ const STOP_WORDS = new Set([
   'at','to','of','for','with','without','a','an'
 ]);
 
-function getMeaningfulWords(str: string): string[] {
-  return normalize(str)
-  .split(/\s+/)
-  .filter(w => w.length >= 3 && !STOP_WORDS.has(w));
-}
-
 export function normalize(str: string): string {
   return str
     .toLowerCase()
@@ -21,30 +15,14 @@ export function normalize(str: string): string {
     .trim();
 }
 
+function getMeaningfulWords(str: string): string[] {
+  return normalize(str)
+    .split(/\s+/)
+    .filter(w => w.length >= 3 && !STOP_WORDS.has(w));
+}
+
 export function getTodayStr(): string {
   return new Date().toISOString().split('T')[0];
-}
-
-export function getDayOfYear(): number {
-  const now = new Date();
-  const start = new Date(now.getFullYear(), 0, 0);
-  const diff = now.getTime() - start.getTime();
-  return Math.floor(diff / (1000 * 60 * 60 * 24));
-}
-
-export function getDailyCaseIndex(casesLength: number): number {
-  const day = getDayOfYear();
-  return ((day % casesLength) + casesLength) % casesLength;
-}
-
-export function getDailyCase(cases: readonly Case[]): Case {
-  return cases[getDailyCaseIndex(cases.length)];
-}
-
-export function getAllDiagnoses(cases: readonly Case[]): string[] {
-  const set = new Set<string>();
-  cases.forEach((c) => c.diagnosis.forEach((d) => set.add(d)));
-  return Array.from(set).sort((a, b) => a.localeCompare(b, 'ru'));
 }
 
 export function checkDiagnosis(input: string, diagnoses: string[]): boolean {
@@ -56,36 +34,11 @@ export function checkDiagnosis(input: string, diagnoses: string[]): boolean {
 
   return diagnoses.some((diag) => {
     const normDiag = normalize(diag);
-
-    // 1. Полное совпадение строки
     if (normDiag === normVal) return true;
-
-    // 2. Одна строка содержит другую целиком (для аббревиатур: ОИМ, ДКА, ТЭЛА)
     if (normDiag.includes(normVal) || normVal.includes(normDiag)) return true;
-
-    // 3. Пересечение по значимым словам (хотя бы одно)
     const diagWords = getMeaningfulWords(diag);
     return inputWords.some(iw => diagWords.includes(iw));
   });
-}
-
-export function initDailyState(
-  saved: DailyState | null,
-  cases: readonly Case[]
-): DailyState {
-  const today = getTodayStr();
-  if (saved && saved.date === today) {
-    return saved;
-  }
-  const c = getDailyCase(cases);
-  return {
-    date: today,
-    caseId: c.id,
-    attempts: 0,
-    history: [],
-    finished: false,
-    won: false,
-  };
 }
 
 export function shouldResetStreak(lastPlayedDate: string | null, today: string): boolean {
@@ -109,7 +62,6 @@ export function updateStats(
     specialtyStats: { ...stats.specialtyStats },
   };
 
-  // Сброс серии, если пропущен день
   if (shouldResetStreak(stats.lastPlayedDate, today)) {
     next.currentStreak = 0;
   }

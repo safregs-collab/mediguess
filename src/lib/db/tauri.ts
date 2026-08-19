@@ -1,8 +1,9 @@
-import type { Case, Stats, DailyState, RoleplayCase } from '../../types';
+import type { Case, Stats, DailyState, RoleplayCase, SimulationCase } from '../../types';
 import type { IAppDatabase } from './types';
-import { getDefaultStats } from '../storage';
+import { getDefaultStats, migrateStats } from '../../features/games/logic/storage';
 import { invoke } from '@tauri-apps/api/core';
-import { roleplayCases as ROLEPLAY_CASES } from '../roleplayCases';
+import { roleplayCases as ROLEPLAY_CASES } from '../../features/games/logic/roleplayCases';
+import { simulationCases as SIMULATION_CASES } from '../../features/games/logic/simulationCases';
 
 export class TauriDatabase implements IAppDatabase {
   async loadCases(): Promise<readonly Case[]> {
@@ -11,8 +12,11 @@ export class TauriDatabase implements IAppDatabase {
   }
 
   async loadRoleplayCases(): Promise<readonly RoleplayCase[]> {
-    // Используем встроенные данные из TypeScript (с image и прочими полями)
     return Object.freeze(ROLEPLAY_CASES);
+  }
+
+  async loadSimulationCases(): Promise<readonly SimulationCase[]> {
+    return Object.freeze(SIMULATION_CASES);
   }
 
   loadStats(): Stats {
@@ -39,7 +43,7 @@ export class TauriDatabase implements IAppDatabase {
     try {
       const json = await invoke<string>('load_stats');
       if (!json) return getDefaultStats();
-      return JSON.parse(json) as Stats;
+      return migrateStats(JSON.parse(json));
     } catch {
       return getDefaultStats();
     }

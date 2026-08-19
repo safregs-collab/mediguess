@@ -1,4 +1,5 @@
 export type GameMode = 'daily' | 'endless' | 'archive' | 'roleplay' | 'roleplayArchive' | 'simulation';
+export type AppScreen = 'home' | 'games';
 export type GuessResult = 'correct' | 'wrong';
 
 export type Specialty =
@@ -50,6 +51,22 @@ export interface SpecialtyStats {
   wins: number;
 }
 
+export interface CompletedCaseInfo {
+  id: number;
+  won: boolean;
+  date: string;
+}
+
+export interface XpState {
+  totalXp: number;
+  level: number;
+}
+
+export interface Achievement {
+  id: string;
+  unlockedAt: string;
+}
+
 export interface Stats {
   games: number;
   wins: number;
@@ -59,6 +76,14 @@ export interface Stats {
   specialtyStats: Record<string, SpecialtyStats>;
   lastPlayedDate: string | null;
   roleplayStats: Record<string, SpecialtyStats>;
+  completedCases: {
+    daily: CompletedCaseInfo[];
+    endless: CompletedCaseInfo[];
+    roleplay: CompletedCaseInfo[];
+    simulation: CompletedCaseInfo[];
+  };
+  xp: XpState;
+  achievements: Achievement[];
 }
 
 export interface DailyState {

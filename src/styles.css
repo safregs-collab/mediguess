@@ -1,0 +1,594 @@
+/* MediGuess — Base Styles */
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --border: #475569;
+  --radius: 12px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.icon-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: var(--border);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  background: var(--bg-secondary);
+  overflow-x: auto;
+}
+
+.tab {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background: var(--bg-card);
+}
+
+.tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Main */
+.main-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Game Card */
+.game-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.game-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Specialty / Role Tags */
+.specialty-tag,
+.role-tag {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tag-cardiology { background: #dc2626; color: white; }
+.tag-surgery { background: #ea580c; color: white; }
+.tag-pulmonology { background: #0891b2; color: white; }
+.tag-gastroenterology { background: #16a34a; color: white; }
+.tag-rheumatology { background: #7c3aed; color: white; }
+.tag-neurology { background: #db2777; color: white; }
+.tag-nurse { background: #059669; color: white; }
+.tag-intern { background: #2563eb; color: white; }
+.tag-resident { background: #7c3aed; color: white; }
+.tag-physician { background: #dc2626; color: white; }
+.tag-surgeon { background: #ea580c; color: white; }
+.tag-anesthesiologist { background: #0891b2; color: white; }
+.tag-therapist { background: #16a34a; color: white; }
+.tag-pediatrician { background: #db2777; color: white; }
+
+/* Attempts Grid */
+.attempts-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.attempt-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+.attempt-cell.correct {
+  background: var(--success);
+  color: white;
+}
+
+.attempt-cell.wrong {
+  background: var(--danger);
+  color: white;
+}
+
+.attempt-cell.current {
+  border: 2px solid var(--accent);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Clues */
+.clues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.clue-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.clue-item.hidden {
+  opacity: 0.4;
+  filter: blur(2px);
+}
+
+.clue-item.revealed {
+  opacity: 1;
+  filter: none;
+  border-left: 3px solid var(--accent);
+}
+
+.clue-number {
+  font-weight: 800;
+  color: var(--accent);
+  min-width: 24px;
+}
+
+.clue-text {
+  color: var(--text-primary);
+}
+
+/* Input Area */
+.input-area {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.diagnosis-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.diagnosis-input:focus {
+  border-color: var(--accent);
+}
+
+.diagnosis-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.diagnosis-input.shake {
+  animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* Autocomplete */
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  display: none;
+}
+
+.autocomplete-list.visible {
+  display: block;
+}
+
+.autocomplete-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.selected {
+  background: var(--accent);
+  color: white;
+}
+
+/* Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Result Area */
+.result-area {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: var(--radius);
+}
+
+.result-area.win {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid var(--success);
+}
+
+.result-area.lose {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--danger);
+}
+
+.result-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.explanation-box {
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.anki-tag {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.share-btn {
+  margin-top: 8px;
+}
+
+/* Archive */
+.archive-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-chip {
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.filter-chip:hover {
+  background: var(--border);
+}
+
+.filter-chip.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.archive-card {
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.archive-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.archive-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.case-id {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.archive-clue {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.archive-diagnoses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.diagnosis-chip {
+  padding: 3px 10px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Simulator */
+.simulator-stage {
+  margin-bottom: 20px;
+}
+
+.simulator-stage h3 {
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+.anamnesis-text {
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: 8px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.tests-grid,
+.diagnosis-options,
+.treatment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.test-checkbox,
+.diagnosis-radio,
+.treatment-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.test-checkbox:hover,
+.diagnosis-radio:hover,
+.treatment-radio:hover {
+  border-color: var(--accent);
+}
+
+.test-checkbox.selected,
+.diagnosis-radio.selected,
+.treatment-radio.selected {
+  border-color: var(--accent);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.test-checkbox input,
+.diagnosis-radio input,
+.treatment-radio input {
+  accent-color: var(--accent);
+}
+
+.score-breakdown {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.score-breakdown div {
+  background: var(--bg-card);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Toast */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.toast {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 48px;
+  color: var(--text-secondary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .header {
+    padding: 12px 16px;
+  }
+
+  .tabs {
+    padding: 12px 16px;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+
+  .game-card {
+    padding: 16px;
+  }
+
+  .attempts-grid {
+    gap: 6px;
+  }
+
+  .attempt-cell {
+    font-size: 0.9rem;
+  }
+}

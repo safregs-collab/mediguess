@@ -1,9 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from './components/App';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './shared/styles/theme.css';
+import './features/home/home.css';
+import './features/games/games.css';
+import { App } from './App';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-  <App />
-  </React.StrictMode>
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
 );
