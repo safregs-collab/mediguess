@@ -1,0 +1,805 @@
+{
+  "id": "aortic-dissection",
+  "label": "Расслоение аорты",
+  "color": "#dc2626",
+  "nodes": [
+    {
+      "id": "ct_aorta",
+      "label": "СКТ-аорта с контрастом",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging"
+    },
+    {
+      "id": "tee",
+      "label": "Трансэзофагеальная ЭхоКГ",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "echo"
+    },
+    {
+      "id": "mri_aorta",
+      "label": "МРТ-аорта",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging"
+    },
+    {
+      "id": "xray_chest",
+      "label": "Рентген ОГК",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging"
+    },
+    {
+      "id": "d_dimer",
+      "label": "Д-димер",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "<500",
+      "value": 2500,
+      "group": "coagulation"
+    },
+    {
+      "id": "troponin",
+      "label": "Тропонин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "<0.04",
+      "value": 0.12,
+      "group": "cardiac"
+    },
+    {
+      "id": "creatinine",
+      "label": "Креатинин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкмоль/л",
+      "normal": "62-115",
+      "value": 180,
+      "group": "renal"
+    },
+    {
+      "id": "lactate",
+      "label": "Лактат",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "0.5-1.6",
+      "value": 3.5,
+      "group": "metabolic"
+    },
+    {
+      "id": "hemoglobin",
+      "label": "Гемоглобин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "г/л",
+      "normal": "130-170",
+      "value": 95,
+      "group": "hematology"
+    },
+    {
+      "id": "bp_right",
+      "label": "АД правой руки",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": "120/80",
+      "value": 180,
+      "group": "vitals"
+    },
+    {
+      "id": "bp_left",
+      "label": "АД левой руки",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": "120/80",
+      "value": 110,
+      "group": "vitals"
+    },
+    {
+      "id": "ecg_st",
+      "label": "ЭКГ: диффузная депрессия ST",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "ecg"
+    },
+    {
+      "id": "ecg_st_elevation",
+      "label": "ЭКГ: подъём ST",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "ecg"
+    },
+    {
+      "id": "chest_pain",
+      "label": "Резкая боль в груди",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "интенсивная"
+    },
+    {
+      "id": "back_pain",
+      "label": "Боль в спине",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "интенсивная"
+    },
+    {
+      "id": "interscapular_pain",
+      "label": "Боль межлопаточная",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "интенсивная"
+    },
+    {
+      "id": "bp_difference",
+      "label": "Разница АД >20 мм рт.ст.",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "pulse_deficit",
+      "label": "Дефицит пульса",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "neurological_deficit",
+      "label": "Неврологический дефицит",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "syncope",
+      "label": "Обморок",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "dyspnea",
+      "label": "Одышка",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "aortic_regurgitation",
+      "label": "Шум аортальной недостаточности",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "hypotension",
+      "label": "Артериальная гипотензия",
+      "layer": "findings",
+      "type": "sign",
+      "severity": "тяжёлая"
+    },
+    {
+      "id": "tachycardia",
+      "label": "Тахикардия",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "diaphoresis",
+      "label": "Потливость",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "mediastinal_widening",
+      "label": "Расширение средостения",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "pericardial_effusion",
+      "label": "Перикардальный выпот",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "stanford_type_a",
+      "label": "Тип A (Stanford)",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "60%",
+      "ptp": "medium"
+    },
+    {
+      "id": "stanford_type_b",
+      "label": "Тип B (Stanford)",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "40%",
+      "ptp": "medium"
+    },
+    {
+      "id": "intramural_hematoma",
+      "label": "Интрамуральная гематома аорты",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low"
+    },
+    {
+      "id": "penetrating_ulcer",
+      "label": "Проникающая атеросклеротическая язва",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "2%",
+      "ptp": "low"
+    },
+    {
+      "id": "oim",
+      "label": "Острый инфаркт миокарда",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "10%",
+      "ptp": "low"
+    },
+    {
+      "id": "pe",
+      "label": "Тромбоэмболия лёгочной артерии",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low"
+    },
+    {
+      "id": "diff_type_a_vs_b",
+      "label": "Тип A vs Тип B",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_vs_acs",
+      "label": "Расслоение vs ОКС",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "guideline_esc_2014",
+      "label": "ESC Guidelines: Aortic Diseases 2014",
+      "layer": "evidence",
+      "type": "guideline",
+      "grade": "A",
+      "year": 2014
+    },
+    {
+      "id": "registry_irad",
+      "label": "IRAD Registry: International Registry of Aortic Dissection",
+      "layer": "evidence",
+      "type": "registry",
+      "grade": "A",
+      "year": 2000,
+      "n": 46428
+    },
+    {
+      "id": "rct_tev",
+      "label": "RCT: TEVAR vs open surgery (Type B)",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2010,
+      "n": 140
+    }
+  ],
+  "links": [
+    {
+      "source": "ct_aorta",
+      "target": "stanford_type_a",
+      "type": "confirms",
+      "weight": 0.98
+    },
+    {
+      "source": "ct_aorta",
+      "target": "stanford_type_b",
+      "type": "confirms",
+      "weight": 0.98
+    },
+    {
+      "source": "ct_aorta",
+      "target": "intramural_hematoma",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "tee",
+      "target": "stanford_type_a",
+      "type": "confirms",
+      "weight": 0.97
+    },
+    {
+      "source": "tee",
+      "target": "intramural_hematoma",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "mri_aorta",
+      "target": "stanford_type_a",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "mri_aorta",
+      "target": "stanford_type_b",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "xray_chest",
+      "target": "mediastinal_widening",
+      "type": "confirms",
+      "weight": 0.8
+    },
+    {
+      "source": "d_dimer",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "d_dimer",
+      "target": "stanford_type_b",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "d_dimer",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "troponin",
+      "target": "oim",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "troponin",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.6
+    },
+    {
+      "source": "creatinine",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "lactate",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "hemoglobin",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.6
+    },
+    {
+      "source": "ecg_st",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "ecg_st_elevation",
+      "target": "oim",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "chest_pain",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "chest_pain",
+      "target": "oim",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "chest_pain",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "back_pain",
+      "target": "stanford_type_b",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "back_pain",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "interscapular_pain",
+      "target": "stanford_type_b",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "interscapular_pain",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "bp_difference",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "bp_difference",
+      "target": "stanford_type_b",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "pulse_deficit",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "neurological_deficit",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "syncope",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "syncope",
+      "target": "oim",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "dyspnea",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "dyspnea",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "aortic_regurgitation",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "hypotension",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "tachycardia",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "tachycardia",
+      "target": "stanford_type_b",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "tachycardia",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "diaphoresis",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "diaphoresis",
+      "target": "oim",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "mediastinal_widening",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "pericardial_effusion",
+      "target": "stanford_type_a",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "stanford_type_a",
+      "target": "diff_type_a_vs_b",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "stanford_type_b",
+      "target": "diff_type_a_vs_b",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "stanford_type_a",
+      "target": "diff_vs_acs",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "oim",
+      "target": "diff_vs_acs",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "stanford_type_a",
+      "target": "guideline_esc_2014",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "stanford_type_b",
+      "target": "guideline_esc_2014",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "stanford_type_a",
+      "target": "registry_irad",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "stanford_type_b",
+      "target": "registry_irad",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "stanford_type_b",
+      "target": "rct_tev",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_type_a_vs_b",
+      "target": "guideline_esc_2014",
+      "type": "described_in",
+      "weight": 1.0
+    }
+  ],
+  "details": {
+    "stanford_type_a": {
+      "description": "Расслоение аорты типа A (Stanford) — вовлекает восходящую аорту независимо от места проксимального разрыва интимы. Требует экстренного хирургического вмешательства.",
+      "criteria": [
+        "Вовлечение восходящей аорты (любой сегмент)",
+        "Может распространяться на дугу и нисходящую аорту",
+        "Соответствует DeBakey I и II"
+      ],
+      "prevalence": "60-65% всех расслоений",
+      "complications": [
+        "Острая аортальная недостаточность",
+        "Тампонада сердца (перикардальный выпот)",
+        "ОИМ (закупорка устья коронарных артерий)",
+        "Инсульт (закупорка брахиоцефальных артерий)",
+        "Острая почечная недостаточность",
+        "Ишемия кишечника",
+        "Разрыв аорты"
+      ],
+      "treatment": [
+        "Экстренная операция (замена восходящей аорты)",
+        "Коррекция аортальной недостаточности",
+        "Антигипертензивная терапия (β-блокаторы + НПС)",
+        "Мониторинг в ОРИТ"
+      ],
+      "followup": "КТ-контроль через 3, 6, 12 месяцев, затем ежегодно"
+    },
+    "stanford_type_b": {
+      "description": "Расслоение аорты типа B (Stanford) — не вовлекает восходящую аорту, начинается дистальнее устья левой подключичной артерии. Консервативное/эндоваскулярное лечение.",
+      "criteria": [
+        "Не вовлекает восходящую аорту",
+        "Начинается дистальнее левой подключичной артерии",
+        "Соответствует DeBakey III"
+      ],
+      "prevalence": "35-40% всех расслоений",
+      "complications": [
+        "Ишемия нижних конечностей",
+        "Ишемия кишечника (закупорка брыжеечных артерий)",
+        "Острая почечная недостаточность",
+        "Расширение ложной просвета",
+        "Разрыв нисходящей аорты"
+      ],
+      "treatment": [
+        "Консервативное: β-блокаторы + НПС (цель САД <120 мм рт.ст.)",
+        "TEVAR (торакальная эндопротезирование) при осложнениях",
+        "Анальгезия (морфин)",
+        "Мониторинг в ОРИТ"
+      ],
+      "followup": "КТ-контроль через 1, 3, 6, 12 месяцев, затем ежегодно"
+    }
+  },
+  "comparisons": {
+    "diff_type_a_vs_b": {
+      "headers": [
+        "Признак",
+        "Тип A (Stanford)",
+        "Тип B (Stanford)"
+      ],
+      "rows": [
+        {
+          "feature": "Восходящая аорта",
+          "type_a": "Вовлечена",
+          "type_b": "Не вовлечена"
+        },
+        {
+          "feature": "Дуга аорты",
+          "type_a": "Может быть вовлечена",
+          "type_b": "Может быть вовлечена"
+        },
+        {
+          "feature": "Нисходящая аорта",
+          "type_a": "Часто вовлечена",
+          "type_b": "Всегда вовлечена"
+        },
+        {
+          "feature": "Аортальная недостаточность",
+          "type_a": "30-50%",
+          "type_b": "<5%"
+        },
+        {
+          "feature": "Перикардит/тампонада",
+          "type_a": "Возможна",
+          "type_b": "Редко"
+        },
+        {
+          "feature": "ОИМ",
+          "type_a": "5-10%",
+          "type_b": "<1%"
+        },
+        {
+          "feature": "Лечение",
+          "type_a": "Экстренная операция",
+          "type_b": "Консервативное/TEVAR"
+        },
+        {
+          "feature": "Смертность (без лечения)",
+          "type_a": "50-90%",
+          "type_b": "10-20%"
+        },
+        {
+          "feature": "Смертность (с лечением)",
+          "type_a": "15-25%",
+          "type_b": "5-10%"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "guideline_esc_2014": {
+      "title": "2014 ESC Guidelines on the diagnosis and treatment of aortic diseases",
+      "authors": "Erbel R et al.",
+      "journal": "Eur Heart J",
+      "year": 2014,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "СКТ-аорта — метод выбора для диагностики",
+        "Тип A — экстренное оперативное лечение",
+        "Тип B — консервативное, TEVAR при осложнениях"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "registry_irad": {
+      "title": "The International Registry of Acute Aortic Dissection (IRAD)",
+      "authors": "Hagan PG et al.",
+      "journal": "JAMA",
+      "year": 2000,
+      "n": 46428,
+      "design": "Prospective multicenter registry",
+      "grade": "A",
+      "key_findings": [
+        "Средний возраст 63 года, мужчины 68%",
+        "Боль в груди — 73%, боль в спине — 53%",
+        "Смертность при типе A: 26% (операция) vs 58% (консервативно)"
+      ],
+      "quality": "Высокое (многоцентровый регистр)"
+    },
+    "rct_tev": {
+      "title": "TEVAR versus medical management for uncomplicated Type B aortic dissection",
+      "authors": "Nienaber CA et al.",
+      "journal": "N Engl J Med",
+      "year": 2010,
+      "n": 140,
+      "design": "RCT",
+      "grade": "A",
+      "key_findings": [
+        "TEVAR снижает смертность на 5 лет (11% vs 33%)",
+        "Улучшает ремоделирование аорты",
+        "Риск параплегии 1-2%"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "stanford_type_a": [
+      {
+        "time": 0,
+        "event": "Начало",
+        "ad": "180/110 (правая), 110/70 (левая)",
+        "symptom": "Резкая боль в груди"
+      },
+      {
+        "time": 15,
+        "event": "15 мин",
+        "ad": "160/100",
+        "symptom": "Распространение боли в спину"
+      },
+      {
+        "time": 30,
+        "event": "30 мин",
+        "ad": "90/60",
+        "symptom": "Обморок, одышка"
+      },
+      {
+        "time": 45,
+        "event": "Диагностика",
+        "ad": "80/50",
+        "symptom": "СКТ-аорта: тип A"
+      },
+      {
+        "time": 60,
+        "event": "Операция",
+        "ad": "70/45",
+        "symptom": "Замена восходящей аорты"
+      },
+      {
+        "time": 180,
+        "event": "3 часа",
+        "ad": "100/65",
+        "symptom": "Стабилизация в ОРИТ"
+      },
+      {
+        "time": 1440,
+        "event": "24 часа",
+        "ad": "120/80",
+        "symptom": "Экстубация, ясное сознание"
+      }
+    ]
+  }
+}

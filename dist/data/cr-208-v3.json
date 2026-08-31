@@ -1,0 +1,214 @@
+{
+  "id": "cr-208-v3",
+  "number": 208,
+  "version": 3,
+  "title": "Острый коронарный синдром",
+  "mkb10": ["I21.0", "I21.1", "I21.2", "I21.3", "I21.4", "I21.9", "I22"],
+  "specialty": "cardiology",
+  "status": "active",
+  "updatedAt": "2024-01-15T00:00:00Z",
+  "sourceUrl": "https://cr.minzdrav.gov.ru/recommend/208",
+  "clinicalPicture": {
+    "complaints": [
+      {
+        "id": "chest_pain",
+        "text": "Давящая боль за грудиной",
+        "severity": "severe",
+        "frequency": "always",
+        "variants": ["давящая", "жгучая", "сжимающая", "колющая"],
+        "location": ["за грудиной", "в левой половине груди", "в эпигастрии"],
+        "irradiation": ["в левую руку", "в нижнюю челюсть", "в левую лопатку", "в спину"],
+        "duration": { "min": 20, "max": 480, "unit": "min" },
+        "triggers": ["физическая нагрузка", "стресс", "холод", "обильная еда"],
+        "relievingFactors": ["нитроглицерин (временно)", "покой (частично)"],
+        "typical": true
+      },
+      {
+        "id": "dyspnea",
+        "text": "Одышка",
+        "severity": "moderate",
+        "frequency": "often",
+        "variants": ["экспираторная", "смешанная"],
+        "location": [],
+        "irradiation": [],
+        "duration": { "min": 10, "max": 120, "unit": "min" },
+        "triggers": ["физическая нагрузка", "эмоциональный стресс"],
+        "relievingFactors": ["покой", "нитраты"],
+        "typical": true
+      },
+      {
+        "id": "diaphoresis",
+        "text": "Холодный липкий пот",
+        "severity": "moderate",
+        "frequency": "often",
+        "variants": ["обильный", "умеренный"],
+        "location": ["лицо", "туловище", "конечности"],
+        "irradiation": [],
+        "duration": { "min": 10, "max": 60, "unit": "min" },
+        "triggers": ["боль", "стресс"],
+        "relievingFactors": ["купирование боли"],
+        "typical": true
+      },
+      {
+        "id": "nausea",
+        "text": "Тошнота",
+        "severity": "mild",
+        "frequency": "sometimes",
+        "variants": ["тошнота", "рвота"],
+        "location": ["эпигастрий"],
+        "irradiation": [],
+        "duration": { "min": 5, "max": 30, "unit": "min" },
+        "triggers": ["боль", "вагальная реакция"],
+        "relievingFactors": ["антиэмнетики"],
+        "typical": false
+      },
+      {
+        "id": "weakness",
+        "text": "Слабость",
+        "severity": "moderate",
+        "frequency": "often",
+        "variants": ["слабость", "головокружение", "предобморочное состояние"],
+        "location": [],
+        "irradiation": [],
+        "duration": { "min": 30, "max": 240, "unit": "min" },
+        "triggers": ["боль", "гипотензия"],
+        "relievingFactors": ["покой", "жидкость"],
+        "typical": false
+      }
+    ],
+    "anamnesis": [
+      { "id": "smoking", "category": "risk_factor", "label": "Курение", "description": ">10 пачко-лет", "weight": 0.7, "correlatesWith": ["chest_pain"] },
+      { "id": "hypertension", "category": "comorbidity", "label": "Артериальная гипертензия", "description": "АГ II-III стадии", "weight": 0.6, "correlatesWith": ["chest_pain", "dyspnea"] },
+      { "id": "diabetes", "category": "comorbidity", "label": "Сахарный диабет", "description": "СД 2 типа >5 лет", "weight": 0.5, "correlatesWith": ["weakness", "dyspnea"] },
+      { "id": "hyperlipidemia", "category": "risk_factor", "label": "Гиперлипидемия", "description": "ХС ЛПНП >2.5 ммоль/л", "weight": 0.5, "correlatesWith": ["chest_pain"] },
+      { "id": "family_history", "category": "family", "label": "Семейный анамнез ИБС", "description": "ОИМ у родственников 1-й линии <55 лет (мужчины) / <65 лет (женщины)", "weight": 0.4, "correlatesWith": ["chest_pain"] },
+      { "id": "obesity", "category": "risk_factor", "label": "Ожирение", "description": "ИМТ >30 кг/м²", "weight": 0.4, "correlatesWith": ["dyspnea", "weakness"] },
+      { "id": "sedentary", "category": "lifestyle", "label": "Малоподвижный образ жизни", "weight": 0.3, "correlatesWith": ["chest_pain"] },
+      { "id": "aspirin", "category": "medication", "label": "Приём аспирина", "description": "Антиагрегантная терапия", "weight": 0.2, "correlatesWith": [] },
+      { "id": "statins", "category": "medication", "label": "Приём статинов", "description": "Гиполипидемическая терапия", "weight": 0.2, "correlatesWith": [] }
+    ],
+    "physicalExam": [
+      { "id": "pallor", "label": "Бледность кожных покровов", "description": "Ишемическая бледность", "typical": true, "severity": "moderate" },
+      { "id": "tachycardia", "label": "Тахикардия", "description": "ЧСС >100/мин", "typical": true, "severity": "moderate" },
+      { "id": "hypotension", "label": "Артериальная гипотензия", "description": "АД <90/60 мм рт.ст.", "typical": false, "severity": "severe" },
+      { "id": "hypertension", "label": "Артериальная гипертензия", "description": "АД >140/90 мм рт.ст.", "typical": true, "severity": "moderate" },
+      { "id": "s3_gallop", "label": "Третий тон (S3)", "description": "Признак дисфункции ЛЖ", "typical": false, "severity": "moderate" },
+      { "id": "pulmonary_rales", "label": "Влажные хрипы в лёгких", "description": "Признак ОЛЖН", "typical": false, "severity": "severe" }
+    ]
+  },
+  "diagnostics": {
+    "lab": [
+      {
+        "id": "troponin_i",
+        "name": "Тропонин I",
+        "unit": "нг/мл",
+        "normalRange": { "text": "<0.04" },
+        "valueScenarios": [
+          { "scenarioId": "early", "description": "Ранний срок (<3ч)", "valueDistribution": { "type": "normal", "mean": 0.5, "stdDev": 0.3, "min": 0.1, "max": 1.5 }, "probability": 0.2, "correlatesWith": ["chest_pain"] },
+          { "scenarioId": "peak", "description": "Пиковый (6-12ч)", "valueDistribution": { "type": "lognormal", "mean": 8.0, "stdDev": 4.0, "min": 3.0, "max": 25.0 }, "probability": 0.5, "correlatesWith": ["chest_pain", "diaphoresis"] },
+          { "scenarioId": "mild", "description": "Микроинфаркт", "valueDistribution": { "type": "normal", "mean": 1.2, "stdDev": 0.5, "min": 0.5, "max": 3.0 }, "probability": 0.2, "correlatesWith": ["weakness"] },
+          { "scenarioId": "normal", "description": "В пределах нормы (рано или НКС)", "valueDistribution": { "type": "uniform", "mean": 0.02, "stdDev": 0.01, "min": 0.01, "max": 0.04 }, "probability": 0.1, "correlatesWith": ["dyspnea"] }
+        ]
+      },
+      {
+        "id": "ck_mb",
+        "name": "КФК-МВ",
+        "unit": "Ед/л",
+        "normalRange": { "text": "<25" },
+        "valueScenarios": [
+          { "scenarioId": "peak", "description": "Пиковый", "valueDistribution": { "type": "normal", "mean": 120, "stdDev": 40, "min": 50, "max": 300 }, "probability": 0.6, "correlatesWith": ["chest_pain"] },
+          { "scenarioId": "mild", "description": "Умеренное повышение", "valueDistribution": { "type": "normal", "mean": 40, "stdDev": 15, "min": 25, "max": 80 }, "probability": 0.3, "correlatesWith": ["weakness"] },
+          { "scenarioId": "normal", "description": "Норма", "valueDistribution": { "type": "uniform", "mean": 15, "stdDev": 5, "min": 5, "max": 25 }, "probability": 0.1, "correlatesWith": [] }
+        ]
+      },
+      {
+        "id": "glucose",
+        "name": "Глюкоза крови",
+        "unit": "ммоль/л",
+        "normalRange": { "min": 3.9, "max": 5.6 },
+        "valueScenarios": [
+          { "scenarioId": "normal", "description": "Норма", "valueDistribution": { "type": "normal", "mean": 5.0, "stdDev": 0.5, "min": 3.9, "max": 5.6 }, "probability": 0.5, "correlatesWith": [] },
+          { "scenarioId": "stress_hyperglycemia", "description": "Стрессовая гипергликемия", "valueDistribution": { "type": "normal", "mean": 9.0, "stdDev": 2.0, "min": 7.0, "max": 15.0 }, "probability": 0.3, "correlatesWith": ["diabetes"] },
+          { "scenarioId": "diabetic", "description": "Гипергликемия при СД", "valueDistribution": { "type": "normal", "mean": 14.0, "stdDev": 4.0, "min": 8.0, "max": 25.0 }, "probability": 0.2, "correlatesWith": ["diabetes"] }
+        ]
+      }
+    ],
+    "instrumental": [
+      {
+        "id": "ecg_12lead",
+        "name": "ЭКГ 12-отведений",
+        "modality": "ecg",
+        "patterns": [
+          { "id": "stemi_anterior", "label": "STEMI передней стенки", "description": "ST↑ V1-V4, Q-зубцы", "probability": 0.35, "correlatesWith": ["chest_pain"] },
+          { "id": "stemi_inferior", "label": "STEMI нижней стенки", "description": "ST↑ II,III,aVF, зеркальные V1-V3", "probability": 0.30, "correlatesWith": ["chest_pain", "nausea"] },
+          { "id": "nstemi", "label": "НКС / NSTEMI", "description": "ST↓, Т-инверсия", "probability": 0.25, "correlatesWith": ["chest_pain", "weakness"] },
+          { "id": "normal_ecg", "label": "Нормальная ЭКГ", "description": "Без значимых изменений", "probability": 0.10, "correlatesWith": ["weakness", "dyspnea"] }
+        ]
+      },
+      {
+        "id": "echo",
+        "name": "ЭхоКГ",
+        "modality": "echo",
+        "patterns": [
+          { "id": "hypokinesis_ant", "label": "Гипокинез передней стенки", "description": "Снижение сократимости передней стенки ЛЖ", "probability": 0.40, "correlatesWith": ["stemi_anterior"] },
+          { "id": "hypokinesis_inf", "label": "Гипокинез нижней стенки", "description": "Снижение сократимости нижней стенки ЛЖ", "probability": 0.30, "correlatesWith": ["stemi_inferior"] },
+          { "id": "ef_reduced", "label": "Снижение ФВ ЛЖ", "description": "ФВ ЛЖ <40%", "probability": 0.20, "correlatesWith": ["dyspnea", "pulmonary_rales"] },
+          { "id": "echo_normal", "label": "Норма", "description": "ФВ ЛЖ >55%, без региональных нарушений", "probability": 0.10, "correlatesWith": ["normal_ecg"] }
+        ]
+      }
+    ],
+    "criteria": [
+      { "id": "chest_pain_20min", "label": "Ишемическая боль >20 мин", "description": "Длительная ишемическая боль за грудиной", "required": true, "weight": 0.9 },
+      { "id": "st_elevation", "label": "Элевация ST", "description": "ST↑ ≥1 мм в 2 соседних отведениях", "required": false, "weight": 0.85 },
+      { "id": "troponin_rise", "label": "Повышение тропонинов", "description": "Тропонин I >99-й перцентиля", "required": false, "weight": 0.9 },
+      { "id": "new_q_waves", "label": "Новые Q-зубцы", "description": "Патологические Q-зубцы", "required": false, "weight": 0.7 }
+    ]
+  },
+  "differential": [
+    { "id": "nstemi_diff", "label": "Нестабильная стенокардия / NSTEMI", "mkb10": ["I20.0", "I21.4"], "keyDifferences": ["Нет ST-элевации", "Тропонины повышены умеренно или норма", "Динамика ST-T без Q"], "discriminatingFindings": ["normal_ecg", "nstemi"] },
+    { "id": "pe_diff", "label": "Тромбоэмболия лёгочной артерии", "mkb10": ["I26"], "keyDifferences": ["Плевритическая боль, усиливается при вдохе", "S1Q3T3 на ЭКГ", "Высокий Д-димер", "Гипоксемия"], "discriminatingFindings": ["dyspnea", "tachycardia", "hypotension"] },
+    { "id": "pericarditis_diff", "label": "Острый перикардит", "mkb10": ["I30"], "keyDifferences": ["Боль усиливается при вдохе и лёже", "Диффузный подъём ST (конкавный)", "Тропонины умеренно повышены", "Шум трения перикарда"], "discriminatingFindings": ["chest_pain", "tachycardia"] },
+    { "id": "aortic_dissection_diff", "label": "Расслоение аорты", "mkb10": ["I71.0"], "keyDifferences": ["Резкая «кинжальная» боль в спине", "Разница АД на руках >20 мм рт.ст.", "Новые неврологические симптомы", "Расширение аорты на КТ"], "discriminatingFindings": ["chest_pain", "hypertension", "hypotension"] },
+    { "id": "gerd_diff", "label": "ГЭРБ / язвенная болезнь", "mkb10": ["K21", "K25"], "keyDifferences": ["Боль связана с приёмом пищи", "Облегчение антацидами", "Нет изменений на ЭКГ", "Нет повышения тропонинов"], "discriminatingFindings": ["chest_pain", "nausea"] }
+  ],
+  "treatment": {
+    "emergency": [
+      { "id": "aspirin_325", "stage": "emergency", "label": "Аспирин 325 мг", "description": "Жевать, если не принимал", "priority": 1 },
+      { "id": "ticagrelor_180", "stage": "emergency", "label": "Тикагрелор 180 мг", "description": "Двойная антиагрегация", "priority": 2 },
+      { "id": "morphine", "stage": "emergency", "label": "Морфин 2-4 мг в/в", "description": "При неукротимой боли", "priority": 3 },
+      { "id": "oxygen", "stage": "emergency", "label": "Кислород 4-6 л/мин", "description": "При SpO2 <90%", "priority": 4 },
+      { "id": "nitrates", "stage": "emergency", "label": "Нитраты сублингвально", "description": "Нитроглицерин 0.4 мг", "priority": 5 }
+    ],
+    "therapy": [
+      { "id": "heparin", "stage": "therapy", "label": "НФГ или эноксапарин", "description": "Антикоагулянтная терапия", "priority": 1 },
+      { "id": "beta_blocker", "stage": "therapy", "label": "Бета-блокатор", "description": "Метопролол 25-50 мг", "priority": 2 },
+      { "id": "statin", "stage": "therapy", "label": "Высокоинтенсивные статины", "description": "Аторвастатин 80 мг", "priority": 3 },
+      { "id": "acei", "stage": "therapy", "label": "ИАПФ", "description": "Периндоприл или эналаприл", "priority": 4 }
+    ],
+    "surgery": [
+      { "id": "primary_pci", "stage": "surgery", "label": "Первичная ЧКВ", "description": "Золотой стандарт при STEMI <12ч", "priority": 1 },
+      { "id": "cabg", "stage": "surgery", "label": "АКШ", "description": "При множественном поражении", "priority": 2 }
+    ]
+  },
+  "algorithms": [
+    {
+      "id": "oks_algorithm",
+      "label": "Алгоритм диагностики ОКС",
+      "nodes": [
+        { "id": "start", "label": "Боль за грудиной >20 мин?", "type": "decision" },
+        { "id": "ecg_check", "label": "ЭКГ в течение 10 мин", "type": "action" },
+        { "id": "stemi", "label": "STEMI → первичная ЧКВ", "type": "terminal" },
+        { "id": "nstemi_path", "label": "NSTEMI/НКС → риск-стратификация", "type": "terminal" }
+      ],
+      "edges": [
+        { "from": "start", "to": "ecg_check", "condition": "да" },
+        { "from": "ecg_check", "to": "stemi", "condition": "ST↑" },
+        { "from": "ecg_check", "to": "nstemi_path", "condition": "ST↓ или без изменений" }
+      ]
+    }
+  ],
+  "evidence": [
+    { "id": "esc_2023", "source": "ESC Guidelines 2023", "url": "https://escardio.org", "grade": "A", "recommendation": "Первичная ЧКВ предпочтительнее тромболизиса при STEMI" },
+    { "id": "aha_2022", "source": "AHA/ACC 2022", "url": "https://professional.heart.org", "grade": "A", "recommendation": "Двойная антиагрегация в течение 12 месяцев после ЧКВ" }
+  ]
+}

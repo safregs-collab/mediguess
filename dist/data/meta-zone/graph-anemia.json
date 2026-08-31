@@ -1,0 +1,1012 @@
+{
+  "id": "anemia",
+  "label": "Анемии",
+  "color": "#3b82f6",
+  "nodes": [
+    {
+      "id": "hb",
+      "label": "Гемоглобин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "г/л",
+      "normal": "М 130-160, Ж 120-140",
+      "value": 95,
+      "group": "cbc"
+    },
+    {
+      "id": "mcv",
+      "label": "MCV",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "фл",
+      "normal": "80-100",
+      "value": 72,
+      "group": "cbc"
+    },
+    {
+      "id": "ferritin",
+      "label": "Ферритин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкг/л",
+      "normal": "М 30-400, Ж 15-150",
+      "value": 8,
+      "group": "iron"
+    },
+    {
+      "id": "transferrin",
+      "label": "Трансферрин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "г/л",
+      "normal": "2.0-3.6",
+      "value": 3.8,
+      "group": "iron"
+    },
+    {
+      "id": "b12",
+      "label": "Витамин B12",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "пг/мл",
+      "normal": "200-900",
+      "value": 350,
+      "group": "vitamin"
+    },
+    {
+      "id": "folate",
+      "label": "Фолиевая кислота",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "3.0-20.0",
+      "value": 12,
+      "group": "vitamin"
+    },
+    {
+      "id": "reticulocytes",
+      "label": "Ретикулоциты",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "%",
+      "normal": "0.5-2.0",
+      "value": 0.3,
+      "group": "cbc"
+    },
+    {
+      "id": "anemia_find",
+      "label": "Анемия",
+      "layer": "findings",
+      "type": "finding",
+      "severity": "умеренная"
+    },
+    {
+      "id": "microcytosis",
+      "label": "Микроцитоз",
+      "layer": "findings",
+      "type": "finding"
+    },
+    {
+      "id": "hypochromia",
+      "label": "Гипохромия",
+      "layer": "findings",
+      "type": "finding"
+    },
+    {
+      "id": "koilonychia",
+      "label": "Коилонихия",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "pica",
+      "label": "Пагофагия",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "glossitis",
+      "label": "Глоссит",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "iron_deficiency",
+      "label": "Железодефицитная анемия",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "20%",
+      "ptp": "high"
+    },
+    {
+      "id": "anemia_of_chronic",
+      "label": "Анемия хронических заболеваний",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "18%",
+      "ptp": "medium"
+    },
+    {
+      "id": "thalassemia",
+      "label": "Талассемия",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "редко",
+      "ptp": "low"
+    },
+    {
+      "id": "sideroblastic",
+      "label": "Сидеробластная анемия",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "редко",
+      "ptp": "low"
+    },
+    {
+      "id": "b12_folate_def",
+      "label": "Дефицит B12/фолатов",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "3%",
+      "ptp": "low"
+    },
+    {
+      "id": "diff_iron_vs_acd",
+      "label": "ЖДА vs АХЗ",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_microcytic",
+      "label": "Микроцитарные анемии",
+      "layer": "differential",
+      "type": "category"
+    },
+    {
+      "id": "diff_algorithm_anemia",
+      "label": "Алгоритм диагностики анемии",
+      "layer": "differential",
+      "type": "algorithm"
+    },
+    {
+      "id": "meta_iron_supplement",
+      "label": "Мета-анализ: пероральное железо",
+      "layer": "evidence",
+      "type": "meta-analysis",
+      "grade": "A",
+      "year": 2021,
+      "n": 8000
+    },
+    {
+      "id": "rct_ferric_carboxymaltose",
+      "label": "RCT: карбоксимальтоз железа IV",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2020,
+      "n": 1000
+    },
+    {
+      "id": "guideline_anemia_2023",
+      "label": "Рекомендации: анемии 2023",
+      "layer": "evidence",
+      "type": "guideline",
+      "grade": "A",
+      "year": 2023
+    },
+    {
+      "id": "mch",
+      "label": "MCH",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "пг",
+      "normal": "27-31",
+      "value": 22,
+      "group": "cbc"
+    },
+    {
+      "id": "mchc",
+      "label": "MCHC",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "г/дл",
+      "normal": "32-36",
+      "value": 29,
+      "group": "cbc"
+    },
+    {
+      "id": "rdw",
+      "label": "RDW-CV",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "%",
+      "normal": "11.5-14.5",
+      "value": 18,
+      "group": "cbc"
+    },
+    {
+      "id": "tibc",
+      "label": "ОЖСС",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкг/дл",
+      "normal": "250-400",
+      "value": 450,
+      "group": "iron"
+    },
+    {
+      "id": "serum_iron",
+      "label": "Сывороточное железо",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкг/дл",
+      "normal": "60-170",
+      "value": 35,
+      "group": "iron"
+    },
+    {
+      "id": "ldh",
+      "label": "ЛДГ",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "Ед/л",
+      "normal": "120-250",
+      "value": 320,
+      "group": "enzyme"
+    },
+    {
+      "id": "haptoglobin",
+      "label": "Гаптоглобин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мг/дл",
+      "normal": "30-200",
+      "value": 15,
+      "group": "protein"
+    },
+    {
+      "id": "bilirubin_total",
+      "label": "Общий билирубин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкмоль/л",
+      "normal": "5-21",
+      "value": 45,
+      "group": "liver"
+    },
+    {
+      "id": "creatinine",
+      "label": "Креатинин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкмоль/л",
+      "normal": "62-115",
+      "value": 105,
+      "group": "kidney"
+    },
+    {
+      "id": "tsh",
+      "label": "ТТГ",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мЕд/л",
+      "normal": "0.4-4.0",
+      "value": 3.5,
+      "group": "hormone"
+    },
+    {
+      "id": "pallor",
+      "label": "Бледность кожных покровов",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "tachycardia",
+      "label": "Тахикардия",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "dyspnea_anemia",
+      "label": "Одышка при нагрузке",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "fatigue",
+      "label": "Усталость, слабость",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "dizziness",
+      "label": "Головокружение",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "syncope",
+      "label": "Обмороки",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "paresthesia",
+      "label": "Парестезии",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "jaundice",
+      "label": "Желтушность склер",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "b12_deficiency",
+      "label": "B12-дефицитная анемия",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "medium"
+    },
+    {
+      "id": "folate_deficiency",
+      "label": "Фолиеводефицитная анемия",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "3%",
+      "ptp": "medium"
+    },
+    {
+      "id": "hemolytic_anemia",
+      "label": "Гемолитическая анемия",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "2%",
+      "ptp": "low"
+    },
+    {
+      "id": "aplastic_anemia",
+      "label": "Апластическая анемия",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "0.5%",
+      "ptp": "low"
+    },
+    {
+      "id": "diff_iron_vs_b12",
+      "label": "ЖДА vs B12-дефицит",
+      "layer": "differential",
+      "type": "comparison"
+    }
+  ],
+  "links": [
+    {
+      "source": "hb",
+      "target": "anemia_find",
+      "type": "causes",
+      "weight": 1.0
+    },
+    {
+      "source": "mcv",
+      "target": "microcytosis",
+      "type": "causes",
+      "weight": 1.0
+    },
+    {
+      "source": "ferritin",
+      "target": "microcytosis",
+      "type": "associated",
+      "weight": 0.8
+    },
+    {
+      "source": "ferritin",
+      "target": "hypochromia",
+      "type": "associated",
+      "weight": 0.9
+    },
+    {
+      "source": "anemia_find",
+      "target": "iron_deficiency",
+      "type": "suggests",
+      "weight": 0.8
+    },
+    {
+      "source": "anemia_find",
+      "target": "anemia_of_chronic",
+      "type": "suggests",
+      "weight": 0.7
+    },
+    {
+      "source": "anemia_find",
+      "target": "thalassemia",
+      "type": "suggests",
+      "weight": 0.2
+    },
+    {
+      "source": "anemia_find",
+      "target": "b12_folate_def",
+      "type": "suggests",
+      "weight": 0.3
+    },
+    {
+      "source": "microcytosis",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "microcytosis",
+      "target": "thalassemia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "microcytosis",
+      "target": "anemia_of_chronic",
+      "type": "supports",
+      "weight": 0.4
+    },
+    {
+      "source": "hypochromia",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "koilonychia",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "pica",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "glossitis",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.5
+    },
+    {
+      "source": "glossitis",
+      "target": "b12_folate_def",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "ferritin",
+      "target": "iron_deficiency",
+      "type": "key_marker",
+      "weight": 0.95
+    },
+    {
+      "source": "ferritin",
+      "target": "anemia_of_chronic",
+      "type": "discriminates",
+      "weight": 0.8
+    },
+    {
+      "source": "transferrin",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "reticulocytes",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.6
+    },
+    {
+      "source": "b12",
+      "target": "b12_folate_def",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "folate",
+      "target": "b12_folate_def",
+      "type": "key_marker",
+      "weight": 0.85
+    },
+    {
+      "source": "iron_deficiency",
+      "target": "diff_iron_vs_acd",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "anemia_of_chronic",
+      "target": "diff_iron_vs_acd",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "iron_deficiency",
+      "target": "diff_microcytic",
+      "type": "belongs_to",
+      "weight": 1.0
+    },
+    {
+      "source": "thalassemia",
+      "target": "diff_microcytic",
+      "type": "belongs_to",
+      "weight": 1.0
+    },
+    {
+      "source": "sideroblastic",
+      "target": "diff_microcytic",
+      "type": "belongs_to",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_algorithm_anemia",
+      "target": "diff_microcytic",
+      "type": "includes",
+      "weight": 1.0
+    },
+    {
+      "source": "iron_deficiency",
+      "target": "meta_iron_supplement",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "iron_deficiency",
+      "target": "rct_ferric_carboxymaltose",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "iron_deficiency",
+      "target": "guideline_anemia_2023",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_iron_vs_acd",
+      "target": "guideline_anemia_2023",
+      "type": "described_in",
+      "weight": 1.0
+    },
+    {
+      "source": "hb",
+      "target": "pallor",
+      "type": "causes",
+      "weight": 1.0
+    },
+    {
+      "source": "hb",
+      "target": "tachycardia",
+      "type": "causes",
+      "weight": 1.0
+    },
+    {
+      "source": "hb",
+      "target": "dyspnea_anemia",
+      "type": "causes",
+      "weight": 1.0
+    },
+    {
+      "source": "hb",
+      "target": "fatigue",
+      "type": "causes",
+      "weight": 1.0
+    },
+    {
+      "source": "hb",
+      "target": "dizziness",
+      "type": "causes",
+      "weight": 1.0
+    },
+    {
+      "source": "pallor",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "pallor",
+      "target": "b12_deficiency",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "pallor",
+      "target": "hemolytic_anemia",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachycardia",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "tachycardia",
+      "target": "hemolytic_anemia",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "fatigue",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "fatigue",
+      "target": "b12_deficiency",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "fatigue",
+      "target": "anemia_of_chronic",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "dizziness",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "syncope",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "syncope",
+      "target": "hemolytic_anemia",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "paresthesia",
+      "target": "b12_deficiency",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "jaundice",
+      "target": "hemolytic_anemia",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "glossitis",
+      "target": "b12_deficiency",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "glossitis",
+      "target": "folate_deficiency",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "mch",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "mchc",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "rdw",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tibc",
+      "target": "iron_deficiency",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "serum_iron",
+      "target": "iron_deficiency",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "serum_iron",
+      "target": "anemia_of_chronic",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "ldh",
+      "target": "hemolytic_anemia",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "haptoglobin",
+      "target": "hemolytic_anemia",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "bilirubin_total",
+      "target": "hemolytic_anemia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "reticulocytes",
+      "target": "hemolytic_anemia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "reticulocytes",
+      "target": "aplastic_anemia",
+      "type": "discriminates",
+      "weight": 0.8
+    },
+    {
+      "source": "b12",
+      "target": "b12_deficiency",
+      "type": "key_marker",
+      "weight": 0.95
+    },
+    {
+      "source": "folate",
+      "target": "folate_deficiency",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "mcv",
+      "target": "b12_deficiency",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "mcv",
+      "target": "folate_deficiency",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "mcv",
+      "target": "hemolytic_anemia",
+      "type": "supports",
+      "weight": 0.6
+    },
+    {
+      "source": "tsh",
+      "target": "anemia_of_chronic",
+      "type": "associated",
+      "weight": 0.5
+    },
+    {
+      "source": "creatinine",
+      "target": "anemia_of_chronic",
+      "type": "associated",
+      "weight": 0.6
+    },
+    {
+      "source": "iron_deficiency",
+      "target": "diff_iron_vs_b12",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "b12_deficiency",
+      "target": "diff_iron_vs_b12",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "b12_deficiency",
+      "target": "diff_microcytic",
+      "type": "excluded_from",
+      "weight": 1.0
+    },
+    {
+      "source": "folate_deficiency",
+      "target": "diff_microcytic",
+      "type": "excluded_from",
+      "weight": 1.0
+    },
+    {
+      "source": "hemolytic_anemia",
+      "target": "diff_microcytic",
+      "type": "excluded_from",
+      "weight": 1.0
+    },
+    {
+      "source": "guideline_anemia_2023",
+      "target": "b12_deficiency",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "guideline_anemia_2023",
+      "target": "hemolytic_anemia",
+      "type": "covered_in",
+      "weight": 1.0
+    }
+  ],
+  "details": {
+    "iron_deficiency": {
+      "description": "Железодефицитная анемия — наиболее частая причина анемии в мире, обусловленная недостаточным поступлением или потерей железа.",
+      "criteria": [
+        "Hb снижен",
+        "MCV < 80 фл",
+        "Ферритин < 30 мкг/л",
+        "Сывороточное железо снижено",
+        "ОЖСС повышена"
+      ],
+      "prevalence": "20% женщин репродуктивного возраста",
+      "complications": [
+        "Сердечная недостаточность",
+        "Нарушения развития у детей",
+        "Иммуносупрессия"
+      ],
+      "treatment": [
+        "Сульфат железа перорально 65 мг ЭЖС 1-2 р/день",
+        "В/в железо при непереносимости",
+        "Лечение причины (меноррагии, КЖТ)"
+      ],
+      "followup": "Контроль Hb через 8 недель, ферритин через 3 месяца"
+    },
+    "b12_deficiency": {
+      "description": "B12-дефицитная анемия (мегалобластная) — вызвана недостатком витамина B12 вследствие малабсорбции, дефицита в пище или аутоиммунного гастрита.",
+      "criteria": [
+        "Hb снижен",
+        "MCV > 100 фл (макроцитоз)",
+        "B12 < 200 пг/мл",
+        "Повышенный гомоцистеин и ММА",
+        "Гиперсегментированные нейтрофилы"
+      ],
+      "prevalence": "5% населения старше 60 лет",
+      "complications": [
+        "Неврологические нарушения (миелопатия)",
+        "Когнитивные расстройства",
+        "Сердечная недостаточность"
+      ],
+      "treatment": [
+        "Цианокобаламин 1000 мкг в/м ежедневно 7 дней, затем еженедельно 4 недели",
+        "Пожизненная поддерживающая терапия при аутоиммунном гастрите",
+        "Пероральный B12 при высоких дозах (1000-2000 мкг/день)"
+      ],
+      "followup": "Контроль Hb через 8 недель, B12 через 3 месяца, невролог — при парестезиях"
+    }
+  },
+  "comparisons": {
+    "diff_iron_vs_acd": {
+      "headers": [
+        "Признак",
+        "Железодефицитная анемия",
+        "Анемия хронических заболеваний"
+      ],
+      "rows": [
+        {
+          "feature": "MCV",
+          "iron_deficiency": "<80 фл",
+          "acd": "80-100 фл (обычно)"
+        },
+        {
+          "feature": "Ферритин",
+          "iron_deficiency": "<30 мкг/л",
+          "acd": "Норма или повышен"
+        },
+        {
+          "feature": "Сывороточное железо",
+          "iron_deficiency": "Снижено",
+          "acd": "Снижено"
+        },
+        {
+          "feature": "ОЖСС",
+          "iron_deficiency": "Повышена",
+          "acd": "Норма или снижена"
+        },
+        {
+          "feature": "Трансферрин",
+          "iron_deficiency": "Повышен",
+          "acd": "Снижен"
+        },
+        {
+          "feature": "СТФ (%)",
+          "iron_deficiency": "<16%",
+          "acd": "Норма или снижена"
+        },
+        {
+          "feature": "Гепцидин",
+          "iron_deficiency": "Снижен",
+          "acd": "Повышен"
+        },
+        {
+          "feature": "Ответ на железо",
+          "iron_deficiency": "Хороший",
+          "acd": "Слабый (без лечения основного)"
+        }
+      ]
+    },
+    "diff_iron_vs_b12": {
+      "headers": [
+        "Признак",
+        "Железодефицитная",
+        "B12-дефицитная"
+      ],
+      "rows": [
+        {
+          "feature": "MCV",
+          "iron_deficiency": "<80 фл (микроцитарная)",
+          "b12_deficiency": ">100 фл (макроцитарная)"
+        },
+        {
+          "feature": "RDW",
+          "iron_deficiency": "Повышен",
+          "b12_deficiency": "Норма или повышен"
+        },
+        {
+          "feature": "Ферритин",
+          "iron_deficiency": "Снижен",
+          "b12_deficiency": "Норма или повышен"
+        },
+        {
+          "feature": "B12",
+          "iron_deficiency": "Норма",
+          "b12_deficiency": "Снижен"
+        },
+        {
+          "feature": "Неврология",
+          "iron_deficiency": "Отсутствует",
+          "b12_deficiency": "Парестезии, атаксия"
+        },
+        {
+          "feature": "Язык",
+          "iron_deficiency": "Глоссит (гладкий)",
+          "b12_deficiency": "Глоссит (красный, болезненный)"
+        },
+        {
+          "feature": "Ногти",
+          "iron_deficiency": "Коилонихия",
+          "b12_deficiency": "Норма"
+        },
+        {
+          "feature": "Лечение",
+          "iron_deficiency": "Железо перорально/в/в",
+          "b12_deficiency": "Цианокобаламин в/м"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "meta_iron_supplement": {
+      "title": "Oral iron supplementation for iron deficiency anemia: systematic review",
+      "authors": "Low MS et al.",
+      "journal": "Lancet Haematol",
+      "year": 2021,
+      "n": 8000,
+      "design": "Meta-analysis of 45 RCTs",
+      "grade": "A",
+      "key_findings": [
+        "Пероральное железо: прирост Hb 15.7 г/л за 8 недель",
+        "Побочные эффекты: 25% (запор, тошнота)",
+        "Прерывистый прием = ежедневный по эффективности при меньших побочных эффектах"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {}
+}

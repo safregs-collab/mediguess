@@ -1,0 +1,213 @@
+{
+  "id": "cr-301-v2",
+  "number": 301,
+  "version": 2,
+  "title": "Внебольничная пневмония у взрослых",
+  "mkb10": ["J12", "J13", "J14", "J15", "J16", "J18.1"],
+  "specialty": "pulmonology",
+  "status": "active",
+  "updatedAt": "2023-09-10T00:00:00Z",
+  "sourceUrl": "https://cr.minzdrav.gov.ru/recommend/301",
+  "clinicalPicture": {
+    "complaints": [
+      {
+        "id": "fever",
+        "text": "Лихорадка",
+        "severity": "severe",
+        "frequency": "always",
+        "variants": ["высокая", "субфебрильная", "гектическая"],
+        "location": [],
+        "irradiation": [],
+        "duration": { "min": 12, "max": 72, "unit": "hour" },
+        "triggers": [],
+        "relievingFactors": ["парацетамол", "ибупрофен", "антибиотики"],
+        "typical": true
+      },
+      {
+        "id": "cough",
+        "text": "Кашель",
+        "severity": "moderate",
+        "frequency": "always",
+        "variants": ["сухой", "влажный", "с мокротой", "лающий"],
+        "location": ["грудная клетка"],
+        "irradiation": [],
+        "duration": { "min": 1, "max": 14, "unit": "day" },
+        "triggers": ["глубокий вдох", "смена положения"],
+        "relievingFactors": ["муколитики", "отхаркивающие"],
+        "typical": true
+      },
+      {
+        "id": "dyspnea_pneumonia",
+        "text": "Одышка",
+        "severity": "moderate",
+        "frequency": "often",
+        "variants": ["экспираторная", "инспираторная", "смешанная"],
+        "location": [],
+        "irradiation": [],
+        "duration": { "min": 10, "max": 60, "unit": "min" },
+        "triggers": ["физическая нагрузка", "лежание на спине"],
+        "relievingFactors": ["полусидячее положение", "кислород"],
+        "typical": true
+      },
+      {
+        "id": "chest_pain_pneumonia",
+        "text": "Боль в грудной клетке",
+        "severity": "moderate",
+        "frequency": "often",
+        "variants": ["колющая", "плевритическая", "при кашле усиливается"],
+        "location": ["в грудной клетке", "с одной стороны"],
+        "irradiation": ["в плечо", "в спину"],
+        "duration": { "min": 10, "max": 120, "unit": "min" },
+        "triggers": ["кашель", "глубокий вдох"],
+        "relievingFactors": ["анальгетики", "противокашлевые"],
+        "typical": false
+      },
+      {
+        "id": "weakness_pneumonia",
+        "text": "Слабость",
+        "severity": "moderate",
+        "frequency": "often",
+        "variants": ["слабость", "адинамия", "потливость"],
+        "location": [],
+        "irradiation": [],
+        "duration": { "min": 1, "max": 7, "unit": "day" },
+        "triggers": ["лихорадка", "интоксикация"],
+        "relievingFactors": ["антибиотики", "дезинтоксикация"],
+        "typical": false
+      }
+    ],
+    "anamnesis": [
+      { "id": "smoking_pulm", "category": "risk_factor", "label": "Курение", "description": ">10 пачко-лет", "weight": 0.6, "correlatesWith": ["cough", "dyspnea_pneumonia"] },
+      { "id": "copd", "category": "comorbidity", "label": "ХОБЛ", "description": "Хроническая обструктивная болезнь лёгких", "weight": 0.7, "correlatesWith": ["cough", "dyspnea_pneumonia"] },
+      { "id": "diabetes_pulm", "category": "comorbidity", "label": "Сахарный диабет", "description": "СД 2 типа", "weight": 0.5, "correlatesWith": ["fever", "weakness_pneumonia"] },
+      { "id": "alcohol", "category": "risk_factor", "label": "Злоупотребление алкоголем", "description": "Хронический алкоголизм", "weight": 0.5, "correlatesWith": ["fever", "weakness_pneumonia"] },
+      { "id": "aspiration", "category": "risk_factor", "label": "Аспирационный риск", "description": "Нарушение глотания, кома, алкогольное опьянение", "weight": 0.4, "correlatesWith": ["cough"] },
+      { "id": "immunosuppression", "category": "comorbidity", "label": "Иммуносупрессия", "description": "ВИЧ, химиотерапия, кортикостероиды", "weight": 0.6, "correlatesWith": ["fever", "weakness_pneumonia"] },
+      { "id": "recent_uri", "category": "comorbidity", "label": "Недавняя ОРВИ", "description": "1-2 недели назад", "weight": 0.4, "correlatesWith": ["cough", "fever"] },
+      { "id": "contact_birds", "category": "risk_factor", "label": "Контакт с птицами", "description": "Пситтакоз", "weight": 0.2, "correlatesWith": ["fever", "cough"] },
+      { "id": "pneumonia_history", "category": "comorbidity", "label": "Перенесённая пневмония", "description": "В анамнезе", "weight": 0.3, "correlatesWith": ["cough"] }
+    ],
+    "physicalExam": [
+      { "id": "fever_38", "label": "Температура >38°C", "description": "Лихорадка", "typical": true, "severity": "moderate" },
+      { "id": "tachypnea", "label": "Тахипноэ", "description": "ЧДД >22/мин", "typical": true, "severity": "moderate" },
+      { "id": "dullness_percussion", "label": "Притупление перкуторного звука", "description": "Над очагом поражения", "typical": true, "severity": "moderate" },
+      { "id": "crepitus", "label": "Крепитация", "description": "Мелкопузырчатые хрипы", "typical": true, "severity": "moderate" },
+      { "id": "bronchial_breath", "label": "Бронхиальное дыхание", "description": "Над консолидацией", "typical": false, "severity": "moderate" },
+      { "id": "pleural_friction", "label": "Шум трения плевры", "description": "При плеврите", "typical": false, "severity": "moderate" }
+    ]
+  },
+  "diagnostics": {
+    "lab": [
+      {
+        "id": "wbc",
+        "name": "Лейкоциты",
+        "unit": "×10⁹/л",
+        "normalRange": { "min": 4.0, "max": 9.0 },
+        "valueScenarios": [
+          { "scenarioId": "bacterial", "description": "Бактериальная пневмония", "valueDistribution": { "type": "normal", "mean": 14.0, "stdDev": 4.0, "min": 10.0, "max": 25.0 }, "probability": 0.5, "correlatesWith": ["fever", "cough"] },
+          { "scenarioId": "viral", "description": "Вирусная пневмония", "valueDistribution": { "type": "normal", "mean": 5.5, "stdDev": 2.0, "min": 3.0, "max": 9.0 }, "probability": 0.25, "correlatesWith": ["cough", "weakness_pneumonia"] },
+          { "scenarioId": "severe", "description": "Тяжёлая пневмония (лейкопения)", "valueDistribution": { "type": "normal", "mean": 3.0, "stdDev": 1.5, "min": 1.0, "max": 4.0 }, "probability": 0.15, "correlatesWith": ["immunosuppression", "weakness_pneumonia"] },
+          { "scenarioId": "normal", "description": "Норма", "valueDistribution": { "type": "uniform", "mean": 6.5, "stdDev": 1.5, "min": 4.0, "max": 9.0 }, "probability": 0.1, "correlatesWith": [] }
+        ]
+      },
+      {
+        "id": "crp",
+        "name": "СРБ",
+        "unit": "мг/л",
+        "normalRange": { "text": "<5" },
+        "valueScenarios": [
+          { "scenarioId": "bacterial_high", "description": "Высокий при бактериальной", "valueDistribution": { "type": "lognormal", "mean": 4.5, "stdDev": 0.8, "min": 50.0, "max": 300.0 }, "probability": 0.5, "correlatesWith": ["fever", "cough"] },
+          { "scenarioId": "moderate", "description": "Умеренное повышение", "valueDistribution": { "type": "normal", "mean": 40.0, "stdDev": 20.0, "min": 10.0, "max": 80.0 }, "probability": 0.3, "correlatesWith": ["cough", "weakness_pneumonia"] },
+          { "scenarioId": "normal", "description": "Норма", "valueDistribution": { "type": "uniform", "mean": 3.0, "stdDev": 1.5, "min": 0.5, "max": 5.0 }, "probability": 0.2, "correlatesWith": [] }
+        ]
+      },
+      {
+        "id": "procalcitonin",
+        "name": "Прокальцитонин",
+        "unit": "нг/мл",
+        "normalRange": { "text": "<0.05" },
+        "valueScenarios": [
+          { "scenarioId": "bacterial", "description": "Бактериальная инфекция", "valueDistribution": { "type": "lognormal", "mean": 1.5, "stdDev": 0.8, "min": 0.5, "max": 10.0 }, "probability": 0.5, "correlatesWith": ["fever", "cough"] },
+          { "scenarioId": "viral", "description": "Вирусная/низкий", "valueDistribution": { "type": "uniform", "mean": 0.03, "stdDev": 0.01, "min": 0.01, "max": 0.05 }, "probability": 0.3, "correlatesWith": ["cough"] },
+          { "scenarioId": "severe", "description": "Сепсис", "valueDistribution": { "type": "lognormal", "mean": 3.0, "stdDev": 1.0, "min": 2.0, "max": 50.0 }, "probability": 0.2, "correlatesWith": ["fever", "weakness_pneumonia"] }
+        ]
+      }
+    ],
+    "instrumental": [
+      {
+        "id": "chest_xray",
+        "name": "Рентгенография грудной клетки",
+        "modality": "xray",
+        "patterns": [
+          { "id": "infiltrate_lower", "label": "Инфильтрат в нижней доле", "description": "Очаг затемнения в нижней доле справа/слева", "probability": 0.35, "correlatesWith": ["cough", "fever"] },
+          { "id": "infiltrate_upper", "label": "Инфильтрат в верхней доле", "description": "Очаг затемнения в верхней доле (типично для туберкулёза, но и пневмония)", "probability": 0.20, "correlatesWith": ["cough", "fever"] },
+          { "id": "bilateral", "label": "Двусторонние инфильтраты", "description": "Затемнение в обоих лёгких", "probability": 0.15, "correlatesWith": ["fever", "dyspnea_pneumonia"] },
+          { "id": "pleural_effusion", "label": "Плевральный выпот", "description": "Жидкость в плевральной полости", "probability": 0.15, "correlatesWith": ["chest_pain_pneumonia", "fever"] },
+          { "id": "xray_normal", "label": "Норма", "description": "Без патологических изменений", "probability": 0.15, "correlatesWith": ["weakness_pneumonia", "recent_uri"] }
+        ]
+      },
+      {
+        "id": "ct_chest",
+        "name": "КТ грудной клетки",
+        "modality": "ct",
+        "patterns": [
+          { "id": "consolidation", "label": "Консолидация", "description": "Участок консолидации лёгочной ткани", "probability": 0.50, "correlatesWith": ["cough", "fever"] },
+          { "id": "ground_glass", "label": "Матовое стекло", "description": "Ground-glass opacities", "probability": 0.25, "correlatesWith": ["dyspnea_pneumonia", "fever"] },
+          { "id": "cavitation", "label": "Кавитация", "description": "Полость распада", "probability": 0.15, "correlatesWith": ["alcohol", "immunosuppression"] },
+          { "id": "ct_normal", "label": "Норма", "description": "Без значимых изменений", "probability": 0.10, "correlatesWith": ["weakness_pneumonia"] }
+        ]
+      }
+    ],
+    "criteria": [
+      { "id": "infiltrate_xray", "label": "Инфильтрат на рентгене", "description": "Новый очаг инфильтрации", "required": true, "weight": 0.9 },
+      { "id": "fever_acute", "label": "Острая лихорадка", "description": "Температура >38°C", "required": false, "weight": 0.7 },
+      { "id": "cough_productive", "label": "Продуктивный кашель", "description": "Кашель с мокротой", "required": false, "weight": 0.6 },
+      { "id": "leukocytosis", "label": "Лейкоцитоз / лейкопения", "description": "Отклонение Лейкоцитов от нормы", "required": false, "weight": 0.5 }
+    ]
+  },
+  "differential": [
+    { "id": "tuberculosis_diff", "label": "Туберкулёз лёгких", "mkb10": ["A15", "A16"], "keyDifferences": ["Субострое/хроническое течение", "Каверна на КТ", "Мокрота с кровью", "Положительная бакпосев"], "discriminatingFindings": ["cavitation", "infiltrate_upper"] },
+    { "id": "covid_diff", "label": "COVID-19", "mkb10": ["U07.1"], "keyDifferences": ["Эпидемиологический анамнез", "Аносмия/агевзия", "Двусторонние GGO на КТ", "ПЦР положительна"], "discriminatingFindings": ["ground_glass", "bilateral"] },
+    { "id": "pulmonary_embolism_diff", "label": "ТЭЛА", "mkb10": ["I26"], "keyDifferences": ["Острая одышка без кашля", "S1Q3T3 на ЭКГ", "Высокий Д-димер", "Нормальная рентгенография"], "discriminatingFindings": ["dyspnea_pneumonia", "xray_normal"] },
+    { "id": "lung_cancer_diff", "label": "Рак лёгкого", "mkb10": ["C34"], "keyDifferences": ["Хронический кашель", "Гемоптиз", "Массивное образование на КТ", "Курильщик стажем >30 лет"], "discriminatingFindings": ["smoking_pulm", "cavitation"] },
+    { "id": "heart_failure_diff", "label": "Острая сердечная недостаточность", "mkb10": ["I50"], "keyDifferences": ["Одышка в покое", "Влажные хрипы по всем полям", "Кардиомегалия", "Высокий BNP"], "discriminatingFindings": ["dyspnea_pneumonia", "xray_normal"] }
+  ],
+  "treatment": {
+    "emergency": [
+      { "id": "oxygen_pneumonia", "stage": "emergency", "label": "Кислородотерапия", "description": "При SpO2 <92%", "priority": 1 },
+      { "id": "iv_fluids", "stage": "emergency", "label": "В/в инфузионная терапия", "description": "Дезинтоксикация", "priority": 2 },
+      { "id": "antipyretic", "stage": "emergency", "label": "Жаропонижающие", "description": "Парацетамол при температуре >38.5°C", "priority": 3 }
+    ],
+    "therapy": [
+      { "id": "amoxicillin", "stage": "therapy", "label": "Амоксициллин 1г × 3 раза", "description": "Эмпирическая терапия амбулаторной пневмонии", "priority": 1 },
+      { "id": "azithromycin", "stage": "therapy", "label": "Азитромицин 500 мг × 1 раз", "description": "Атипичные возбудители", "priority": 2 },
+      { "id": "ceftriaxone", "stage": "therapy", "label": "Цефтриаксон 2г в/в", "description": "Госпитальная пневмония", "priority": 1 },
+      { "id": "moxifloxacin", "stage": "therapy", "label": "Моксифлоксацин 400 мг", "description": "Альтернатива при аллергии на пенициллин", "priority": 2 },
+      { "id": "ambroxol", "stage": "therapy", "label": "Амброксол", "description": "Муколитик", "priority": 3 }
+    ],
+    "surgery": [
+      { "id": "drainage", "stage": "surgery", "label": "Плевральный дренаж", "description": "При гнойном плеврите/эмпиеме", "priority": 1 }
+    ]
+  },
+  "algorithms": [
+    {
+      "id": "pneumonia_diagnosis",
+      "label": "Алгоритм диагностики пневмонии",
+      "nodes": [
+        { "id": "symptoms", "label": "Кашель + лихорадка?", "type": "decision" },
+        { "id": "xray", "label": "Рентген ОГК", "type": "action" },
+        { "id": "confirmed", "label": "Пневмония подтверждена", "type": "terminal" },
+        { "id": "alternative", "label": "Дифференциал", "type": "terminal" }
+      ],
+      "edges": [
+        { "from": "symptoms", "to": "xray", "condition": "да" },
+        { "from": "xray", "to": "confirmed", "condition": "инфильтрат" },
+        { "from": "xray", "to": "alternative", "condition": "нет инфильтрата" }
+      ]
+    }
+  ],
+  "evidence": [
+    { "id": "idsa_2019", "source": "IDSA/ATS 2019 Guidelines", "url": "https://idsociety.org", "grade": "A", "recommendation": "Амоксициллин — препарат выбора амбулаторной пневмонии" },
+    { "id": "escmid_2020", "source": "ESCMID 2020", "url": "https://escmid.org", "grade": "A", "recommendation": "Прокальцитонин для дифференциации бактериальной/вирусной" }
+  ]
+}
