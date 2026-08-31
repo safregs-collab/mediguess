@@ -1,0 +1,1 @@
+# SESSION_RESUME — DOC-W CR Integration (v0.0.40+CR.1.0.0) — COMPLETE ✅
