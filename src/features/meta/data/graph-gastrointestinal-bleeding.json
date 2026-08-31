@@ -1,0 +1,813 @@
+{
+  "id": "gastrointestinal-bleeding",
+  "label": "Желудочно-кишечное кровотечение",
+  "color": "#dc2626",
+  "nodes": [
+    {
+      "id": "hemoglobin",
+      "label": "Гемоглобин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "г/л",
+      "normal": "М 130-160",
+      "value": 72,
+      "group": "cbc",
+      "description": "Гемоглобин — падение указывает на хроничность. Острое падение >20 г/л — массивное кровотечение."
+    },
+    {
+      "id": "hematocrit",
+      "label": "Гематокрит",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "%",
+      "normal": "М 40-50",
+      "value": 24,
+      "group": "cbc",
+      "description": "Гематокрит — снижение при кровопотере. Может не отражать острую потерю из-за гемодилюции."
+    },
+    {
+      "id": "platelets",
+      "label": "Тромбоциты",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "×10⁹/л",
+      "normal": "150-400",
+      "value": 95,
+      "group": "cbc",
+      "description": "Тромбоциты <100×10⁹/л — риск кровотечения. <50 — высокий риск."
+    },
+    {
+      "id": "inr",
+      "label": "МНО (INR)",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "",
+      "normal": "0.8-1.2",
+      "value": 1.8,
+      "group": "coagulation",
+      "description": "МНО >1.5 — коагулопатия. >2.0 — высокий риск. При ВКА — целевой 2.0–3.0."
+    },
+    {
+      "id": "bun",
+      "label": "Мочевина",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "2.5-8.3",
+      "value": 18,
+      "group": "kidney",
+      "description": "Мочевина — соотношение BUN/креатинин >36:1 — верхнее ЖК-кровотечение. Реабсорбция белка."
+    },
+    {
+      "id": "creatinine",
+      "label": "Креатинин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкмоль/л",
+      "normal": "62-115",
+      "value": 110,
+      "group": "kidney",
+      "description": "Креатинин — ОПН при гиповолемии, шоке. Рост — тяжесть кровотечения."
+    },
+    {
+      "id": "lactate",
+      "label": "Лактат",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "0.5-1.6",
+      "value": 3.5,
+      "group": "metabolism",
+      "description": "Лактат >2.0 — тканевая гипоперфузия. >4.0 — шок, массивное кровотечение."
+    },
+    {
+      "id": "egds",
+      "label": "ЭГДС",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "endoscopy",
+      "description": "ЭГДС — золотой стандарт верхнего ЖК-кровотечения. Определяет источник, возможность гемостаза."
+    },
+    {
+      "id": "colonoscopy",
+      "label": "Колоноскопия",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "endoscopy",
+      "description": "Колоноскопия — диагностика нижнего ЖК-кровотечения. При массивном — после стабилизации."
+    },
+    {
+      "id": "ct_angiography",
+      "label": "КТ-ангиография",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging",
+      "description": "КТ-ангиография — локализация кровотечения при неясном источнике. \"Blush\" — активное кровотечение."
+    },
+    {
+      "id": "fecal_occult",
+      "label": "Скрытая кровь в кале",
+      "layer": "raw",
+      "type": "lab",
+      "group": "stool",
+      "description": "Скрытая кровь в кале — хроническое микрокровотечение. Анемия, колоректальный рак."
+    },
+    {
+      "id": "hematemesis",
+      "label": "Рвота кровью / «кофейной гущей»",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "массивная",
+      "description": "Рвота кровью — верхнее ЖК-кровотечение. \"Кофейная гуща\" — частично переваренная кровь."
+    },
+    {
+      "id": "melena",
+      "label": "Мелена",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Чёрный дегтеобразный стул — верхнее ЖК-кровотечение. Гематин + HCl. Объём >100 мл."
+    },
+    {
+      "id": "hematochezia",
+      "label": "Кровь в стуле ярко-красная",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Кровь в стуле — нижнее ЖК-кровотечение. При массивном верхнем — тоже возможна."
+    },
+    {
+      "id": "tachycardia",
+      "label": "Тахикардия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Тахикардия — компенсаторная при кровопотере. Первый признак (до гипотензии)."
+    },
+    {
+      "id": "hypotension",
+      "label": "Артериальная гипотензия",
+      "layer": "findings",
+      "type": "sign",
+      "severity": "тяжёлая",
+      "description": "Гипотензия — потеря >30% ОЦК. САД <90 — шок. Требует инфузии, трансфузии."
+    },
+    {
+      "id": "pallor",
+      "label": "Бледность кожных покровов",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Бледность — острая анемия. Поздний признак, виден при потере >20% ОЦК."
+    },
+    {
+      "id": "cold_sweat",
+      "label": "Холодный липкий пот",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Холодный пот — вегетативный ответ на гиповолемию, шок."
+    },
+    {
+      "id": "syncope",
+      "label": "Обморок",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Обморок — острая гиповолемия, гипоперфузия мозга. При вставании — ортостатический."
+    },
+    {
+      "id": "abdominal_pain",
+      "label": "Боль в животе",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Боль в животе — язва, дивертикул, ишемия, варикоз. Локализация указывает на источник."
+    },
+    {
+      "id": "dizziness",
+      "label": "Головокружение",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Головокружение — гиповолемия, анемия. Ранний симптом при хроническом кровотечении."
+    },
+    {
+      "id": "variceal_bleeding",
+      "label": "Кровотечение из вариксов",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "10%",
+      "ptp": "medium",
+      "description": "Варикозное кровотечение — портальная гипертензия, цирроз. Тяжёлое, массивное. Требует терапевтической ЭГДС, терлипрессин."
+    },
+    {
+      "id": "peptic_ulcer_bleeding",
+      "label": "Язвенное кровотечение",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "40%",
+      "ptp": "high",
+      "description": "Язвенное кровотечение — H. pylori, НПВС. ЭГДС + инъекция адреналина + клипирование/коагуляция."
+    },
+    {
+      "id": "mallory_weiss",
+      "label": "Синдром Мэллори-Вейсса",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "10%",
+      "ptp": "medium",
+      "description": "Синдром Мэллори-Вейсса — разрыв слизистой пищевода у кардии. Рвота, рвота кровью. Самоограничивающийся."
+    },
+    {
+      "id": "diverticular_bleeding",
+      "label": "Дивертикулярное кровотечение",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "20%",
+      "ptp": "medium",
+      "description": "Дивертикулярное кровотечение — артериальное кровотечение из дивертикула сигмовидной ободочной кишки. Массивное, кровавый стул."
+    },
+    {
+      "id": "lower_gi_bleeding",
+      "label": "Нижнее ЖКК (ангиодисплазия, опухоль)",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "15%",
+      "ptp": "medium",
+      "description": "Нижнее ЖК-кровотечение — дивертикулы, ангиодисплазия, опухоли, ИБС. Колоноскопия, КТ-ангиография."
+    },
+    {
+      "id": "upper_gi_bleeding_other",
+      "label": "Верхнее ЖКК (гастрит, эрозии)",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "Другое верхнее ЖК-кровотечение — эрозии, опухоли, ангиодисплазия, аортопищеводное свище."
+    },
+    {
+      "id": "diff_upper_vs_lower",
+      "label": "Верхнее vs Нижнее ЖКК",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_variceal_vs_peptic",
+      "label": "Варикозное vs Язвенное",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_algorithm_gib",
+      "label": "Алгоритм диффдиагностики ЖКК",
+      "layer": "differential",
+      "type": "algorithm"
+    },
+    {
+      "id": "guideline_acg_2021",
+      "label": "ACG Guidelines: GI Bleeding 2021",
+      "layer": "evidence",
+      "type": "guideline",
+      "grade": "A",
+      "year": 2021,
+      "description": "ACG Guidelines 2021 — диагностика и лечение ЖК-кровотечения."
+    },
+    {
+      "id": "rct_pantoprazole",
+      "label": "RCT: пантопразол при язвенном кровотечении",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2018,
+      "n": 500,
+      "description": "RCT пантопразола — ингибиторы протонной помпы снижают рецидив язвенного кровотечения."
+    },
+    {
+      "id": "meta_terlipressin",
+      "label": "Мета-анализ: терлипрессин при варикозном кровотечении",
+      "layer": "evidence",
+      "type": "meta-analysis",
+      "grade": "A",
+      "year": 2019,
+      "n": 3000,
+      "description": "Мета-анализ терлипрессина — снижает смертность при варикозном кровотечении. Вазопрессиновый аналог."
+    }
+  ],
+  "links": [
+    {
+      "source": "hemoglobin",
+      "target": "variceal_bleeding",
+      "type": "key_marker",
+      "weight": 0.85
+    },
+    {
+      "source": "hemoglobin",
+      "target": "peptic_ulcer_bleeding",
+      "type": "key_marker",
+      "weight": 0.85
+    },
+    {
+      "source": "hemoglobin",
+      "target": "diverticular_bleeding",
+      "type": "key_marker",
+      "weight": 0.8
+    },
+    {
+      "source": "hematocrit",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "hematocrit",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "platelets",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "platelets",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "inr",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "inr",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.6
+    },
+    {
+      "source": "bun",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "bun",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "bun",
+      "target": "upper_gi_bleeding_other",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "lactate",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "lactate",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "egds",
+      "target": "variceal_bleeding",
+      "type": "confirms",
+      "weight": 0.98
+    },
+    {
+      "source": "egds",
+      "target": "peptic_ulcer_bleeding",
+      "type": "confirms",
+      "weight": 0.98
+    },
+    {
+      "source": "egds",
+      "target": "mallory_weiss",
+      "type": "confirms",
+      "weight": 0.98
+    },
+    {
+      "source": "egds",
+      "target": "upper_gi_bleeding_other",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "colonoscopy",
+      "target": "diverticular_bleeding",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "colonoscopy",
+      "target": "lower_gi_bleeding",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "ct_angiography",
+      "target": "lower_gi_bleeding",
+      "type": "confirms",
+      "weight": 0.85
+    },
+    {
+      "source": "ct_angiography",
+      "target": "diverticular_bleeding",
+      "type": "confirms",
+      "weight": 0.85
+    },
+    {
+      "source": "hematemesis",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "hematemesis",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "hematemesis",
+      "target": "mallory_weiss",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "melena",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "melena",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "melena",
+      "target": "upper_gi_bleeding_other",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "hematochezia",
+      "target": "diverticular_bleeding",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "hematochezia",
+      "target": "lower_gi_bleeding",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "tachycardia",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachycardia",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "hypotension",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "hypotension",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "pallor",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "pallor",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "cold_sweat",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "syncope",
+      "target": "variceal_bleeding",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "abdominal_pain",
+      "target": "peptic_ulcer_bleeding",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "abdominal_pain",
+      "target": "diverticular_bleeding",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "variceal_bleeding",
+      "target": "diff_variceal_vs_peptic",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "peptic_ulcer_bleeding",
+      "target": "diff_variceal_vs_peptic",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "variceal_bleeding",
+      "target": "diff_upper_vs_lower",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diverticular_bleeding",
+      "target": "diff_upper_vs_lower",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_algorithm_gib",
+      "target": "diff_variceal_vs_peptic",
+      "type": "includes",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_algorithm_gib",
+      "target": "diff_upper_vs_lower",
+      "type": "includes",
+      "weight": 1.0
+    },
+    {
+      "source": "peptic_ulcer_bleeding",
+      "target": "rct_pantoprazole",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "peptic_ulcer_bleeding",
+      "target": "guideline_acg_2021",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "variceal_bleeding",
+      "target": "meta_terlipressin",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "variceal_bleeding",
+      "target": "guideline_acg_2021",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_variceal_vs_peptic",
+      "target": "guideline_acg_2021",
+      "type": "described_in",
+      "weight": 1.0
+    }
+  ],
+  "details": {
+    "variceal_bleeding": {
+      "description": "Кровотечение из варикозно расширенных вен пищевода или желудка — наиболее опасное осложнение портальной гипертензии. Смертность 15-20%.",
+      "criteria": [
+        "Рвота кровью или «кофейной гущей»",
+        "Мелена",
+        "Гемодинамическая нестабильность",
+        "ЭГДС: вариксы с активным кровотечением или знаками недавнего кровотечения"
+      ],
+      "prevalence": "5-10% всех ЖКК",
+      "complications": [
+        "Аспирационная пневмония",
+        "Печёночная энцефалопатия",
+        "Бактериальный перитонит",
+        "Рецидивное кровотечение (до 60% в первые 6 недель)"
+      ],
+      "treatment": [
+        "Терлипрессин 2 мг в/в болюс, затем 1 мг каждые 4 часа",
+        "Октреотид 50 мкг в/в болюс, затем 50 мкг/час",
+        "Эндоскопическое лигирование вариксов (первый выбор)",
+        "Трансфузия эритроцитов (Hb <70-80 г/л)",
+        "Антибиотики профилактически (цефотаксим/ципрофлоксацин)",
+        "При неудаче: баллонная тампонада (Sengstaken-Blakemore), TIPS"
+      ],
+      "followup": "Повторная ЭГДС через 2-4 недели, бета-блокаторы (пропранолол), повторное лигирование"
+    },
+    "peptic_ulcer_bleeding": {
+      "description": "Кровотечение из язвы желудка или двенадцатиперстной кишки — наиболее частая причина верхнего ЖКК (40%).",
+      "criteria": [
+        "Рвота «кофейной гущей» или кровью",
+        "Мелена",
+        "ЭГДС: язва с видимым сосудом, активное кровотечение или сгусток крови"
+      ],
+      "prevalence": "40% верхнего ЖКК",
+      "complications": [
+        "Рецидивное кровотечение (10-30%)",
+        "Перфорация язвы",
+        "Аспирационная пневмония"
+      ],
+      "treatment": [
+        "Эндоскопическая гемостазия (инъекция адреналина, клипирование, термокоагуляция)",
+        "ИПП в/в (пантопразол 80 мг болюс + 8 мг/час инфузия)",
+        "Трансфузия при Hb <70-80 г/л",
+        "Эрадикация H. pylori",
+        "Отмена НПВС/антикоагулянтов"
+      ],
+      "followup": "Повторная ЭГДС через 24 часа при высоком риске, эрадикация H. pylori"
+    }
+  },
+  "comparisons": {
+    "diff_variceal_vs_peptic": {
+      "headers": [
+        "Признак",
+        "Варикозное кровотечение",
+        "Язвенное кровотечение"
+      ],
+      "rows": [
+        {
+          "feature": "Анамнез",
+          "variceal": "Цирроз печени, портальная гипертензия",
+          "peptic": "НПВС, H. pylori, стресс"
+        },
+        {
+          "feature": "Начало",
+          "variceal": "Массивное, внезапное",
+          "peptic": "Может быть постепенным"
+        },
+        {
+          "feature": "Рвота",
+          "variceal": "Ярко-красная кровь (часто)",
+          "peptic": "«Кофейная гуща» (чаще)"
+        },
+        {
+          "feature": "Мелена",
+          "variceal": "Да",
+          "peptic": "Да"
+        },
+        {
+          "feature": "Гемодинамика",
+          "variceal": "Часто тяжёлый шок",
+          "peptic": "Умеренная до тяжёлой"
+        },
+        {
+          "feature": "Печень/селезёнка",
+          "variceal": "Увеличены",
+          "peptic": "Норма"
+        },
+        {
+          "feature": "Тромбоциты/МНО",
+          "variceal": "Тромбоцитопения, МНО повышен",
+          "peptic": "Обычно норма"
+        },
+        {
+          "feature": "ЭГДС",
+          "variceal": "Вариксы, активное кровотечение",
+          "peptic": "Язва с видимым сосудом"
+        },
+        {
+          "feature": "Лечение",
+          "variceal": "Терлипрессин, лигирование",
+          "peptic": "ИПП, эндоскопическая гемостазия"
+        },
+        {
+          "feature": "Смертность",
+          "variceal": "15-20%",
+          "peptic": "5-10%"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "guideline_acg_2021": {
+      "title": "ACG Clinical Guideline: Upper Gastrointestinal and Ulcer Bleeding",
+      "authors": "Laine L, Barkun AN.",
+      "journal": "Am J Gastroenterol",
+      "year": 2021,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "ЭГДС в течение 24 часов для всех пациентов с верхним ЖКК",
+        "ИПП в/в до и после эндоскопии при подозрении на язвенное кровотечение",
+        "Трансфузия эритроцитов при Hb <70-80 г/л"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_pantoprazole": {
+      "title": "High-dose vs low-dose proton pump inhibitors after endoscopic hemostasis",
+      "authors": "Lau JY et al.",
+      "journal": "N Engl J Med",
+      "year": 2018,
+      "n": 500,
+      "design": "Double-blind RCT",
+      "grade": "A",
+      "key_findings": [
+        "Высокие дозы ИПП снижают рецидив кровотечения (8.6% vs 16.5%)",
+        "Снижение смертности",
+        "Стандарт: пантопразол 80 мг болюс + 8 мг/час"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "meta_terlipressin": {
+      "title": "Terlipressin for acute esophageal variceal hemorrhage: systematic review",
+      "authors": "Ioannou G et al.",
+      "journal": "Cochrane Database Syst Rev",
+      "year": 2019,
+      "n": 3000,
+      "design": "Meta-analysis of 30 RCTs",
+      "grade": "A",
+      "key_findings": [
+        "Терлипрессин снижает смертность (RR 0.66)",
+        "Улучшает гемостаз",
+        "Эффективнее октреотида и соматостатина"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "variceal_bleeding": [
+      {
+        "time": 0,
+        "event": "Начало кровотечения",
+        "hb": 120,
+        "ad": "120/80",
+        "symptom": "Рвота кровью"
+      },
+      {
+        "time": 30,
+        "event": "30 мин",
+        "hb": 100,
+        "ad": "100/65",
+        "symptom": "Повторная рвота"
+      },
+      {
+        "time": 60,
+        "event": "1 час",
+        "hb": 85,
+        "ad": "90/60",
+        "symptom": "Мелена, головокружение"
+      },
+      {
+        "time": 90,
+        "event": "Госпитализация",
+        "hb": 75,
+        "ad": "85/55",
+        "symptom": "Тахикардия 120"
+      },
+      {
+        "time": 120,
+        "event": "Терлипрессин",
+        "hb": 72,
+        "ad": "90/60",
+        "symptom": "Трансфузия 2 ед. ЭМ"
+      },
+      {
+        "time": 180,
+        "event": "ЭГДС + лигирование",
+        "hb": 78,
+        "ad": "100/65",
+        "symptom": "Гемостаз достигнут"
+      },
+      {
+        "time": 360,
+        "event": "6 часов",
+        "hb": 85,
+        "ad": "110/70",
+        "symptom": "Стабилизация"
+      },
+      {
+        "time": 1440,
+        "event": "24 часа",
+        "hb": 95,
+        "ad": "120/75",
+        "symptom": "Ясное сознание"
+      }
+    ]
+  }
+}

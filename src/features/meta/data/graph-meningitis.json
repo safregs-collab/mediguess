@@ -1,0 +1,1019 @@
+{
+  "id": "meningitis",
+  "label": "Менингит",
+  "color": "#8b5cf6",
+  "nodes": [
+    {
+      "id": "wbc_csf",
+      "label": "Лейкоциты ликвора",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "клеток/мкл",
+      "normal": "<5",
+      "value": 850,
+      "group": "csf",
+      "description": "Лейкоциты в ЛС >5/мкл — плеоцитоз. >1000/мкл — бактериальный менингит. <500 — вирусный."
+    },
+    {
+      "id": "protein_csf",
+      "label": "Белок ликвора",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "г/л",
+      "normal": "0.15-0.45",
+      "value": 2.8,
+      "group": "csf",
+      "description": "Белок в ЛС >0.45 г/л — повышен. >1.0 — бактериальный, <0.8 — вирусный."
+    },
+    {
+      "id": "glucose_csf",
+      "label": "Глюкоза ликвора",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "2.2-3.9",
+      "value": 1.2,
+      "group": "csf",
+      "description": "Глюкоза в ЛС. Бактериальный: <40% от крови. Вирусный: норма. Туберкулёзный: снижена."
+    },
+    {
+      "id": "glucose_blood",
+      "label": "Глюкоза крови",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "3.9-6.1",
+      "value": 5.4,
+      "group": "blood",
+      "description": "Гликемия для расчёта соотношения глюкозы ЛС/крови. Норма: 0.6–0.7."
+    },
+    {
+      "id": "lactate_csf",
+      "label": "Лактат ликвора",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "1.0-2.0",
+      "value": 6.5,
+      "group": "csf",
+      "description": "Лактат в ЛС >3.5 ммоль/л — бактериальный менингит. Вирусный: <2.0."
+    },
+    {
+      "id": "gram_stain",
+      "label": "Граммаска ликвора",
+      "layer": "raw",
+      "type": "lab",
+      "group": "microscopy",
+      "description": "Окраска по Граму — быстрая диагностика. Чувствительность 60–90% при бактериальном."
+    },
+    {
+      "id": "pcr_csf",
+      "label": "ПЦР ликвора",
+      "layer": "raw",
+      "type": "lab",
+      "group": "molecular",
+      "description": "ПЦР в ЛС — диагностика вирусного менингита (ВПГ, ВЭБ, энтеровирусы)."
+    },
+    {
+      "id": "blood_culture",
+      "label": "Гемокультура",
+      "layer": "raw",
+      "type": "lab",
+      "group": "microbiology",
+      "description": "Гемокультура — выделение возбудителя при бактериальном менингите. Положительна в 50–70%."
+    },
+    {
+      "id": "crp",
+      "label": "СРБ",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мг/л",
+      "normal": "<5",
+      "value": 85,
+      "group": "inflammation",
+      "description": "СРБ — неспецифический маркер воспаления. Повышен при бактериальном менингите."
+    },
+    {
+      "id": "procalcitonin",
+      "label": "Прокальцитонин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "<0.05",
+      "value": 4.2,
+      "group": "inflammation",
+      "description": "Прокальцитонин >0.5 нг/мл — бактериальная этиология. Вирусный: норма."
+    },
+    {
+      "id": "ct_mri_head",
+      "label": "КТ/МРТ головного мозга",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging",
+      "description": "КТ/МРТ — исключение очаговой патологии перед ЛП. Контраиндикация ЛП при отёке."
+    },
+    {
+      "id": "fever",
+      "label": "Лихорадка",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "высокая",
+      "description": "Лихорадка — почти постоянный симптом. Внезапное начало при бактериальном, постепенное при вирусном."
+    },
+    {
+      "id": "headache",
+      "label": "Головная боль",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "интенсивная",
+      "description": "Интенсивная головная боль — ключевой симптом. Усиливается при движении глазами, свете."
+    },
+    {
+      "id": "nuchal_rigidity",
+      "label": "Ригидность затылочных мышц",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Ригидность затылочных мышц — патогномоничный признак менингизма."
+    },
+    {
+      "id": "photophobia",
+      "label": "Фотофобия",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Светобоязнь — раздражение мозговых оболочек. Сопровождает головную боль."
+    },
+    {
+      "id": "altered_mental_status",
+      "label": "Изменение сознания",
+      "layer": "findings",
+      "type": "sign",
+      "severity": "тяжёлое",
+      "description": "Нарушение сознания — тяжёлый менингит, энцефалит, отёк мозга."
+    },
+    {
+      "id": "seizures",
+      "label": "Судороги",
+      "layer": "findings",
+      "type": "complication",
+      "description": "Судороги — энцефалит, отёк мозга, электролитные нарушения. Требуют немедленной терапии."
+    },
+    {
+      "id": "petechial_rash",
+      "label": "Петециальная сыпь",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Петехиальная сыпь — менингококковый менингит. Требует немедленного антибиотика."
+    },
+    {
+      "id": "kernig_brudzinski",
+      "label": "Симптомы Кернига и Брудзинского",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Симптомы Кернига и Брудзинского — менингиальные знаки. Специфичны, но не чувствительны."
+    },
+    {
+      "id": "vomiting",
+      "label": "Рвота",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Рвота — внутричерепная гипертензия, раздражение блуждающего нерва. Часто без тошноты."
+    },
+    {
+      "id": "bacterial_meningitis",
+      "label": "Бактериальный менингит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "30%",
+      "ptp": "high",
+      "description": "Бактериальный менингит — Streptococcus pneumoniae, Neisseria meningitidis, Haemophilus. Тяжёлое течение, требует немедленных антибиотиков."
+    },
+    {
+      "id": "viral_meningitis",
+      "label": "Вирусный менингит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "50%",
+      "ptp": "high",
+      "description": "Вирусный менингит — энтеровирусы, ВПГ, ВЭВ. Лёгкое течение, самоограничивающийся. Лимфоцитарный плеоцитоз."
+    },
+    {
+      "id": "fungal_meningitis",
+      "label": "Грибковый менингит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "Грибковый менингит — Cryptococcus, Candida. Иммуносупрессия, ВИЧ. Хроническое течение, высокое давление ЛС."
+    },
+    {
+      "id": "tb_meningitis",
+      "label": "Туберкулёзный менингит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "Туберкулёзный менингит — Mycobacterium tuberculosis. Субострое течение, лимфоцитарный плеоцитоз, низкая глюкоза ЛС."
+    },
+    {
+      "id": "subarachnoid_hemorrhage",
+      "label": "Субарахноидальное кровоизлияние",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "2%",
+      "ptp": "medium",
+      "description": "САК — кровоизлияние в субарахноидальное пространство. \"Громовой удар\", менингизм. Требует аневризмографии."
+    },
+    {
+      "id": "encephalitis",
+      "label": "Энцефалит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "8%",
+      "ptp": "medium",
+      "description": "Энцефалит — воспаление мозгового вещества. ВПГ, аутоиммунный. Нарушение сознания, судороги, фокальные дефициты."
+    },
+    {
+      "id": "diff_bacterial_vs_viral",
+      "label": "Бактериальный vs Вирусный",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_meningitis_vs_encephalitis",
+      "label": "Менингит vs Энцефалит",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_algorithm_meningitis",
+      "label": "Алгоритм диффдиагностики менингита",
+      "layer": "differential",
+      "type": "algorithm"
+    },
+    {
+      "id": "guideline_idsa_2017",
+      "label": "IDSA Guidelines: Bacterial Meningitis 2017",
+      "layer": "evidence",
+      "type": "guideline",
+      "grade": "A",
+      "year": 2017,
+      "description": "IDSA Guidelines 2017 — диагностика и лечение острого менингита у взрослых."
+    },
+    {
+      "id": "rct_dexamethasone",
+      "label": "RCT: Дексаметазон при бактериальном менингите",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2002,
+      "n": 301,
+      "description": "De Gans et al. (2002) — дексаметазон снижает смертность и неврологические осложнения при бактериальном менингите."
+    },
+    {
+      "id": "meta_vaccines",
+      "label": "Мета-анализ: вакцины против пневмококка и менингококка",
+      "layer": "evidence",
+      "type": "meta-analysis",
+      "grade": "A",
+      "year": 2019,
+      "n": 150000,
+      "description": "Мета-анализ вакцин — конъюгированные вакцины против пневмококка, менингококка снижают заболеваемость."
+    },
+    {
+      "id": "temp",
+      "label": "Температура",
+      "layer": "raw",
+      "type": "vital",
+      "unit": "°C",
+      "normal": "36.0-37.0",
+      "value": 39.2,
+      "group": "vitals",
+      "description": "Температура. Лихорадка >38.3°C — инфекционный менингит. Гипотермия при тяжёлом сепсисе."
+    },
+    {
+      "id": "hr",
+      "label": "ЧСС",
+      "layer": "raw",
+      "type": "vital",
+      "unit": "уд/мин",
+      "normal": "60-100",
+      "value": 120,
+      "group": "vitals",
+      "description": "ЧСС. Тахикардия — признак сепсиса и болевого синдрома."
+    },
+    {
+      "id": "rr",
+      "label": "ЧДД",
+      "layer": "raw",
+      "type": "vital",
+      "unit": "/мин",
+      "normal": "12-20",
+      "value": 24,
+      "group": "vitals",
+      "description": "ЧДД. Тахипноэ — компенсаторный ответ на ацидоз или гипоксемию."
+    },
+    {
+      "id": "bp",
+      "label": "АД",
+      "layer": "raw",
+      "type": "vital",
+      "unit": "мм рт.ст.",
+      "normal": "120/80",
+      "value": "90/60",
+      "group": "vitals",
+      "description": "АД. Гипотензия — септический шок. Требует вазопрессоров."
+    },
+    {
+      "id": "wbc",
+      "label": "Лейкоциты крови",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "×10⁹/л",
+      "normal": "4-9",
+      "value": 18.5,
+      "group": "cbc",
+      "description": "Лейкоциты крови. Лейкоцитоз >12×10⁹/л — бактериальная инфекция. Лейкопения — тяжесть."
+    },
+    {
+      "id": "ldh_csf",
+      "label": "ЛДГ ликвора",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "Ед/л",
+      "normal": "<250",
+      "value": 420,
+      "group": "csf",
+      "description": "ЛДГ в ЛС >25% от сыворотки — бактериальный менингит."
+    },
+    {
+      "id": "tachycardia",
+      "label": "Тахикардия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Тахикардия — сепсис, гиповолемия, болевой синдром."
+    },
+    {
+      "id": "tachypnea",
+      "label": "Тахипноэ",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Тахипноэ — компенсаторный ответ на метаболический ацидоз."
+    },
+    {
+      "id": "phonophobia",
+      "label": "Фонофобия",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Звукобоязнь — сопутствует фотофобии. Характерна для вирусного менингита."
+    },
+    {
+      "id": "papilledema",
+      "label": "Застойный диск зрительного нерва",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Застойный диск зрительного нерва — внутричерепная гипертензия. Противопоказание ЛП."
+    }
+  ],
+  "links": [
+    {
+      "source": "wbc_csf",
+      "target": "bacterial_meningitis",
+      "type": "key_marker",
+      "weight": 0.95
+    },
+    {
+      "source": "wbc_csf",
+      "target": "viral_meningitis",
+      "type": "key_marker",
+      "weight": 0.8
+    },
+    {
+      "source": "wbc_csf",
+      "target": "fungal_meningitis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "protein_csf",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "protein_csf",
+      "target": "tb_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "glucose_csf",
+      "target": "bacterial_meningitis",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "glucose_csf",
+      "target": "viral_meningitis",
+      "type": "discriminates",
+      "weight": 0.85
+    },
+    {
+      "source": "lactate_csf",
+      "target": "bacterial_meningitis",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "lactate_csf",
+      "target": "viral_meningitis",
+      "type": "discriminates",
+      "weight": 0.85
+    },
+    {
+      "source": "gram_stain",
+      "target": "bacterial_meningitis",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "pcr_csf",
+      "target": "viral_meningitis",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "pcr_csf",
+      "target": "tb_meningitis",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "blood_culture",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "procalcitonin",
+      "target": "bacterial_meningitis",
+      "type": "key_marker",
+      "weight": 0.85
+    },
+    {
+      "source": "procalcitonin",
+      "target": "viral_meningitis",
+      "type": "discriminates",
+      "weight": 0.8
+    },
+    {
+      "source": "fever",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "fever",
+      "target": "viral_meningitis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "headache",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "headache",
+      "target": "viral_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "headache",
+      "target": "subarachnoid_hemorrhage",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "nuchal_rigidity",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "nuchal_rigidity",
+      "target": "viral_meningitis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "nuchal_rigidity",
+      "target": "subarachnoid_hemorrhage",
+      "type": "supports",
+      "weight": 0.6
+    },
+    {
+      "source": "photophobia",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "altered_mental_status",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "altered_mental_status",
+      "target": "encephalitis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "seizures",
+      "target": "bacterial_meningitis",
+      "type": "complication_of",
+      "weight": 0.7
+    },
+    {
+      "source": "seizures",
+      "target": "encephalitis",
+      "type": "complication_of",
+      "weight": 0.8
+    },
+    {
+      "source": "petechial_rash",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "kernig_brudzinski",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "ct_mri_head",
+      "target": "subarachnoid_hemorrhage",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "ct_mri_head",
+      "target": "encephalitis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "bacterial_meningitis",
+      "target": "diff_bacterial_vs_viral",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "viral_meningitis",
+      "target": "diff_bacterial_vs_viral",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "bacterial_meningitis",
+      "target": "diff_meningitis_vs_encephalitis",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "encephalitis",
+      "target": "diff_meningitis_vs_encephalitis",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_algorithm_meningitis",
+      "target": "diff_bacterial_vs_viral",
+      "type": "includes",
+      "weight": 1.0
+    },
+    {
+      "source": "bacterial_meningitis",
+      "target": "rct_dexamethasone",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "bacterial_meningitis",
+      "target": "guideline_idsa_2017",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_bacterial_vs_viral",
+      "target": "guideline_idsa_2017",
+      "type": "described_in",
+      "weight": 1.0
+    },
+    {
+      "source": "bacterial_meningitis",
+      "target": "meta_vaccines",
+      "type": "prevented_in",
+      "weight": 1.0
+    },
+    {
+      "source": "temp",
+      "target": "fever",
+      "type": "generates",
+      "weight": 1.0
+    },
+    {
+      "source": "hr",
+      "target": "tachycardia",
+      "type": "generates",
+      "weight": 1.0
+    },
+    {
+      "source": "rr",
+      "target": "tachypnea",
+      "type": "generates",
+      "weight": 1.0
+    },
+    {
+      "source": "fever",
+      "target": "tb_meningitis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "tachycardia",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "tachycardia",
+      "target": "viral_meningitis",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "tachypnea",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "phonophobia",
+      "target": "viral_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "phonophobia",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "papilledema",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "papilledema",
+      "target": "tb_meningitis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "vomiting",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "vomiting",
+      "target": "viral_meningitis",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "headache",
+      "target": "tb_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "headache",
+      "target": "fungal_meningitis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "nuchal_rigidity",
+      "target": "tb_meningitis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "altered_mental_status",
+      "target": "tb_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "altered_mental_status",
+      "target": "fungal_meningitis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "seizures",
+      "target": "tb_meningitis",
+      "type": "complication_of",
+      "weight": 0.75
+    },
+    {
+      "source": "wbc",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "wbc",
+      "target": "viral_meningitis",
+      "type": "discriminates",
+      "weight": 0.7
+    },
+    {
+      "source": "crp",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "crp",
+      "target": "viral_meningitis",
+      "type": "discriminates",
+      "weight": 0.75
+    },
+    {
+      "source": "ldh_csf",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "ldh_csf",
+      "target": "viral_meningitis",
+      "type": "discriminates",
+      "weight": 0.7
+    },
+    {
+      "source": "bp",
+      "target": "bacterial_meningitis",
+      "type": "supports",
+      "weight": 0.6
+    },
+    {
+      "source": "glucose_blood",
+      "target": "bacterial_meningitis",
+      "type": "associated",
+      "weight": 0.5
+    },
+    {
+      "source": "viral_meningitis",
+      "target": "guideline_idsa_2017",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "tb_meningitis",
+      "target": "guideline_idsa_2017",
+      "type": "covered_in",
+      "weight": 1.0
+    }
+  ],
+  "details": {
+    "bacterial_meningitis": {
+      "description": "Бактериальный менингит — острое инфекционное заболевание оболочек головного мозга. Возбудители: пневмококк, менингококк, гемофильная палочка, листерия.",
+      "criteria": [
+        "Лихорадка >38°C",
+        "Головная боль",
+        "Ригидность затылочных мышц",
+        "Лейкоциты ликвора >1000/мкл",
+        "Глюкоза ликвора снижена (<2.2 ммоль/л)",
+        "Лактат ликвора >3.5 ммоль/л",
+        "Прокальцитонин >0.5 нг/мл"
+      ],
+      "prevalence": "0.5-5 на 100 000 населения в год",
+      "complications": [
+        "Внутричерепная гипертензия",
+        "Судороги",
+        "Гидроцефалия",
+        "Субдуральный эмпиема",
+        "Сенсоневральная тугоухость",
+        "Когнитивные нарушения"
+      ],
+      "treatment": [
+        "Эмпирическая антибиотикотерапия в течение 1 часа (цефтриаксон 2г + ванкомицин + ампициллин)",
+        "Дексаметазон 0.15 мг/кг до или с первой дозой антибиотика",
+        "Интенсивная терапия, контроль ВЧД",
+        "Профилактика контактам при менингококковом менингите (рифампицин/ципрофлоксацин)"
+      ],
+      "followup": "Контроль ЛП через 48 часов, аудиометрия при выписке"
+    },
+    "viral_meningitis": {
+      "description": "Вирусный (асептический) менингит — наиболее частая форма менингита. Возбудители: энтеровирусы (Коксаки, Эхо), герпесвирусы, ВИЧ.",
+      "criteria": [
+        "Лихорадка",
+        "Головная боль",
+        "Ригидность затылочных мышц",
+        "Лейкоциты ликвора 10-500/мкл (лимфоциты)",
+        "Глюкоза ликвора нормальная",
+        "Лактат ликвора <2.5 ммоль/л",
+        "Прокальцитонин <0.5 нг/мл"
+      ],
+      "prevalence": "11 на 100 000 населения в год",
+      "complications": [
+        "Вирусный энцефалит",
+        "Синдром Guillain-Barré (редко)"
+      ],
+      "treatment": [
+        "Симптоматическая терапия (анальгетики, антипиретики)",
+        "Ацикловир при подозрении на HSV/VZV",
+        "Госпитализация для исключения бактериального менингита"
+      ],
+      "followup": "Амбулаторное наблюдение, контроль ЛП при неблагоприятном течении"
+    }
+  },
+  "comparisons": {
+    "diff_bacterial_vs_viral": {
+      "headers": [
+        "Признак",
+        "Бактериальный менингит",
+        "Вирусный менингит"
+      ],
+      "rows": [
+        {
+          "feature": "Начало",
+          "bacterial": "Острое (часы)",
+          "viral": "Подострое (1-3 дня)"
+        },
+        {
+          "feature": "Лейкоциты ликвора",
+          "bacterial": ">1000/мкл (нейтрофилы)",
+          "viral": "10-500/мкл (лимфоциты)"
+        },
+        {
+          "feature": "Белок ликвора",
+          "bacterial": ">2.0 г/л",
+          "viral": "0.5-1.5 г/л"
+        },
+        {
+          "feature": "Глюкоза ликвора",
+          "bacterial": "Снижена (<2.2 ммоль/л)",
+          "viral": "Нормальная"
+        },
+        {
+          "feature": "Лактат ликвора",
+          "bacterial": ">3.5 ммоль/л",
+          "viral": "<2.5 ммоль/л"
+        },
+        {
+          "feature": "Прокальцитонин",
+          "bacterial": ">0.5 нг/мл",
+          "viral": "<0.5 нг/мл"
+        },
+        {
+          "feature": "Граммаска",
+          "bacterial": "Бактерии (60-90%)",
+          "viral": "Отрицательная"
+        },
+        {
+          "feature": "Гемокультура",
+          "bacterial": "Положительна (50-70%)",
+          "viral": "Отрицательна"
+        },
+        {
+          "feature": "Состояние",
+          "bacterial": "Тяжёлое, изменение сознания",
+          "viral": "Средней тяжести"
+        },
+        {
+          "feature": "Лечение",
+          "bacterial": "Антибиотики + дексаметазон",
+          "viral": "Симптоматическое"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "guideline_idsa_2017": {
+      "title": "Clinical Practice Guidelines for the Management of Bacterial Meningitis",
+      "authors": "Tunkel AR et al.",
+      "journal": "Clin Infect Dis",
+      "year": 2017,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "Люмбальная пункция до КТ при отсутствии противопоказаний",
+        "Антибиотики в течение 1 часа от поступления",
+        "Дексаметазон до/с первой дозой антибиотика при пневмококковом менингите"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_dexamethasone": {
+      "title": "Dexamethasone in Adults with Bacterial Meningitis",
+      "authors": "de Gans J, van de Beek D.",
+      "journal": "N Engl J Med",
+      "year": 2002,
+      "n": 301,
+      "design": "Double-blind RCT",
+      "grade": "A",
+      "key_findings": [
+        "Дексаметазон снижает смертность (RR 0.48) и неврологические осложнения",
+        "Эффективен при пневмококковом менингите",
+        "Не эффективен при менингококковом"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "meta_vaccines": {
+      "title": "Vaccines for prevention of meningococcal and pneumococcal disease: systematic review",
+      "authors": "Soeters HM et al.",
+      "journal": "Lancet Infect Dis",
+      "year": 2019,
+      "n": 150000,
+      "design": "Meta-analysis of RCTs and cohorts",
+      "grade": "A",
+      "key_findings": [
+        "Конъюгированная вакцина против пневмококка: снижение инвазивной инфекции на 74%",
+        "Вакцина против менингококка ACWY: эффективность 85-95%",
+        "Вакцинация — ключевая стратегия профилактики"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "bacterial_meningitis": [
+      {
+        "time": 0,
+        "event": "Начало симптомов",
+        "wbc_csf": 5,
+        "glucose_csf": 3.0,
+        "symptom": "Головная боль"
+      },
+      {
+        "time": 6,
+        "event": "6 часов",
+        "wbc_csf": 50,
+        "glucose_csf": 2.5,
+        "symptom": "Лихорадка, ригидность"
+      },
+      {
+        "time": 12,
+        "event": "12 часов",
+        "wbc_csf": 500,
+        "glucose_csf": 1.8,
+        "symptom": "Изменение сознания"
+      },
+      {
+        "time": 18,
+        "event": "18 часов",
+        "wbc_csf": 2000,
+        "glucose_csf": 1.0,
+        "symptom": "Судороги"
+      },
+      {
+        "time": 24,
+        "event": "Госпитализация + антибиотики",
+        "wbc_csf": 2000,
+        "glucose_csf": 1.0,
+        "symptom": "Интенсивная терапия"
+      },
+      {
+        "time": 48,
+        "event": "48 часов",
+        "wbc_csf": 800,
+        "glucose_csf": 1.5,
+        "symptom": "Стабилизация"
+      },
+      {
+        "time": 72,
+        "event": "72 часа",
+        "wbc_csf": 300,
+        "glucose_csf": 2.0,
+        "symptom": "Улучшение"
+      },
+      {
+        "time": 168,
+        "event": "7 дней",
+        "wbc_csf": 50,
+        "glucose_csf": 2.8,
+        "symptom": "Ремиссия"
+      }
+    ]
+  }
+}

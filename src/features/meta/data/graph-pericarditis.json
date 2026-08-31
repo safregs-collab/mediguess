@@ -1,0 +1,1039 @@
+{
+  "id": "pericarditis",
+  "label": "Острый перикардит",
+  "color": "#ef4444",
+  "nodes": [
+    {
+      "id": "crp",
+      "label": "СРБ",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мг/л",
+      "normal": "<5",
+      "value": 85,
+      "group": "inflammation",
+      "description": "СРБ — маркер воспаления перикарда. Повышен при остром перикардите. Динамика оценивает ответ."
+    },
+    {
+      "id": "esr",
+      "label": "СОЭ",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм/ч",
+      "normal": "<15",
+      "value": 45,
+      "group": "inflammation",
+      "description": "СОЭ — неспецифический маркер воспаления. Высокая при идиопатическом, аутоиммунном перикардите."
+    },
+    {
+      "id": "wbc",
+      "label": "Лейкоциты",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "×10⁹/л",
+      "normal": "4.0-9.0",
+      "value": 11.5,
+      "group": "hematology",
+      "description": "Лейкоциты — лейкоцитоз при инфекционном перикардите. Лейкопения при вирусном."
+    },
+    {
+      "id": "troponin",
+      "label": "Тропонин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "<0.04",
+      "value": 0.25,
+      "group": "cardiac",
+      "description": "Тропонин — микроинфаркт эпикарда при перикардите. Не указывает на ОИМ."
+    },
+    {
+      "id": "creatinine",
+      "label": "Креатинин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкмоль/л",
+      "normal": "62-115",
+      "value": 88,
+      "group": "renal",
+      "description": "Креатинин — оценка функции почек перед НПВС, колхицином."
+    },
+    {
+      "id": "sodium",
+      "label": "Натрий",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "136-145",
+      "value": 140,
+      "group": "electrolytes",
+      "description": "Натрий — гипонатриемия при тампонаде, застойной недостаточности."
+    },
+    {
+      "id": "potassium",
+      "label": "Калий",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "3.5-5.1",
+      "value": 4.2,
+      "group": "electrolytes",
+      "description": "Калий — гипокалиемия при диуретиках, рвоте. Контроль при терапии."
+    },
+    {
+      "id": "ecg_st_elevation",
+      "label": "ЭКГ: диффузная депрессия/подъём ST",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "ecg",
+      "description": "ST↑ диффузный, вогнутый вверх — острый перикардит. Отличается от ОИМ (локальный, выпуклый)."
+    },
+    {
+      "id": "ecg_pr_depression",
+      "label": "ЭКГ: депрессия PR",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "ecg",
+      "description": "PR↓ — ранний признак перикардита. Встречается в 80% случаев."
+    },
+    {
+      "id": "ecg_t_wave",
+      "label": "ЭКГ: инверсия T",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "ecg",
+      "description": "Инверсия T — поздний признак. После нормализации ST."
+    },
+    {
+      "id": "echo_pericardial_effusion",
+      "label": "ЭхоКГ: перикардальный выпот",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "echo",
+      "description": "Эффузия перикарда — размер оценивает риск тампонады. >20 мм — большая."
+    },
+    {
+      "id": "echo_tamponade",
+      "label": "ЭхоКГ: признаки тампонады",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "echo",
+      "description": "Признаки тампонады: коллапс ПП, колебания МПП, увеличение ЧЛС."
+    },
+    {
+      "id": "chest_xray",
+      "label": "Рентген ОГК",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging",
+      "description": "Рентген — \"бутылочное\" сердце при большой эффузии. Норма при малой."
+    },
+    {
+      "id": "ct_chest",
+      "label": "КТ грудной клетки",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging",
+      "description": "КТ — оценка эффузии, утолщения перикарда, кальцинации при хроническом."
+    },
+    {
+      "id": "bp",
+      "label": "АД",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": "120/80",
+      "value": 110,
+      "group": "vitals",
+      "description": "АД — падение при тампонаде. Пульсус парадоксус >10 мм рт.ст."
+    },
+    {
+      "id": "hr",
+      "label": "ЧСС",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "уд/мин",
+      "normal": "60-100",
+      "value": 95,
+      "group": "vitals",
+      "description": "ЧСС — тахикардия при тампонаде, боли, лихорадке."
+    },
+    {
+      "id": "temp",
+      "label": "Температура",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "°C",
+      "normal": "36.0-37.0",
+      "value": 37.8,
+      "group": "vitals",
+      "description": "Температура — лихорадка при инфекционном, аутоиммунном. Субфебрильная при идиопатическом."
+    },
+    {
+      "id": "chest_pain",
+      "label": "Боль в груди",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "интенсивная",
+      "description": "Боль за грудиной — острая, колющая, усиливается при вдохе, кашле, лёже."
+    },
+    {
+      "id": "pericardial_friction_rub",
+      "label": "Шум трения перикарда",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Шум трения перикарда — патогномоничен. Трёхфазный (систола, диастола, предсистола)."
+    },
+    {
+      "id": "tachycardia",
+      "label": "Тахикардия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Тахикардия — компенсаторная при тампонаде, боли, лихорадке."
+    },
+    {
+      "id": "fever",
+      "label": "Лихорадка",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Лихорадка — при инфекционном, аутоиммунном перикардите. Может отсутствовать при идиопатическом."
+    },
+    {
+      "id": "dyspnea",
+      "label": "Одышка",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Одышка — тампонада, большая эффузия, сопутствующий плеврит."
+    },
+    {
+      "id": "positional_pain",
+      "label": "Боль усиливается в положении лёжа",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Боль усиливается в положении лёжа, уменьшается сидя, наклонившись вперёд."
+    },
+    {
+      "id": "relief_sitting",
+      "label": "Боль уменьшается при наклоне вперёд",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Улучшение при сидении и наклоне вперёд — патогномонично для перикардита."
+    },
+    {
+      "id": "pulsus_paradoxus",
+      "label": "Пульсус парадоксус",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Пульсус парадоксус >10 мм рт.ст. — тампонада, обструктивный шок."
+    },
+    {
+      "id": "jugular_distension",
+      "label": "Напряжение шейных вен",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Напряжение шейных вен — ПЖН при тампонаде. Kussmaul положительный."
+    },
+    {
+      "id": "hypotension",
+      "label": "Артериальная гипотензия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Гипотензия — тампонада, обструктивный шок. Требует перикардиоцентеза."
+    },
+    {
+      "id": "muffled_heart_sounds",
+      "label": "Приглушённые тоны сердца",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Приглушённые тоны сердца — большая эффузия. Триада Бека: глухие тона, гипотензия, ЦВД↑."
+    },
+    {
+      "id": "kussmaul_sign",
+      "label": "Знак Куссмауля",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Рост ЦВД при вдохе — тампонада, констриктивный перикардит."
+    },
+    {
+      "id": "fatigue",
+      "label": "Усталость",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Усталость — хронический перикардит, тампонада, сердечная недостаточность."
+    },
+    {
+      "id": "recent_infection",
+      "label": "Недавняя инфекция (вирусная)",
+      "layer": "findings",
+      "type": "history",
+      "description": "Недавняя инфекция — вирусный перикардит часто следует за ОРВИ, гриппом, COVID-19."
+    },
+    {
+      "id": "viral_pericarditis",
+      "label": "Вирусный перикардит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "60%",
+      "ptp": "high",
+      "description": "Вирусный перикардит — наиболее частая причина. Coxsackie, ECHO, грипп, COVID-19. Самоограничивающийся."
+    },
+    {
+      "id": "idiopathic_pericarditis",
+      "label": "Идиопатический перикардит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "20%",
+      "ptp": "medium",
+      "description": "Идиопатический перикардит — диагноз исключения. Вероятно вирусный. Рецидивирует в 15–30%."
+    },
+    {
+      "id": "bacterial_pericarditis",
+      "label": "Бактериальный перикардит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "Бактериальный перикардит — пневмококк, стафилококк, стрептококк. Пурулентная эффузия, тампонада. Редок."
+    },
+    {
+      "id": "tuberculous_pericarditis",
+      "label": "Туберкулёзный перикардит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "3%",
+      "ptp": "low",
+      "description": "Туберкулёзный перикардит — хроническое течение, большая эффузия, кальцинация. Констриктивный перикардит."
+    },
+    {
+      "id": "malignant_pericarditis",
+      "label": "Метастатический перикардит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "2%",
+      "ptp": "low",
+      "description": "Злокачественный перикардит — метастазы (лёгкое, молочная железа, лимфома). Рецидивирующая эффузия."
+    },
+    {
+      "id": "cardiac_tamponade",
+      "label": "Тампонада сердца",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "Тампонада сердца — жидкость в перикарде повышает давление, сдавливает сердце. Триада Бека. Перикардиоцентез."
+    },
+    {
+      "id": "constrictive_pericarditis",
+      "label": "Констриктивный перикардит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "1%",
+      "ptp": "low",
+      "description": "Констриктивный перикардит — утолщение, фиброз, кальцинация перикарда. Kussmaul, застой, асцит."
+    },
+    {
+      "id": "oim",
+      "label": "Острый инфаркт миокарда",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "10%",
+      "ptp": "low",
+      "description": "ОИМ — перикардит может сопровождать трансмуральный инфаркт (Dressler синдром — поздний)."
+    },
+    {
+      "id": "pleuritis",
+      "label": "Плеврит",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "Плеврит — воспаление плевры. Может сопровождать перикардит (плевроперикардит). Плевральный выпот."
+    },
+    {
+      "id": "diff_pericarditis_vs_oim",
+      "label": "Перикардит vs ОИМ",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_viral_vs_bacterial",
+      "label": "Вирусный vs Бактериальный перикардит",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "guideline_esc_2015",
+      "label": "ESC Guidelines: Pericardial Diseases 2015",
+      "layer": "evidence",
+      "type": "guideline",
+      "grade": "A",
+      "year": 2015,
+      "description": "ESC Guidelines 2015 — диагностика и лечение перикардитов."
+    },
+    {
+      "id": "rct_colchicine",
+      "label": "RCT: колхицин при остром перикардите",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2013,
+      "n": 240,
+      "description": "ICAP (2013) — колхицин снижает рецидивы острого перикардита. Стандарт терапии."
+    },
+    {
+      "id": "rct_aspirin",
+      "label": "RCT: аспирин vs ибупрофен при перикардите",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2010,
+      "n": 144,
+      "description": "COPE (2005) — аспирин/НПВС эффективны при остром перикардите. Колхицин снижает рецидивы."
+    }
+  ],
+  "links": [
+    {
+      "source": "crp",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "crp",
+      "target": "bacterial_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "crp",
+      "target": "idiopathic_pericarditis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "crp",
+      "target": "tuberculous_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "esr",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "esr",
+      "target": "tuberculous_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "wbc",
+      "target": "bacterial_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "wbc",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "troponin",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "troponin",
+      "target": "oim",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "troponin",
+      "target": "idiopathic_pericarditis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "ecg_st_elevation",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "ecg_st_elevation",
+      "target": "idiopathic_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "ecg_st_elevation",
+      "target": "oim",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "ecg_pr_depression",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "ecg_pr_depression",
+      "target": "idiopathic_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "ecg_t_wave",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "echo_pericardial_effusion",
+      "target": "viral_pericarditis",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "echo_pericardial_effusion",
+      "target": "bacterial_pericarditis",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "echo_pericardial_effusion",
+      "target": "malignant_pericarditis",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "echo_pericardial_effusion",
+      "target": "tuberculous_pericarditis",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "echo_pericardial_effusion",
+      "target": "cardiac_tamponade",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "echo_tamponade",
+      "target": "cardiac_tamponade",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "echo_tamponade",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "chest_xray",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "chest_xray",
+      "target": "cardiac_tamponade",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "chest_xray",
+      "target": "pleuritis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "ct_chest",
+      "target": "malignant_pericarditis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "ct_chest",
+      "target": "tuberculous_pericarditis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "bp",
+      "target": "cardiac_tamponade",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "bp",
+      "target": "constrictive_pericarditis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "hr",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "hr",
+      "target": "cardiac_tamponade",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "temp",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "temp",
+      "target": "bacterial_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "temp",
+      "target": "tuberculous_pericarditis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "chest_pain",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "chest_pain",
+      "target": "idiopathic_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "chest_pain",
+      "target": "oim",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "chest_pain",
+      "target": "pleuritis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "pericardial_friction_rub",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.95
+    },
+    {
+      "source": "pericardial_friction_rub",
+      "target": "idiopathic_pericarditis",
+      "type": "supports",
+      "weight": 0.95
+    },
+    {
+      "source": "pericardial_friction_rub",
+      "target": "bacterial_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "tachycardia",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "tachycardia",
+      "target": "cardiac_tamponade",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "fever",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "fever",
+      "target": "bacterial_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "fever",
+      "target": "tuberculous_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "dyspnea",
+      "target": "cardiac_tamponade",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "dyspnea",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "dyspnea",
+      "target": "pleuritis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "positional_pain",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "positional_pain",
+      "target": "idiopathic_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "relief_sitting",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "relief_sitting",
+      "target": "idiopathic_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "pulsus_paradoxus",
+      "target": "cardiac_tamponade",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "pulsus_paradoxus",
+      "target": "constrictive_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "jugular_distension",
+      "target": "cardiac_tamponade",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "jugular_distension",
+      "target": "constrictive_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "hypotension",
+      "target": "cardiac_tamponade",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "muffled_heart_sounds",
+      "target": "cardiac_tamponade",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "kussmaul_sign",
+      "target": "constrictive_pericarditis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "fatigue",
+      "target": "constrictive_pericarditis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "recent_infection",
+      "target": "viral_pericarditis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "recent_infection",
+      "target": "idiopathic_pericarditis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "viral_pericarditis",
+      "target": "diff_pericarditis_vs_oim",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "oim",
+      "target": "diff_pericarditis_vs_oim",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "viral_pericarditis",
+      "target": "diff_viral_vs_bacterial",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "bacterial_pericarditis",
+      "target": "diff_viral_vs_bacterial",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "viral_pericarditis",
+      "target": "guideline_esc_2015",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "viral_pericarditis",
+      "target": "rct_colchicine",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "viral_pericarditis",
+      "target": "rct_aspirin",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "idiopathic_pericarditis",
+      "target": "rct_colchicine",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_pericarditis_vs_oim",
+      "target": "guideline_esc_2015",
+      "type": "described_in",
+      "weight": 1.0
+    }
+  ],
+  "details": {
+    "viral_pericarditis": {
+      "description": "Вирусный перикардит — наиболее частая форма острого перикардита (60-80%). Чаще всего вызывается энтеровирусами, герпесвирусами, вирусом гриппа. Самоограничивающее течение.",
+      "criteria": [
+        "Боль в груди (плевритическая, усиливается при лёже, уменьшается при наклоне вперёд)",
+        "Шум трения перикарда",
+        "ЭКГ: диффузная депрессия/подъём ST, депрессия PR",
+        "ЭхоКГ: перикардальный выпот (необязательно)",
+        "Повышение СРБ/СОЭ",
+        "Недавняя инфекция (ОРВИ, грипп)"
+      ],
+      "prevalence": "60-80% острого перикардита",
+      "complications": [
+        "Тампонада сердца (1-2%)",
+        "Рецидивирующий перикардит (15-30%)",
+        "Констриктивный перикардит (1%)"
+      ],
+      "treatment": [
+        "НПВС (ибупрофен 600-800 мг × 3/сут или аспирин 800 мг × 3/сут)",
+        "Колхицин 0.5 мг × 2/сут (профилактика рецидивов)",
+        "Глюкокортикоиды (преднизолон) при непереносимости НПВС/колхицина",
+        "Покой, ограничение физической активности",
+        "Пункция/дренирование при тампонаде"
+      ],
+      "followup": "Контроль ЭхоКГ через 1-2 недели, оценка на рецидивы"
+    },
+    "cardiac_tamponade": {
+      "description": "Тампонада сердца — острое или подострое сдавление сердца перикардальной жидкостью, приводящее к гемодинамическому коллапсу. Медицинская emergency.",
+      "criteria": [
+        "Беков триада: гипотензия, приглушённые тоны сердца, напряжение шейных вен",
+        "Пульсус парадоксус >20 мм рт.ст.",
+        "ЭхоКГ: перикардальный выпот с коллапсом камер сердца",
+        "Тахикардия, одышка"
+      ],
+      "prevalence": "1-2% острого перикардита",
+      "complications": [
+        "Гемодинамический коллапс",
+        "Остановка сердца",
+        "Смерть"
+      ],
+      "treatment": [
+        "Немедленная перикардиоцентез (пункция)",
+        "ИВЛ при дыхательной недостаточности",
+        "Инфузионная терапия (осторожно — может ухудшить)",
+        "Инотропы при гипотензии",
+        "Перикардиальное окно при рецидивирующей тампонаде"
+      ],
+      "followup": "Мониторинг объёма выпота, поиск причины"
+    }
+  },
+  "comparisons": {
+    "diff_pericarditis_vs_oim": {
+      "headers": [
+        "Признак",
+        "Перикардит",
+        "ОИМ"
+      ],
+      "rows": [
+        {
+          "feature": "Характер боли",
+          "pericarditis": "Плевритическая, острая",
+          "oim": "Давящая, жгучая"
+        },
+        {
+          "feature": "Иррадиация",
+          "pericarditis": "Левая трапеция, спина",
+          "oim": "Левая рука, челюсть, шея"
+        },
+        {
+          "feature": "Положение",
+          "pericarditis": "Усиливается лёжа, уменьшается наклоном",
+          "oim": "Не зависит"
+        },
+        {
+          "feature": "ЭКГ: ST",
+          "pericarditis": "Диффузный подъём/депрессия",
+          "oim": "Региональный подъём"
+        },
+        {
+          "feature": "ЭКГ: PR",
+          "pericarditis": "Депрессия",
+          "oim": "Норма"
+        },
+        {
+          "feature": "Тропонин",
+          "pericarditis": "Умеренно повышен (<5×)",
+          "oim": "Значительно повышен (>5×)"
+        },
+        {
+          "feature": "Шум трения",
+          "pericarditis": "Присутствует",
+          "oim": "Отсутствует"
+        },
+        {
+          "feature": "ЭхоКГ",
+          "pericarditis": "Выпот (возможен)",
+          "oim": "Нарушение сократимости"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "guideline_esc_2015": {
+      "title": "2015 ESC Guidelines for the diagnosis and management of pericardial diseases",
+      "authors": "Adler Y et al.",
+      "journal": "Eur Heart J",
+      "year": 2015,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "Диагноз по 2 из 4 критериев (боль, трение, ЭКГ, выпот)",
+        "Колхицин — первый выбор для профилактики рецидивов",
+        "НПВС — основа терапии острого перикардита"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_colchicine": {
+      "title": "Colchicine for recurrent pericarditis (CORP)",
+      "authors": "Imazio M et al.",
+      "journal": "N Engl J Med",
+      "year": 2013,
+      "n": 240,
+      "design": "RCT",
+      "grade": "A",
+      "key_findings": [
+        "Колхицин снижает рецидивы (24% vs 55%)",
+        "Ускоряет ремиссию",
+        "Хорошая переносимость (диарея 8%)"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_aspirin": {
+      "title": "Aspirin vs ibuprofen in acute pericarditis",
+      "authors": "Imazio M et al.",
+      "journal": "Circulation",
+      "year": 2010,
+      "n": 144,
+      "design": "RCT",
+      "grade": "A",
+      "key_findings": [
+        "Аспирин и ибупрофен одинаково эффективны",
+        "Аспирин предпочтительнее при подозрении на ОИМ",
+        "Ибупрофен — лучшая переносимость ЖКТ"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "viral_pericarditis": [
+      {
+        "time": 0,
+        "event": "Начало",
+        "temp": "37.0",
+        "pain": "Боль в груди при лёге"
+      },
+      {
+        "time": 24,
+        "event": "1 сутки",
+        "temp": "37.5",
+        "pain": "Усиление боли, тахикардия"
+      },
+      {
+        "time": 48,
+        "event": "2 суток",
+        "temp": "37.8",
+        "pain": "Шум трения перикарда"
+      },
+      {
+        "time": 72,
+        "event": "3 суток",
+        "temp": "37.5",
+        "pain": "ЭКГ: диффузный подъём ST"
+      },
+      {
+        "time": 96,
+        "event": "Диагностика",
+        "temp": "37.5",
+        "pain": "ЭхоКГ: умеренный выпот, СРБ 85"
+      },
+      {
+        "time": 120,
+        "event": "Терапия",
+        "temp": "37.2",
+        "pain": "Ибупрофен + колхицин"
+      },
+      {
+        "time": 168,
+        "event": "7 суток",
+        "temp": "36.8",
+        "pain": "Улучшение, уменьшение выпота"
+      },
+      {
+        "time": 336,
+        "event": "14 суток",
+        "temp": "36.6",
+        "pain": "Ремиссия, отмена НПВС"
+      }
+    ]
+  }
+}

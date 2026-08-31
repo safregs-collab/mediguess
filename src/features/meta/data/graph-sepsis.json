@@ -1,0 +1,829 @@
+{
+  "id": "sepsis",
+  "label": "Сепсис",
+  "color": "#7c3aed",
+  "nodes": [
+    {
+      "id": "lactate",
+      "label": "Лактат",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "0.5-1.6",
+      "value": 4.5,
+      "group": "metabolism",
+      "description": "Маркер тканевой гипоперфузии. При сепсисе >2.0 ммоль/л указывает на тяжесть, >4.0 — высокий риск смертности."
+    },
+    {
+      "id": "procalcitonin",
+      "label": "Прокальцитонин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "<0.05",
+      "value": 45,
+      "group": "inflammation",
+      "description": "Специфический маркер бактериальной инфекции. >0.5 нг/мл — вероятен сепсис, >2.0 — высокая вероятность тяжёлого сепсиса."
+    },
+    {
+      "id": "crp",
+      "label": "СРБ",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мг/л",
+      "normal": "<5",
+      "value": 280,
+      "group": "inflammation",
+      "description": "Неспецифический острофазовый белок. Быстро растёт при инфекции, но запаздывает на 6–12 ч от начала."
+    },
+    {
+      "id": "wbc",
+      "label": "Лейкоциты",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "×10⁹/л",
+      "normal": "4-9",
+      "value": 2.5,
+      "group": "cbc",
+      "description": "Лейкоцитарная формула. Лейкопения (<4) при тяжёлом сепсисе — плохой прогностический знак."
+    },
+    {
+      "id": "platelets",
+      "label": "Тромбоциты",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "×10⁹/л",
+      "normal": "150-400",
+      "value": 45,
+      "group": "cbc",
+      "description": "Тромбоцитопения — критерий DIC и тяжести сепсиса по SOFA. <100×10⁹/л — 2 балла SOFA."
+    },
+    {
+      "id": "creatinine",
+      "label": "Креатинин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкмоль/л",
+      "normal": "62-115",
+      "value": 180,
+      "group": "kidney",
+      "description": "Маркер ОПН. Рост креатинина — признак почечной гипоперфузии при шоке."
+    },
+    {
+      "id": "bilirubin",
+      "label": "Билирубин общий",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкмоль/л",
+      "normal": "5-21",
+      "value": 45,
+      "group": "liver",
+      "description": "Маркер холестаза/гепатоцеллюлярного повреждения. >34 мкмоль/л — 1 балл SOFA."
+    },
+    {
+      "id": "inr",
+      "label": "МНО (INR)",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "",
+      "normal": "0.8-1.2",
+      "value": 1.6,
+      "group": "coagulation",
+      "description": "Маркер коагулопатии. >1.5 — DIC, гепатическая недостаточность."
+    },
+    {
+      "id": "abg_ph",
+      "label": "pH",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "",
+      "normal": "7.35-7.45",
+      "value": 7.28,
+      "group": "gasometry",
+      "description": "Ацидоз — признак тканевой гипоперфузии. pH <7.3 — лактатный ацидоз при шоке."
+    },
+    {
+      "id": "abg_pco2",
+      "label": "PaCO₂",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": "35-45",
+      "value": 32,
+      "group": "gasometry",
+      "description": "Гипокапния при компенсаторной тахипноэ. PaCO₂ <32 — дыхательный компенсаторный ответ."
+    },
+    {
+      "id": "abg_po2",
+      "label": "PaO₂/FiO₂",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": ">400",
+      "value": 180,
+      "group": "gasometry",
+      "description": "PaO₂/FiO₂ — индекс оксигенации. <300 — ЛРС, <200 — тяжёлая ЛРС, <100 — очень тяжёлая."
+    },
+    {
+      "id": "blood_culture",
+      "label": "Посев крови",
+      "layer": "raw",
+      "type": "lab",
+      "group": "microbiology",
+      "description": "Золотой стандарт этиологической диагностики. Положительный посев подтверждает сепсис."
+    },
+    {
+      "id": "source_imaging",
+      "label": "КТ/УЗИ (поиск очага)",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging",
+      "description": "Визуализация для поиска очага инфекции: абсцесс, пневмония, пиелонефрит, холецистит."
+    },
+    {
+      "id": "fever",
+      "label": "Лихорадка / гипотермия",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Лихорадка >38.3°C или гипотермия <36°C — критерий SIRS. Гипотермия — плохой прогноз."
+    },
+    {
+      "id": "tachycardia",
+      "label": "Тахикардия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Компенсаторное увеличение ЧСС при снижении ОЦК. Ранний маркер сепсиса, но неспецифический."
+    },
+    {
+      "id": "tachypnea",
+      "label": "Тахипноэ",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Дыхательный компенсаторный ответ на метаболический ацидоз и гипоксемию. RR >22 — SIRS."
+    },
+    {
+      "id": "hypotension",
+      "label": "Артериальная гипотензия",
+      "layer": "findings",
+      "type": "sign",
+      "severity": "рефрактерная",
+      "description": "САД <90 или падение >40 от базовой — критерий септического шока. Требует вазопрессоров."
+    },
+    {
+      "id": "altered_mental_status",
+      "label": "Изменение сознания",
+      "layer": "findings",
+      "type": "sign",
+      "severity": "спутанность → сопор",
+      "description": "Энцефалопатия при сепсисе — гипоперфузия мозга, воспаление, токсины."
+    },
+    {
+      "id": "oliguria",
+      "label": "Олигурия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Диурез <0.5 мл/кг/ч — признак ОПН и недостаточности перфузии почек."
+    },
+    {
+      "id": "marbled_skin",
+      "label": "Мраморная кожа",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Мраморная кожа — признак периферической вазоконстрикции при распределительном шоке."
+    },
+    {
+      "id": "hemorrhagic_rash",
+      "label": "Геморрагическая сыпь",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Петехиальная сыпь — характерна для менингококкового сепсиса (Waterhouse-Friderichsen)."
+    },
+    {
+      "id": "cold_extremities",
+      "label": "Холодные конечности",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Холодные конечности при лихорадке — признак периферической гипоперфузии и шока."
+    },
+    {
+      "id": "sepsis",
+      "label": "Сепсис",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "50%",
+      "ptp": "high",
+      "description": "Сепсис — дисрегулированный ответ организма на инфекцию с повреждением тканей. Клинические критерии + подозрение на инфекцию."
+    },
+    {
+      "id": "severe_sepsis",
+      "label": "Тяжёлый сепсис",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "30%",
+      "ptp": "high",
+      "description": "Тяжёлый сепсис — сепсис с дисфункцией органов (SOFA ≥2). Требует интенсивной терапии."
+    },
+    {
+      "id": "septic_shock",
+      "label": "Септический шок",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "15%",
+      "ptp": "medium",
+      "description": "Септический шок — сепсис с гипотензией, не отвечающей на инфузию, требующий вазопрессоров. Смертность 40–50%."
+    },
+    {
+      "id": "meningococcal_sepsis",
+      "label": "Менингококковый сепсис",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "2%",
+      "ptp": "low",
+      "description": "Менингококковый сепсис — Neisseria meningitidis. Фульминантное течение, петехиальная сыпь, DIC, шок."
+    },
+    {
+      "id": "neonatal_sepsis",
+      "label": "Неонатальный сепсис",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "3%",
+      "ptp": "low",
+      "description": "Неонатальный сепсис — инфекция в первые 28 дней жизни. Группа B стрептококки, E. coli, Listeria."
+    },
+    {
+      "id": "diff_sepsis_vs_shock",
+      "label": "Сепсис vs Септический шок",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_sepsis_algorithm",
+      "label": "Алгоритм диффдиагностики сепсиса",
+      "layer": "differential",
+      "type": "algorithm"
+    },
+    {
+      "id": "guideline_surviving_sepsis_2021",
+      "label": "Surviving Sepsis Campaign Guidelines 2021",
+      "layer": "evidence",
+      "type": "guideline",
+      "grade": "A",
+      "year": 2021,
+      "description": "Surviving Sepsis Campaign 2021 — международные рекомендации по управлению сепсисом и септическим шоком."
+    },
+    {
+      "id": "rct_early_goal_directed",
+      "label": "RCT: ранняя целенаправленная терапия (Rivers)",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2001,
+      "n": 263,
+      "description": "Rivers et al. (2001) — раннее целенаправленное лечение снижает смертность при септическом шоке."
+    },
+    {
+      "id": "meta_vasopressors",
+      "label": "Мета-анализ: вазопрессоры при септическом шоке",
+      "layer": "evidence",
+      "type": "meta-analysis",
+      "grade": "A",
+      "year": 2020,
+      "n": 15000,
+      "description": "Мета-анализ вазопрессоров — норэпинефрин первый выбор. Вазопрессин при рефрактерном шоке."
+    }
+  ],
+  "links": [
+    {
+      "source": "lactate",
+      "target": "sepsis",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "lactate",
+      "target": "severe_sepsis",
+      "type": "key_marker",
+      "weight": 0.95
+    },
+    {
+      "source": "lactate",
+      "target": "septic_shock",
+      "type": "key_marker",
+      "weight": 0.98
+    },
+    {
+      "source": "lactate",
+      "target": "meningococcal_sepsis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "procalcitonin",
+      "target": "sepsis",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "procalcitonin",
+      "target": "severe_sepsis",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "procalcitonin",
+      "target": "neonatal_sepsis",
+      "type": "key_marker",
+      "weight": 0.85
+    },
+    {
+      "source": "crp",
+      "target": "sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "crp",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "wbc",
+      "target": "sepsis",
+      "type": "key_marker",
+      "weight": 0.85
+    },
+    {
+      "source": "wbc",
+      "target": "severe_sepsis",
+      "type": "key_marker",
+      "weight": 0.85
+    },
+    {
+      "source": "wbc",
+      "target": "neonatal_sepsis",
+      "type": "key_marker",
+      "weight": 0.85
+    },
+    {
+      "source": "platelets",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "platelets",
+      "target": "septic_shock",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "platelets",
+      "target": "meningococcal_sepsis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "creatinine",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "creatinine",
+      "target": "septic_shock",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "bilirubin",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "inr",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "inr",
+      "target": "meningococcal_sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "abg_ph",
+      "target": "septic_shock",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "abg_po2",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "blood_culture",
+      "target": "sepsis",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "blood_culture",
+      "target": "meningococcal_sepsis",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "blood_culture",
+      "target": "neonatal_sepsis",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "source_imaging",
+      "target": "sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "source_imaging",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "fever",
+      "target": "sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "fever",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "fever",
+      "target": "neonatal_sepsis",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "tachycardia",
+      "target": "sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachycardia",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachypnea",
+      "target": "sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachypnea",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "hypotension",
+      "target": "septic_shock",
+      "type": "key_marker",
+      "weight": 0.95
+    },
+    {
+      "source": "hypotension",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "altered_mental_status",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "altered_mental_status",
+      "target": "septic_shock",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "oliguria",
+      "target": "severe_sepsis",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "oliguria",
+      "target": "septic_shock",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "marbled_skin",
+      "target": "septic_shock",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "marbled_skin",
+      "target": "meningococcal_sepsis",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "hemorrhagic_rash",
+      "target": "meningococcal_sepsis",
+      "type": "key_marker",
+      "weight": 0.95
+    },
+    {
+      "source": "cold_extremities",
+      "target": "septic_shock",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "sepsis",
+      "target": "diff_sepsis_vs_shock",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "septic_shock",
+      "target": "diff_sepsis_vs_shock",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_sepsis_algorithm",
+      "target": "diff_sepsis_vs_shock",
+      "type": "includes",
+      "weight": 1.0
+    },
+    {
+      "source": "sepsis",
+      "target": "guideline_surviving_sepsis_2021",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "severe_sepsis",
+      "target": "guideline_surviving_sepsis_2021",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "septic_shock",
+      "target": "guideline_surviving_sepsis_2021",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "septic_shock",
+      "target": "rct_early_goal_directed",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "septic_shock",
+      "target": "meta_vasopressors",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_sepsis_vs_shock",
+      "target": "guideline_surviving_sepsis_2021",
+      "type": "described_in",
+      "weight": 1.0
+    }
+  ],
+  "details": {
+    "sepsis": {
+      "description": "Сепсис — опасное для жизни состояние, вызванное дисрегулированной ответной реакцией организма на инфекцию. Критерии Sepsis-3: SOFA ≥2 при подозрении на инфекцию.",
+      "criteria": [
+        "Подозрение на инфекцию",
+        "SOFA ≥2 (или quickSOFA ≥2: тахикардия >90, тахипноэ >22, изменение сознания)",
+        "Лактат >2.0 ммоль/л"
+      ],
+      "prevalence": "49 млн случаев в год в мире",
+      "complications": [
+        "Септический шок",
+        "Острая дыхательная недостаточность (ОРДС)",
+        "Острая почечная недостаточность",
+        "ДВС-синдром",
+        "Множественная органная недостаточность"
+      ],
+      "treatment": [
+        "Антибиотики в течение 1 часа (широкого спектра, покрывающие все вероятные возбудители)",
+        "Инфузионная терапия 30 мл/кг кристаллоидов (при гипоперфузии)",
+        "Вазопрессоры (норэпинефрин) для достижения САД ≥65 мм рт.ст.",
+        "Контроль очага инфекции (дренаж, операция)",
+        "Кортикостероиды при рефрактерном шоке (гидрокортизон 200 мг/сут)"
+      ],
+      "followup": "Мониторинг в ОРИТ, динамика лактата, Прокальцитонин для оценки ответа"
+    },
+    "septic_shock": {
+      "description": "Септический шок — сепсис с гипотензией, не купирующейся объёмной терапией, требующей вазопрессоров, и лактатом >2.0 ммоль/л. Смертность 40-50%.",
+      "criteria": [
+        "Сепсис",
+        "САД <65 мм рт.ст. или MAP <65 после 30 мл/кг кристаллоидов",
+        "Лактат >2.0 ммоль/л",
+        "Требуются вазопрессоры"
+      ],
+      "prevalence": "15-20% всех сепсисов",
+      "complications": [
+        "Рефрактерный шок",
+        "ОРДС",
+        "Острая почечная недостаточность (требует диализа)",
+        "ДВС-синдром",
+        "Ишемия конечностей"
+      ],
+      "treatment": [
+        "Норэпинефрин — вазопрессор первого выбора",
+        "Вазопрессин при недостаточной эффективности норэпинефрина",
+        "Добутамин при миокардиальной дисфункции",
+        "Гидрокортизон 200 мг/сут при рефрактерном шоке",
+        "Инсулин для поддержания глюкозы 8-10 ммоль/л",
+        "Трансфузия эритроцитов при Hb <70 г/л"
+      ],
+      "followup": "Мониторинг MAP, лактата, диуреза, динамики вазопрессоров"
+    }
+  },
+  "comparisons": {
+    "diff_sepsis_vs_shock": {
+      "headers": [
+        "Признак",
+        "Сепсис",
+        "Септический шок"
+      ],
+      "rows": [
+        {
+          "feature": "Определение",
+          "sepsis": "Инфекция + дисрегуляция (SOFA ≥2)",
+          "shock": "Сепсис + гипотензия + лактат >2.0"
+        },
+        {
+          "feature": "АД",
+          "sepsis": "Нормальное или сниженное",
+          "shock": "<65 мм рт.ст. (рефрактерное)"
+        },
+        {
+          "feature": "Лактат",
+          "sepsis": ">2.0 ммоль/л",
+          "shock": ">2.0 ммоль/л (часто >4.0)"
+        },
+        {
+          "feature": "Вазопрессоры",
+          "sepsis": "Не требуются",
+          "shock": "Обязательны"
+        },
+        {
+          "feature": "Сознание",
+          "sepsis": "Может быть ясным",
+          "shock": "Спутанность, сопор, кома"
+        },
+        {
+          "feature": "Диурез",
+          "sepsis": "Может быть нормальным",
+          "shock": "Олигурия/анурия"
+        },
+        {
+          "feature": "Кожа",
+          "sepsis": "Тёплая или холодная",
+          "shock": "Холодная, мраморная, цианоз"
+        },
+        {
+          "feature": "Смертность",
+          "sepsis": "10-20%",
+          "shock": "40-50%"
+        },
+        {
+          "feature": "Объёмная терапия",
+          "sepsis": "При гипоперфузии",
+          "shock": "30 мл/кг немедленно"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "guideline_surviving_sepsis_2021": {
+      "title": "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021",
+      "authors": "Evans L et al.",
+      "journal": "Intensive Care Med",
+      "year": 2021,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "Антибиотики в течение 1 часа (класс I, уровень B)",
+        "30 мл/кг кристаллоидов при гипоперфузии (класс I)",
+        "Норэпинефрин — вазопрессор первого выбора (класс I)"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_early_goal_directed": {
+      "title": "Early Goal-Directed Therapy in the Treatment of Severe Sepsis and Septic Shock",
+      "authors": "Rivers E et al.",
+      "journal": "N Engl J Med",
+      "year": 2001,
+      "n": 263,
+      "design": "Single-center RCT",
+      "grade": "A",
+      "key_findings": [
+        "Целенаправленная терапия снижает смертность (30.5% vs 46.5%)",
+        "Цели: CVP 8-12, MAP ≥65, ScvO₂ ≥70%",
+        "Основа для пакетов сепсиса (sepsis bundles)"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "meta_vasopressors": {
+      "title": "Vasopressors for septic shock: systematic review and network meta-analysis",
+      "authors": "Zhou F et al.",
+      "journal": "BMJ",
+      "year": 2020,
+      "n": 15000,
+      "design": "Network meta-analysis of 40 RCTs",
+      "grade": "A",
+      "key_findings": [
+        "Норэпинефрин — вазопрессор первого выбора",
+        "Добавление вазопрессина снижает риск аритмий",
+        "Добутамин при миокардиальной дисфункции"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "septic_shock": [
+      {
+        "time": 0,
+        "event": "Начало инфекции",
+        "lactate": 1.5,
+        "ad": "120/80",
+        "symptom": "Лихорадка"
+      },
+      {
+        "time": 6,
+        "event": "6 часов",
+        "lactate": 2.5,
+        "ad": "100/65",
+        "symptom": "Тахикардия, тахипноэ"
+      },
+      {
+        "time": 12,
+        "event": "12 часов",
+        "lactate": 4.0,
+        "ad": "85/55",
+        "symptom": "Спутанность, олигурия"
+      },
+      {
+        "time": 18,
+        "event": "18 часов",
+        "lactate": 5.5,
+        "ad": "70/45",
+        "symptom": "Мраморная кожа"
+      },
+      {
+        "time": 24,
+        "event": "Госпитализация + терапия",
+        "lactate": 6.0,
+        "ad": "65/40",
+        "symptom": "Норэпинефрин, антибиотики"
+      },
+      {
+        "time": 30,
+        "event": "30 часов",
+        "lactate": 4.5,
+        "ad": "75/50",
+        "symptom": "30 мл/кг кристаллоидов"
+      },
+      {
+        "time": 48,
+        "event": "48 часов",
+        "lactate": 3.0,
+        "ad": "90/60",
+        "symptom": "Стабилизация"
+      },
+      {
+        "time": 72,
+        "event": "72 часа",
+        "lactate": 1.8,
+        "ad": "110/70",
+        "symptom": "Улучшение"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1244 @@
+{
+  "id": "acute-heart-failure",
+  "label": "Острая сердечная недостаточность / ОЛЖН",
+  "color": "#ef4444",
+  "nodes": [
+    {
+      "id": "bnp",
+      "label": "NT-proBNP",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "пг/мл",
+      "normal": "<125",
+      "value": 8500,
+      "group": "cardiac",
+      "description": "NT-proBNP — маркер растяжения желудочков. >300 пг/мл — острая ДН, >5000 — тяжёлая, высокий риск смертности."
+    },
+    {
+      "id": "troponin",
+      "label": "Тропонин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "<0.04",
+      "value": 0.35,
+      "group": "cardiac",
+      "description": "Тропонин при ОЛЖН — признак субэндокардиальной ишемии. >0.04 — плохой прогноз."
+    },
+    {
+      "id": "creatinine",
+      "label": "Креатинин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкмоль/л",
+      "normal": "62-115",
+      "value": 145,
+      "group": "renal",
+      "description": "Маркер ОПН при застойной недостаточности. Рост креатинина — признак гипоперфузии почек."
+    },
+    {
+      "id": "sodium",
+      "label": "Натрий",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "136-145",
+      "value": 138,
+      "group": "electrolytes",
+      "description": "Гипонатриемия <135 — маркер тяжести ОЛЖН. <130 — плохой прогноз, требует ограничения жидкости."
+    },
+    {
+      "id": "potassium",
+      "label": "Калий",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "3.5-5.1",
+      "value": 4.8,
+      "group": "electrolytes",
+      "description": "Гипокалиемия <3.5 — риск аритмий. Гиперкалиемия >5.5 — риск асистолии, особенно при РААС-ингибиторах."
+    },
+    {
+      "id": "lactate",
+      "label": "Лактат",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "0.5-1.6",
+      "value": 2.8,
+      "group": "metabolic",
+      "description": "Лактат >2.0 — тканевая гипоперфузия при кардиогенном шоке. >4.0 — критический прогноз."
+    },
+    {
+      "id": "abg_ph",
+      "label": "pH артериальной крови",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "",
+      "normal": "7.35-7.45",
+      "value": 7.3,
+      "group": "gasometry",
+      "description": "Ацидоз pH <7.35 — тканевая гипоперфузия при тяжёлом шоке. Лактатный ацидоз."
+    },
+    {
+      "id": "abg_pco2",
+      "label": "PaCO₂",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": "35-45",
+      "value": 48,
+      "group": "gasometry",
+      "description": "Гиперкапния >45 — признак дыхательной недостаточности, угнетение дыхательного центра."
+    },
+    {
+      "id": "abg_po2",
+      "label": "PaO₂",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": "80-100",
+      "value": 62,
+      "group": "gasometry",
+      "description": "PaO₂/FiO₂ <300 — ЛРС при отёке лёгких. <200 — требует НИВЛ, <100 — ИВЛ."
+    },
+    {
+      "id": "spo2",
+      "label": "SpO₂",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "%",
+      "normal": ">95",
+      "value": 88,
+      "group": "gasometry"
+    },
+    {
+      "id": "hemoglobin",
+      "label": "Гемоглобин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "г/л",
+      "normal": "130-170",
+      "value": 140,
+      "group": "hematology"
+    },
+    {
+      "id": "wbc",
+      "label": "Лейкоциты",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "×10⁹/л",
+      "normal": "4.0-9.0",
+      "value": 9.5,
+      "group": "hematology"
+    },
+    {
+      "id": "crp",
+      "label": "СРБ",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мг/л",
+      "normal": "<5",
+      "value": 25,
+      "group": "inflammation"
+    },
+    {
+      "id": "procalcitonin",
+      "label": "Прокальцитонин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "<0.05",
+      "value": 0.15,
+      "group": "inflammation"
+    },
+    {
+      "id": "bp",
+      "label": "АД",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": "120/80",
+      "value": 160,
+      "group": "vitals"
+    },
+    {
+      "id": "hr",
+      "label": "ЧСС",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "уд/мин",
+      "normal": "60-100",
+      "value": 110,
+      "group": "vitals"
+    },
+    {
+      "id": "ecg_stemi",
+      "label": "ЭКГ: ОИМ",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "ecg"
+    },
+    {
+      "id": "ecg_af",
+      "label": "ЭКГ: фибрилляция предсердий",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "ecg"
+    },
+    {
+      "id": "echo_lvef",
+      "label": "ЭхоКГ: ФВ ЛЖ",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "echo"
+    },
+    {
+      "id": "echo_mitral_regurg",
+      "label": "ЭхоКГ: митральная регургитация",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "echo"
+    },
+    {
+      "id": "chest_xray",
+      "label": "Рентген ОГК",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging",
+      "description": "Рентген: застой, Керли B, бабочка, плевральный выпот — признаки отёка лёгких."
+    },
+    {
+      "id": "ct_chest",
+      "label": "КТ грудной клетки",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging"
+    },
+    {
+      "id": "dyspnea",
+      "label": "Одышка",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "сильная"
+    },
+    {
+      "id": "orthopnea",
+      "label": "Ортопноэ",
+      "layer": "findings",
+      "type": "symptom",
+      "description": "Одышка в положении лёжа — классический признак ОЛЖН. Требует сидячего положения."
+    },
+    {
+      "id": "paroxysmal_nocturnal",
+      "label": "Ночная приступообразная одышка",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "cough",
+      "label": "Кашель",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "pink_frothy_sputum",
+      "label": "Розовая пенистая мокрота",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "tachycardia",
+      "label": "Тахикардия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Тахикардия — компенсаторный ответ на снижение УО. При фибрилляции предсердий — ухудшение."
+    },
+    {
+      "id": "hypertension",
+      "label": "Артериальная гипертензия",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "hypotension",
+      "label": "Артериальная гипотензия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Гипотензия при ОЛЖН — кардиогенный шок. Требует инотропов и механической поддержки."
+    },
+    {
+      "id": "jugular_distension",
+      "label": "Напряжение шейных вен",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Напряжение шейных вен — повышенное ЦВД, правожелудочковая недостаточность."
+    },
+    {
+      "id": "peripheral_edema",
+      "label": "Периферические отёки",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Периферические отёки — застойная недостаточность правых отделов сердца."
+    },
+    {
+      "id": "hepatomegaly",
+      "label": "Гепатомегалия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Увеличение печени — венозный застой. Болезненность при остром застое."
+    },
+    {
+      "id": "ascites",
+      "label": "Асцит",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Асцит — тяжёлая правожелудочковая недостаточность, хроническая застойная цирроз."
+    },
+    {
+      "id": "pulmonary_rales",
+      "label": "Влажные хрипы в лёгких",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "s3_gallop",
+      "label": "Третий тон (ритм конского топота)",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Третий тон — признак застоя, дилатации ЛЖ. Слышен при тяжёлой ОЛЖН."
+    },
+    {
+      "id": "cyanosis",
+      "label": "Цианоз",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Цианоз — тяжёлая гипоксемия. Требует срочной оксигенотерапии/НИВЛ."
+    },
+    {
+      "id": "diaphoresis",
+      "label": "Холодный пот",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "chest_pain",
+      "label": "Боль в груди",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "fatigue",
+      "label": "Усталость",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "cardiogenic_pulmonary_edema",
+      "label": "Кардиогенный отёк лёгких",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "40%",
+      "ptp": "high",
+      "description": "Кардиогенный отёк лёгких — повышенное давление в лёгочных капиллярах. Острая застойная недостаточность."
+    },
+    {
+      "id": "acute_decompensated_hf",
+      "label": "Острая декомпенсация ХСН",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "35%",
+      "ptp": "high",
+      "description": "Острая декомпенсация ХСН — ухудшение хронической недостаточности. Застой, отёки, одышка."
+    },
+    {
+      "id": "cardiogenic_shock",
+      "label": "Кардиогенный шок",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "Кардиогенный шок — САД <90, УО <2.2, ПДДП >18. Смертность 40–60%. Требует инотропов, ИАБК."
+    },
+    {
+      "id": "pneumonia",
+      "label": "Пневмония",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "10%",
+      "ptp": "medium",
+      "description": "Пневмония — инфекция лёгких. Может вызывать ОЛЖН, особенно у пациентов с ХСН. Дифференциальный диагноз."
+    },
+    {
+      "id": "pe",
+      "label": "Тромбоэмболия лёгочной артерии",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "ТЭЛА — обструкция лёгочной артерии. Одышка, тахикардия, гипоксемия. Может имитировать ОЛЖН."
+    },
+    {
+      "id": "ards",
+      "label": "ОРДС",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "3%",
+      "ptp": "low",
+      "description": "ЛРС — диффузное поражение лёгких. PaO₂/FiO₂ <300. Не кардиогенный отёк, требует дифференциации."
+    },
+    {
+      "id": "copd_exacerbation",
+      "label": "Обострение ХОБЛ",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "8%",
+      "ptp": "medium",
+      "description": "Обострение ХОБЛ — бронхоспазм, инфекция. Одышка, гиперкапния. Может сопровождать ХСН."
+    },
+    {
+      "id": "pneumothorax",
+      "label": "Пневмоторакс",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "1%",
+      "ptp": "low",
+      "description": "Пневмоторакс — острая одышка, боль. Тензионный пневмоторакс — шок, смещение средостения."
+    },
+    {
+      "id": "diff_cpe_vs_pneumonia",
+      "label": "Кардиогенный отёк vs Пневмония",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_cpe_vs_pe",
+      "label": "Кардиогенный отёк vs ТЭЛА",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "guideline_esc_2021",
+      "label": "ESC Guidelines: Acute and Chronic Heart Failure 2021",
+      "layer": "evidence",
+      "type": "guideline",
+      "grade": "A",
+      "year": 2021,
+      "description": "ESC Guidelines 2021 — диагностика и лечение острой и хронической сердечной недостаточности."
+    },
+    {
+      "id": "rct_diuretics",
+      "label": "RCT: петлевые диуретики при ОЛЖН",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2011,
+      "n": 308,
+      "description": "DOSE (2011) — высокие дозы петлевых диуретиков улучшают симптомы при ОЛЖН, но не снижают смертность."
+    },
+    {
+      "id": "rct_niv",
+      "label": "RCT: неинвазивная вентиляция при ОЛЖН",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2008,
+      "n": 1069,
+      "description": "3CPO (2008) — НИВЛ улучшает дыхание при кардиогенном отёке, но не снижает смертность интубации."
+    },
+    {
+      "id": "sepsis",
+      "label": "Сепсис",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "Сепсис — дисфункция органов, гипотензия. Может вызывать септическую кардиомиопатию, имитируя ОЛЖН."
+    }
+  ],
+  "links": [
+    {
+      "source": "bnp",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "bnp",
+      "target": "acute_decompensated_hf",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "bnp",
+      "target": "cardiogenic_shock",
+      "type": "key_marker",
+      "weight": 0.85
+    },
+    {
+      "source": "bnp",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "troponin",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "troponin",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "troponin",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "troponin",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "creatinine",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "creatinine",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "lactate",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "lactate",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "lactate",
+      "target": "sepsis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "abg_ph",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "abg_pco2",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "abg_po2",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "abg_po2",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "abg_po2",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "spo2",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "spo2",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "spo2",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "spo2",
+      "target": "copd_exacerbation",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "crp",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "crp",
+      "target": "copd_exacerbation",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "crp",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "excludes",
+      "weight": 0.6
+    },
+    {
+      "source": "procalcitonin",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "procalcitonin",
+      "target": "sepsis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "ecg_stemi",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "ecg_stemi",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "ecg_af",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "ecg_af",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "echo_lvef",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "echo_lvef",
+      "target": "cardiogenic_shock",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "echo_lvef",
+      "target": "acute_decompensated_hf",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "echo_mitral_regurg",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "chest_xray",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "confirms",
+      "weight": 0.85
+    },
+    {
+      "source": "chest_xray",
+      "target": "pneumonia",
+      "type": "confirms",
+      "weight": 0.85
+    },
+    {
+      "source": "chest_xray",
+      "target": "pneumothorax",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "ct_chest",
+      "target": "pe",
+      "type": "confirms",
+      "weight": 0.98
+    },
+    {
+      "source": "ct_chest",
+      "target": "ards",
+      "type": "confirms",
+      "weight": 0.85
+    },
+    {
+      "source": "bp",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.95
+    },
+    {
+      "source": "bp",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "bp",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "hr",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "hr",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "hr",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "dyspnea",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "dyspnea",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "dyspnea",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "dyspnea",
+      "target": "copd_exacerbation",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "dyspnea",
+      "target": "pneumothorax",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "orthopnea",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "orthopnea",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "paroxysmal_nocturnal",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "paroxysmal_nocturnal",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "cough",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "cough",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "cough",
+      "target": "copd_exacerbation",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "pink_frothy_sputum",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.95
+    },
+    {
+      "source": "tachycardia",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachycardia",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "tachycardia",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachycardia",
+      "target": "sepsis",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "hypertension",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "hypertension",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "hypotension",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.95
+    },
+    {
+      "source": "hypotension",
+      "target": "sepsis",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "jugular_distension",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "jugular_distension",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "jugular_distension",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "peripheral_edema",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "peripheral_edema",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "hepatomegaly",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "ascites",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "pulmonary_rales",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "pulmonary_rales",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "s3_gallop",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "s3_gallop",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "cyanosis",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "cyanosis",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "cyanosis",
+      "target": "pneumothorax",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "diaphoresis",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "diaphoresis",
+      "target": "cardiogenic_pulmonary_edema",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "chest_pain",
+      "target": "cardiogenic_shock",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "chest_pain",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "chest_pain",
+      "target": "pneumothorax",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "fatigue",
+      "target": "acute_decompensated_hf",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "cardiogenic_pulmonary_edema",
+      "target": "diff_cpe_vs_pneumonia",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "pneumonia",
+      "target": "diff_cpe_vs_pneumonia",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "cardiogenic_pulmonary_edema",
+      "target": "diff_cpe_vs_pe",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "pe",
+      "target": "diff_cpe_vs_pe",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "cardiogenic_pulmonary_edema",
+      "target": "guideline_esc_2021",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "cardiogenic_shock",
+      "target": "guideline_esc_2021",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "cardiogenic_pulmonary_edema",
+      "target": "rct_diuretics",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "cardiogenic_pulmonary_edema",
+      "target": "rct_niv",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_cpe_vs_pneumonia",
+      "target": "guideline_esc_2021",
+      "type": "described_in",
+      "weight": 1.0
+    }
+  ],
+  "details": {
+    "cardiogenic_pulmonary_edema": {
+      "description": "Кардиогенный отёк лёгких — острое повышение давления в лёгочных капиллярах с экстравазацией жидкости в интерстиций и альвеолы. Требует немедленной терапии.",
+      "criteria": [
+        "Острая одышка, ортопноэ, приступообразная ночная одышка",
+        "Влажные хрипы, розовая пенистая мокрота",
+        "Рентген: усиление лёгочного рисунка, бабочкообразные инфильтраты",
+        "NT-proBNP >1800 пг/мл (сильно повышен)",
+        "ЭхоКГ: снижение ФВ ЛЖ, диастолическая дисфункция"
+      ],
+      "prevalence": "1-2% госпитализаций",
+      "complications": [
+        "Кардиогенный шок",
+        "Острая почечная недостаточность",
+        "Респираторная недостаточность",
+        "Фибрилляция предсердий",
+        "Смерть (5-10% госпитальной)"
+      ],
+      "treatment": [
+        "Сидячее положение с опущенными ногами",
+        "Кислород (высокий поток, 10-15 л/мин)",
+        "Нитраты (нитроглицерин 0.4-0.8 мг подъязычно или инфузия)",
+        "Петлевые диуретики (фуросемид 40-80 мг в/в)",
+        "Морфин 2-4 мг в/в (при тяжёлой одышке, тревоге)",
+        "Неинвазивная вентиляция (CPAP/BiPAP) при гипоксемии",
+        "Инотропы (добутамин) при гипотензии",
+        "Лечение причины (ОИМ, аритмия, гипертонический криз)"
+      ],
+      "followup": "Коррекция терапии ХСН, оценка причины декомпенсации, кардиологическое наблюдение"
+    },
+    "cardiogenic_shock": {
+      "description": "Кардиогенный шок — тяжёлое гемодинамическое нарушение с недостаточной перфузией тканей на фоне острой сердечной недостаточности. Смертность 40-50%.",
+      "criteria": [
+        "Систолическое АД <90 мм рт.ст. или MAP <65",
+        "Снижение Cl <2.2 л/мин/м²",
+        "Повышение давления заклинивания ЛА (PCWP) >15 мм рт.ст.",
+        "Признаки гипоперфузии: олигурия, лактацидоз, холодная кожа"
+      ],
+      "prevalence": "5-8% ОИМ",
+      "complications": [
+        "Мультиорганная недостаточность",
+        "Острая почечная недостаточность",
+        "Ишемия кишечника",
+        "ДИК-синдром",
+        "Смерть (40-50%)"
+      ],
+      "treatment": [
+        "Инотропная поддержка (добутамин, милринон)",
+        "Вазопрессоры (норадреналин) при гипотензии",
+        "ИАБП или Impella при рефрактерном шоке",
+        "ЭКМО при крайней необходимости",
+        "Ревascularизация (ПМЖА) при ОИМ",
+        "Коррекция метаболических нарушений"
+      ],
+      "followup": "ОРИТ, оценка восстановления функции ЛЖ, решение о кардиохирургии"
+    }
+  },
+  "comparisons": {
+    "diff_cpe_vs_pneumonia": {
+      "headers": [
+        "Признак",
+        "Кардиогенный отёк",
+        "Пневмония"
+      ],
+      "rows": [
+        {
+          "feature": "Начало",
+          "cpe": "Острое (минуты-часы)",
+          "pneumonia": "Подострое (дни)"
+        },
+        {
+          "feature": "Температура",
+          "cpe": "Нормальная",
+          "pneumonia": "Лихорадка >38°C"
+        },
+        {
+          "feature": "Мокрота",
+          "cpe": "Розовая, пенистая",
+          "pneumonia": "Гнойная, ржавая"
+        },
+        {
+          "feature": "NT-proBNP",
+          "cpe": "Значительно повышен (>1800)",
+          "pneumonia": "Нормальный/умеренно повышен"
+        },
+        {
+          "feature": "СРБ/ПКТ",
+          "cpe": "Нормальные/умеренно повышены",
+          "pneumonia": "Значительно повышены"
+        },
+        {
+          "feature": "Рентген",
+          "cpe": "Бабочкообразные инфильтраты, Керли B",
+          "pneumonia": "Очаговое затемнение"
+        },
+        {
+          "feature": "ЭхоКГ",
+          "cpe": "Снижение ФВ ЛЖ",
+          "pneumonia": "Нормальная ФВ"
+        },
+        {
+          "feature": "Лечение",
+          "cpe": "Диуретики, нитраты, NIV",
+          "pneumonia": "Антибиотики"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "guideline_esc_2021": {
+      "title": "2021 ESC Guidelines for the diagnosis and treatment of acute and chronic heart failure",
+      "authors": "McDonagh TA et al.",
+      "journal": "Eur Heart J",
+      "year": 2021,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "NT-proBNP — ключевой диагностический маркер",
+        "Нитраты + диуретики — основа терапии ОЛЖН",
+        "NIV снижает интубацию и смертность"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_diuretics": {
+      "title": "High-dose versus low-dose furosemide strategy in acute heart failure",
+      "authors": "Felker GM et al.",
+      "journal": "N Engl J Med",
+      "year": 2011,
+      "n": 308,
+      "design": "RCT (DOSE-AHF)",
+      "grade": "A",
+      "key_findings": [
+        "Болюсная и инфузионная схемы одинаково эффективны",
+        "Высокие дозы (2.5× обычной) — более эффективны",
+        "Повышен риск почечной дисфункции при высоких дозах"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_niv": {
+      "title": "Noninvasive ventilation in acute cardiogenic pulmonary edema",
+      "authors": "Gray A et al.",
+      "journal": "N Engl J Med",
+      "year": 2008,
+      "n": 1069,
+      "design": "RCT (3CPO)",
+      "grade": "A",
+      "key_findings": [
+        "CPAP и NIV одинаково эффективны",
+        "Снижение смертности (9.5% vs 9.8% — NS) и интубации",
+        "Быстрое улучшение газообмена и одышки"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "cardiogenic_pulmonary_edema": [
+      {
+        "time": 0,
+        "event": "Начало",
+        "bp": "160/100",
+        "spo2": "95",
+        "symptom": "Одышка ночью"
+      },
+      {
+        "time": 30,
+        "event": "30 мин",
+        "bp": "170/110",
+        "spo2": "90",
+        "symptom": "Усиление одышки, кашель"
+      },
+      {
+        "time": 60,
+        "event": "1 час",
+        "bp": "180/115",
+        "spo2": "85",
+        "symptom": "Розовая пенистая мокрота"
+      },
+      {
+        "time": 75,
+        "event": "Диагностика",
+        "bp": "175/110",
+        "spo2": "84",
+        "symptom": "Рентген: бабочкообразные инфильтраты, NT-proBNP 8500"
+      },
+      {
+        "time": 80,
+        "event": "Терапия",
+        "bp": "150/95",
+        "spo2": "88",
+        "symptom": "Фуросемид 80 мг + нитроглицерин + CPAP"
+      },
+      {
+        "time": 120,
+        "event": "2 часа",
+        "bp": "140/90",
+        "spo2": "92",
+        "symptom": "Улучшение одышки"
+      },
+      {
+        "time": 240,
+        "event": "4 часа",
+        "bp": "130/85",
+        "spo2": "95",
+        "symptom": "Стабилизация, диурез"
+      }
+    ]
+  }
+}

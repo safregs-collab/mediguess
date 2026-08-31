@@ -1,0 +1,995 @@
+{
+  "id": "stroke",
+  "label": "Острое нарушение мозгового кровообращения / Инсульт",
+  "color": "#ef4444",
+  "nodes": [
+    {
+      "id": "ct_brain",
+      "label": "КТ головного мозга",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging",
+      "description": "НКТ — исключение кровоизлияния. Ишемия видна через 6–24 ч (гиподенсивный очаг)."
+    },
+    {
+      "id": "mri_brain",
+      "label": "МРТ головного мозга (DWI)",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging"
+    },
+    {
+      "id": "ct_angiography",
+      "label": "КТ-ангиография сосудов головы",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging"
+    },
+    {
+      "id": "glucose",
+      "label": "Глюкоза крови",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "3.9-6.1",
+      "value": 5.2,
+      "group": "metabolism",
+      "description": "Гипергликемия >10 — ухудшает исход инсульта. Гипогликемия <3.3 — имитирует инсульт."
+    },
+    {
+      "id": "inr",
+      "label": "МНО (INR)",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "",
+      "normal": "0.8-1.2",
+      "value": 1.1,
+      "group": "coagulation",
+      "description": "МНО при АФ — цель 2.0–3.0. >1.7 — противопоказание к тромболизису."
+    },
+    {
+      "id": "creatinine",
+      "label": "Креатинин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мкмоль/л",
+      "normal": "62-115",
+      "value": 85,
+      "group": "kidney",
+      "description": "Креатинин — оценка функции почек перед КТ с контрастом."
+    },
+    {
+      "id": "platelets",
+      "label": "Тромбоциты",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "×10⁹/л",
+      "normal": "150-400",
+      "value": 220,
+      "group": "cbc",
+      "description": "Тромбоцитопения <100×10⁹/л — противопоказание к тромболизису. Риск кровоизлияния."
+    },
+    {
+      "id": "troponin",
+      "label": "Тропонин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "<0.04",
+      "value": 0.02,
+      "group": "cardiac"
+    },
+    {
+      "id": "ecg",
+      "label": "ЭКГ (фибрилляция предсердий)",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "cardiac"
+    },
+    {
+      "id": "nihss",
+      "label": "Шкала NIHSS",
+      "layer": "raw",
+      "type": "scale",
+      "unit": "баллов",
+      "normal": "0",
+      "value": 12,
+      "group": "assessment",
+      "description": "NIHSS — шкала тяжести инсульта. 0–4 лёгкий, 5–15 средний, 16–20 тяжёлый, >20 очень тяжёлый."
+    },
+    {
+      "id": "sudden_onset",
+      "label": "Внезапное начало",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "hemiparesis",
+      "label": "Гемипарез",
+      "layer": "findings",
+      "type": "sign",
+      "severity": "умеренный"
+    },
+    {
+      "id": "aphasia",
+      "label": "Афазия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Афазия — поражение речевых центров (Брока, Вернике). Быстрое тестирование: назови предметы."
+    },
+    {
+      "id": "dysarthria",
+      "label": "Дизартрия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Дизартрия — нарушение артикуляции. \"Птичка на веточке\" — тест на произношение."
+    },
+    {
+      "id": "facial_droop",
+      "label": "Асимметрия лица",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Асимметрия лица — поражение лицевого нерва центрального генеза. Просят \"улыбнись\"."
+    },
+    {
+      "id": "visual_deficit",
+      "label": "Нарушение зрения",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "ataxia",
+      "label": "Атаксия",
+      "layer": "findings",
+      "type": "sign",
+      "description": "Атаксия — поражение мозжечка или его путей. Нестойкость, нарушение координации."
+    },
+    {
+      "id": "severe_headache",
+      "label": "Головная боль «громового уда»",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "критическая",
+      "description": "\"Громовой удар\" — типичен для САК. При ишемическом инсульте боль редка."
+    },
+    {
+      "id": "altered_consciousness",
+      "label": "Нарушение сознания",
+      "layer": "findings",
+      "type": "sign",
+      "severity": "тяжёлое",
+      "description": "Нарушение сознания — обширный инсульт, отёк мозга, стволовое поражение."
+    },
+    {
+      "id": "seizures",
+      "label": "Судороги",
+      "layer": "findings",
+      "type": "complication"
+    },
+    {
+      "id": "ischemic_stroke",
+      "label": "Ишемический инсульт",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "85%",
+      "ptp": "high",
+      "description": "Ишемический инсульт — окклюзия мозговой артерии. 85% всех инсультов. Тромболизис <4.5 ч, тромбэктомия."
+    },
+    {
+      "id": "hemorrhagic_stroke",
+      "label": "Геморрагический инсульт (ВМК)",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "10%",
+      "ptp": "medium",
+      "description": "Геморрагический инсульт — внутримозговое кровоизлияние. 15% инсультов. Гипертензия, антикоагулянты."
+    },
+    {
+      "id": "subarachnoid_hemorrhage",
+      "label": "Субарахноидальное кровоизлияние",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "3%",
+      "ptp": "low",
+      "description": "САК — кровоизлияние в субарахноидальное пространство. \"Громовой удар\", аневризма."
+    },
+    {
+      "id": "tia",
+      "label": "Транзиторная ишемическая атака (ТИА)",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "15%",
+      "ptp": "medium",
+      "description": "ТИА — временная ишемия, симптомы <24 ч. Риск инсульта 10% в течение 90 дней. Требует обследования."
+    },
+    {
+      "id": "carotid_dissection",
+      "label": "Разрыв сонной артерии",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "2%",
+      "ptp": "low",
+      "description": "Диссекция сонной артерии — боль в шее, голове, Horner. Молодые пациенты. Антикоагулянты."
+    },
+    {
+      "id": "hypoglycemia",
+      "label": "Гипогликемия (имитатор)",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low",
+      "description": "Гипогликемия — нейрогликопения имитирует инсульт. Глюкоза <3.3. Быстрое восстановление после коррекции."
+    },
+    {
+      "id": "diff_ischemic_vs_hemorrhagic",
+      "label": "Ишемический vs Геморрагический",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_stroke_vs_tia",
+      "label": "Инсульт vs ТИА",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_algorithm_stroke",
+      "label": "Алгоритм диффдиагностики ОНМК",
+      "layer": "differential",
+      "type": "algorithm"
+    },
+    {
+      "id": "rct_thrombolysis_ninds",
+      "label": "RCT: тромболизис (NINDS)",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 1995,
+      "n": 624,
+      "description": "NINDS (1995) — тромболизис алтеплазой в течение 3 ч снижает инвалидизацию при ишемическом инсульте."
+    },
+    {
+      "id": "rct_thrombectomy_mr_clean",
+      "label": "RCT: механическая тромбэктомия (MR CLEAN)",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2015,
+      "n": 500,
+      "description": "MR CLEAN (2015) — тромбэктомия улучшает исход при окклюзии передней циркуляции <6 ч."
+    },
+    {
+      "id": "guideline_aha_asa_2019",
+      "label": "AHA/ASA Guidelines: Acute Ischemic Stroke 2019",
+      "layer": "evidence",
+      "type": "guideline",
+      "grade": "A",
+      "year": 2019,
+      "description": "AHA/ASA Guidelines 2019 — руководство по раннему лечению ишемического инсульта."
+    },
+    {
+      "id": "meta_bp_management",
+      "label": "Мета-анализ: управление АД при ОНМК",
+      "layer": "evidence",
+      "type": "meta-analysis",
+      "grade": "A",
+      "year": 2021,
+      "n": 12000,
+      "description": "Мета-анализ АД — агрессивное снижение не улучшает исход. Цель <220/120 в остром периоде."
+    },
+    {
+      "id": "bp_systolic",
+      "label": "САД",
+      "layer": "raw",
+      "type": "vital",
+      "unit": "мм рт.ст.",
+      "normal": "<140",
+      "value": 185,
+      "group": "vitals"
+    },
+    {
+      "id": "bp_diastolic",
+      "label": "ДАД",
+      "layer": "raw",
+      "type": "vital",
+      "unit": "мм рт.ст.",
+      "normal": "<90",
+      "value": 110,
+      "group": "vitals"
+    },
+    {
+      "id": "hr",
+      "label": "ЧСС",
+      "layer": "raw",
+      "type": "vital",
+      "unit": "уд/мин",
+      "normal": "60-100",
+      "value": 95,
+      "group": "vitals"
+    },
+    {
+      "id": "rr",
+      "label": "ЧДД",
+      "layer": "raw",
+      "type": "vital",
+      "unit": "/мин",
+      "normal": "12-20",
+      "value": 18,
+      "group": "vitals"
+    },
+    {
+      "id": "temp",
+      "label": "Температура",
+      "layer": "raw",
+      "type": "vital",
+      "unit": "°C",
+      "normal": "36.0-37.0",
+      "value": 36.8,
+      "group": "vitals"
+    },
+    {
+      "id": "wbc",
+      "label": "Лейкоциты",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "×10⁹/л",
+      "normal": "4-9",
+      "value": 8.5,
+      "group": "cbc",
+      "description": "Лейкоцитоз — инфекционный триггер (сепсис, менингит). Неспецифичен."
+    },
+    {
+      "id": "tachycardia",
+      "label": "Тахикардия",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "tachypnea",
+      "label": "Тахипноэ",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "fever",
+      "label": "Лихорадка",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "nystagmus",
+      "label": "Нистагм",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "hemianopsia",
+      "label": "Гемианопсия",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "dysphagia",
+      "label": "Дисфагия",
+      "layer": "findings",
+      "type": "symptom"
+    }
+  ],
+  "links": [
+    {
+      "source": "ct_brain",
+      "target": "hemorrhagic_stroke",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "ct_brain",
+      "target": "subarachnoid_hemorrhage",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "ct_brain",
+      "target": "ischemic_stroke",
+      "type": "discriminates",
+      "weight": 0.9
+    },
+    {
+      "source": "mri_brain",
+      "target": "ischemic_stroke",
+      "type": "confirms",
+      "weight": 0.98
+    },
+    {
+      "source": "mri_brain",
+      "target": "tia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "ct_angiography",
+      "target": "ischemic_stroke",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "ct_angiography",
+      "target": "carotid_dissection",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "glucose",
+      "target": "hypoglycemia",
+      "type": "key_marker",
+      "weight": 1.0
+    },
+    {
+      "source": "glucose",
+      "target": "ischemic_stroke",
+      "type": "discriminates",
+      "weight": 0.8
+    },
+    {
+      "source": "ecg",
+      "target": "ischemic_stroke",
+      "type": "associated",
+      "weight": 0.75
+    },
+    {
+      "source": "troponin",
+      "target": "ischemic_stroke",
+      "type": "associated",
+      "weight": 0.6
+    },
+    {
+      "source": "nihss",
+      "target": "ischemic_stroke",
+      "type": "assesses",
+      "weight": 0.85
+    },
+    {
+      "source": "nihss",
+      "target": "hemorrhagic_stroke",
+      "type": "assesses",
+      "weight": 0.85
+    },
+    {
+      "source": "sudden_onset",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "sudden_onset",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "sudden_onset",
+      "target": "subarachnoid_hemorrhage",
+      "type": "supports",
+      "weight": 0.95
+    },
+    {
+      "source": "sudden_onset",
+      "target": "tia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "hemiparesis",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "hemiparesis",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "hemiparesis",
+      "target": "tia",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "aphasia",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "facial_droop",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "facial_droop",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "visual_deficit",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "severe_headache",
+      "target": "subarachnoid_hemorrhage",
+      "type": "supports",
+      "weight": 0.95
+    },
+    {
+      "source": "severe_headache",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "altered_consciousness",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "altered_consciousness",
+      "target": "subarachnoid_hemorrhage",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "seizures",
+      "target": "hemorrhagic_stroke",
+      "type": "complication_of",
+      "weight": 0.7
+    },
+    {
+      "source": "seizures",
+      "target": "subarachnoid_hemorrhage",
+      "type": "complication_of",
+      "weight": 0.65
+    },
+    {
+      "source": "ischemic_stroke",
+      "target": "diff_ischemic_vs_hemorrhagic",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "hemorrhagic_stroke",
+      "target": "diff_ischemic_vs_hemorrhagic",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "ischemic_stroke",
+      "target": "diff_stroke_vs_tia",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "tia",
+      "target": "diff_stroke_vs_tia",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_algorithm_stroke",
+      "target": "diff_ischemic_vs_hemorrhagic",
+      "type": "includes",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_algorithm_stroke",
+      "target": "diff_stroke_vs_tia",
+      "type": "includes",
+      "weight": 1.0
+    },
+    {
+      "source": "ischemic_stroke",
+      "target": "rct_thrombolysis_ninds",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "ischemic_stroke",
+      "target": "rct_thrombectomy_mr_clean",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "ischemic_stroke",
+      "target": "guideline_aha_asa_2019",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "hemorrhagic_stroke",
+      "target": "meta_bp_management",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_ischemic_vs_hemorrhagic",
+      "target": "guideline_aha_asa_2019",
+      "type": "described_in",
+      "weight": 1.0
+    },
+    {
+      "source": "bp_systolic",
+      "target": "tachycardia",
+      "type": "associated",
+      "weight": 0.7
+    },
+    {
+      "source": "hr",
+      "target": "tachycardia",
+      "type": "generates",
+      "weight": 1.0
+    },
+    {
+      "source": "rr",
+      "target": "tachypnea",
+      "type": "generates",
+      "weight": 1.0
+    },
+    {
+      "source": "temp",
+      "target": "fever",
+      "type": "generates",
+      "weight": 1.0
+    },
+    {
+      "source": "bp_systolic",
+      "target": "hemorrhagic_stroke",
+      "type": "key_marker",
+      "weight": 0.9
+    },
+    {
+      "source": "bp_systolic",
+      "target": "ischemic_stroke",
+      "type": "associated",
+      "weight": 0.6
+    },
+    {
+      "source": "bp_diastolic",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "glucose",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "glucose",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "glucose",
+      "target": "hypoglycemia",
+      "type": "discriminates",
+      "weight": 0.9
+    },
+    {
+      "source": "wbc",
+      "target": "ischemic_stroke",
+      "type": "associated",
+      "weight": 0.5
+    },
+    {
+      "source": "wbc",
+      "target": "hemorrhagic_stroke",
+      "type": "associated",
+      "weight": 0.55
+    },
+    {
+      "source": "creatinine",
+      "target": "ischemic_stroke",
+      "type": "associated",
+      "weight": 0.5
+    },
+    {
+      "source": "platelets",
+      "target": "hemorrhagic_stroke",
+      "type": "associated",
+      "weight": 0.6
+    },
+    {
+      "source": "inr",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachycardia",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "tachycardia",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "tachypnea",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "fever",
+      "target": "ischemic_stroke",
+      "type": "associated",
+      "weight": 0.5
+    },
+    {
+      "source": "dysarthria",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "dysarthria",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "ataxia",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "nystagmus",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "nystagmus",
+      "target": "subarachnoid_hemorrhage",
+      "type": "supports",
+      "weight": 0.65
+    },
+    {
+      "source": "hemianopsia",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "dysphagia",
+      "target": "ischemic_stroke",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "dysphagia",
+      "target": "hemorrhagic_stroke",
+      "type": "supports",
+      "weight": 0.7
+    },
+    {
+      "source": "guideline_aha_asa_2019",
+      "target": "hemorrhagic_stroke",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "meta_bp_management",
+      "target": "ischemic_stroke",
+      "type": "treated_in",
+      "weight": 1.0
+    }
+  ],
+  "details": {
+    "ischemic_stroke": {
+      "description": "Ишемический инсульт — острое нарушение мозгового кровообращения, вызванное окклюзией артерии тромбом или эмболом. Наиболее частая причина — атеросклероз и фибрилляция предсердий.",
+      "criteria": [
+        "Внезапное начало неврологического дефицита",
+        "КТ головного мозга: отсутствие кровоизлияния",
+        "МРТ DWI: ограничение диффузии",
+        "Симптомы соответствуют сосудистому бассейну"
+      ],
+      "prevalence": "85% всех инсультов",
+      "complications": [
+        "Мозговой отёк",
+        "Транстенториальное вклинение",
+        "Пневмония аспирационная",
+        "Глубокая венозная тромбоз",
+        "Постинсультная депрессия"
+      ],
+      "treatment": [
+        "Внутривенный тромболиз алтеплазой (до 4.5 часов)",
+        "Механическая тромбэктомия (до 24 часов при крупном сосуде)",
+        "Антиагреганты (аспирин 300 мг)",
+        "Антикоагулянты при ФП (гепарин/НМГ)",
+        "Контроль АД <185/110 перед тромболизом"
+      ],
+      "followup": "Реабилитация, вторичная профилактика, контроль риск-факторов"
+    },
+    "hemorrhagic_stroke": {
+      "description": "Внутримозговое кровоизлияние — разрыв мозгового сосуда с кровоизлиянием в паренхиму. Причины: артериальная гипертензия, антикоагулянты, амилоидная ангиопатия.",
+      "criteria": [
+        "Внезапная головная боль",
+        "Нарушение сознания",
+        "КТ: гиперплотное образование в паренхиме",
+        "Неврологический дефицит"
+      ],
+      "prevalence": "10-15% всех инсультов",
+      "complications": [
+        "Внутричерепная гипертензия",
+        "Гидроцефалия",
+        "Рецидивное кровотечение",
+        "Судороги"
+      ],
+      "treatment": [
+        "Контроль АД (цель <140/90)",
+        "Реверсия антикоагулянтов (протамин, PCC)",
+        "Хирургическая эвакуация при крупной гематоме (>30 мл)",
+        "Контроль ВЧД, осмотическая терапия (маннитол)"
+      ],
+      "followup": "Контроль АД, отказ от антикоагулянтов, реабилитация"
+    }
+  },
+  "comparisons": {
+    "diff_ischemic_vs_hemorrhagic": {
+      "headers": [
+        "Признак",
+        "Ишемический инсульт",
+        "Геморрагический инсульт"
+      ],
+      "rows": [
+        {
+          "feature": "Начало",
+          "ischemic": "Внезапное, во сне или на бодрствовании",
+          "hemorrhagic": "Внезапное, при активности/стрессе"
+        },
+        {
+          "feature": "Головная боль",
+          "ischemic": "Редко, умеренная",
+          "hemorrhagic": "Часто, интенсивная («громовой удар»)"
+        },
+        {
+          "feature": "Нарушение сознания",
+          "ischemic": "Редко (при крупном инсульте)",
+          "hemorrhagic": "Часто, прогрессирующее"
+        },
+        {
+          "feature": "КТ в первые часы",
+          "ischemic": "Норма или ранние признаки (гиподенсность)",
+          "hemorrhagic": "Гиперплотное образование"
+        },
+        {
+          "feature": "МРТ DWI",
+          "ischemic": "Ограничение диффузии",
+          "hemorrhagic": "Нет ограничения диффузии"
+        },
+        {
+          "feature": "Судороги",
+          "ischemic": "Редко",
+          "hemorrhagic": "Чаще"
+        },
+        {
+          "feature": "Лечение",
+          "ischemic": "Тромболиз/тромбэктомия, антиагреганты",
+          "hemorrhagic": "Контроль АД, реверсия антикоагулянтов, хирургия"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "rct_thrombolysis_ninds": {
+      "title": "Tissue plasminogen activator for acute ischemic stroke (NINDS trial)",
+      "authors": "The National Institute of Neurological Disorders and Stroke rt-PA Stroke Study Group",
+      "journal": "N Engl J Med",
+      "year": 1995,
+      "n": 624,
+      "design": "Double-blind RCT",
+      "grade": "A",
+      "key_findings": [
+        "Алтеплаза в течение 3 часов: улучшение исхода в 30% vs 24% (плацебо)",
+        "Симптоматическое кровоизлияние 6.4% vs 0.6%",
+        "Основа для утверждения тромболиза при ОИИ"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_thrombectomy_mr_clean": {
+      "title": "Endovascular treatment for acute ischemic stroke (MR CLEAN)",
+      "authors": "Berkhemer OA et al.",
+      "journal": "N Engl J Med",
+      "year": 2015,
+      "n": 500,
+      "design": "Open-label RCT",
+      "grade": "A",
+      "key_findings": [
+        "Механическая тромбэктомия: mRS 0-2 в 32.6% vs 19.1%",
+        "Эффективна при окклюзии проксимальных артерий",
+        "Окно до 6 часов (позже — по изображениям)"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "guideline_aha_asa_2019": {
+      "title": "Guidelines for the Early Management of Patients With Acute Ischemic Stroke",
+      "authors": "Powers WJ et al.",
+      "journal": "Stroke",
+      "year": 2019,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "Тромболиз до 4.5 часов (класс I, уровень A)",
+        "Тромбэктомия при окклюзии проксимальных артерий (класс I)",
+        "Аспирин в течение 24-48 часов (класс I)"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "ischemic_stroke": [
+      {
+        "time": 0,
+        "event": "Начало симптомов",
+        "nihss": 12,
+        "ct": "Норма",
+        "treatment": "Оценка"
+      },
+      {
+        "time": 30,
+        "event": "30 мин",
+        "nihss": 12,
+        "ct": "Норма",
+        "treatment": "КТ, лаборатория"
+      },
+      {
+        "time": 60,
+        "event": "1 час",
+        "nihss": 13,
+        "ct": "Норма",
+        "treatment": "Тромболиз алтеплазой"
+      },
+      {
+        "time": 120,
+        "event": "2 часа",
+        "nihss": 10,
+        "ct": "—",
+        "treatment": "Мониторинг"
+      },
+      {
+        "time": 240,
+        "event": "4 часа",
+        "nihss": 8,
+        "ct": "—",
+        "treatment": "Аспирин 300 мг"
+      },
+      {
+        "time": 1440,
+        "event": "24 часа",
+        "nihss": 6,
+        "ct": "Ранняя ишемия",
+        "treatment": "Повторная КТ"
+      },
+      {
+        "time": 10080,
+        "event": "7 дней",
+        "nihss": 3,
+        "ct": "Инфаркт",
+        "treatment": "Реабилитация"
+      }
+    ]
+  }
+}

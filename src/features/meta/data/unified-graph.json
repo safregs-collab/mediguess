@@ -1,0 +1,1526 @@
+{
+  "version": "1.0.0",
+  "label": "Объединённая мета-карта нозологий",
+  "description": "Интерактивная доска всех нозологий DOC-W. Каждая нозология — территория с shared symptoms и labs. Связи показывают клиническое пересечение.",
+  "groups": [
+    {
+      "id": "cardiovascular",
+      "label": "Сердечно-сосудистые",
+      "color": "#ef4444",
+      "description": "Острые состояния сердечно-сосудистой системы",
+      "territory": {
+        "x": 300,
+        "y": 350,
+        "radius": 220
+      },
+      "nodeIds": [
+        "acs",
+        "im",
+        "olzhn",
+        "tela",
+        "infarct-cerebellar",
+        "aortic-rupture",
+        "anaphylaxis",
+        "pericarditis"
+      ]
+    },
+    {
+      "id": "infectious",
+      "label": "Инфекционные",
+      "color": "#f59e0b",
+      "description": "Системные и очаговые инфекции",
+      "territory": {
+        "x": 650,
+        "y": 220,
+        "radius": 200
+      },
+      "nodeIds": [
+        "sepsis",
+        "infective-endocarditis",
+        "meningitis-encephalitis",
+        "pneumonia"
+      ]
+    },
+    {
+      "id": "neurological",
+      "label": "Неврологические",
+      "color": "#8b5cf6",
+      "description": "Острые поражения ЦНС",
+      "territory": {
+        "x": 1000,
+        "y": 350,
+        "radius": 200
+      },
+      "nodeIds": [
+        "stroke",
+        "status-epilepticus",
+        "meningitis-encephalitis",
+        "infarct-cerebellar"
+      ]
+    },
+    {
+      "id": "endocrine",
+      "label": "Эндокринные",
+      "color": "#10b981",
+      "description": "Острые эндокринные кризы",
+      "territory": {
+        "x": 300,
+        "y": 700,
+        "radius": 180
+      },
+      "nodeIds": [
+        "thyrotoxicosis",
+        "dka-hnk",
+        "hypoglycemia",
+        "hypercalcemia",
+        "adrenal-crisis"
+      ]
+    },
+    {
+      "id": "hematological",
+      "label": "Гематологические",
+      "color": "#ec4899",
+      "description": "Анемии и коагулопатии",
+      "territory": {
+        "x": 600,
+        "y": 650,
+        "radius": 160
+      },
+      "nodeIds": [
+        "anemia",
+        "dic"
+      ]
+    },
+    {
+      "id": "respiratory",
+      "label": "Респираторные",
+      "color": "#06b6d4",
+      "description": "Острая дыхательная недостаточность",
+      "territory": {
+        "x": 650,
+        "y": 450,
+        "radius": 180
+      },
+      "nodeIds": [
+        "ards",
+        "tela",
+        "pneumonia",
+        "olzhn"
+      ]
+    },
+    {
+      "id": "surgical",
+      "label": "Хирургические / Травма",
+      "color": "#f97316",
+      "description": "Острые хирургические патологии",
+      "territory": {
+        "x": 950,
+        "y": 700,
+        "radius": 200
+      },
+      "nodeIds": [
+        "aortic-rupture",
+        "perforation-git",
+        "acute-pancreatitis",
+        "bowel-obstruction"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "acs",
+      "label": "ОКС / Нестабильная стенокардия",
+      "group": "cardiovascular",
+      "x": 220,
+      "y": 280,
+      "radius": 26,
+      "size": 42,
+      "shared_symptoms": [
+        "chest-pain",
+        "tachycardia",
+        "dyspnea",
+        "sweating",
+        "anxiety"
+      ],
+      "shared_labs": [
+        "troponin",
+        "ecg",
+        "ck-mb",
+        "wbc",
+        "glucose"
+      ]
+    },
+    {
+      "id": "im",
+      "label": "Инфаркт миокарда",
+      "group": "cardiovascular",
+      "x": 350,
+      "y": 250,
+      "radius": 28,
+      "size": 46,
+      "shared_symptoms": [
+        "chest-pain",
+        "tachycardia",
+        "dyspnea",
+        "hypotension",
+        "sweating",
+        "nausea"
+      ],
+      "shared_labs": [
+        "troponin",
+        "ecg",
+        "ck-mb",
+        "bnp",
+        "creatinine",
+        "lactate"
+      ]
+    },
+    {
+      "id": "olzhn",
+      "label": "ОЛЖН",
+      "group": "cardiovascular",
+      "x": 280,
+      "y": 420,
+      "radius": 28,
+      "size": 54,
+      "shared_symptoms": [
+        "dyspnea",
+        "tachycardia",
+        "orthopnea",
+        "edema",
+        "hypoxemia",
+        "cough"
+      ],
+      "shared_labs": [
+        "bnp",
+        "pro-bnp",
+        "creatinine",
+        "electrolytes",
+        "abg",
+        "chest-xray"
+      ]
+    },
+    {
+      "id": "tela",
+      "label": "ТЭЛА",
+      "group": "cardiovascular",
+      "x": 420,
+      "y": 380,
+      "radius": 26,
+      "size": 48,
+      "shared_symptoms": [
+        "dyspnea",
+        "tachycardia",
+        "chest-pain",
+        "hypoxemia",
+        "tachypnea",
+        "syncope"
+      ],
+      "shared_labs": [
+        "d-dimer",
+        "abg",
+        "troponin",
+        "bnp",
+        "ct-pa",
+        "echo"
+      ]
+    },
+    {
+      "id": "infarct-cerebellar",
+      "label": "Инфаркт мозжечка",
+      "group": "cardiovascular",
+      "x": 180,
+      "y": 480,
+      "radius": 24,
+      "size": 38,
+      "shared_symptoms": [
+        "vertigo",
+        "ataxia",
+        "nausea",
+        "vomiting",
+        "headache",
+        "nystagmus"
+      ],
+      "shared_labs": [
+        "ct-brain",
+        "mri",
+        "glucose",
+        "coagulogram"
+      ]
+    },
+    {
+      "id": "aortic-rupture",
+      "label": "Разрыв аорты",
+      "group": "cardiovascular",
+      "x": 400,
+      "y": 500,
+      "radius": 24,
+      "size": 36,
+      "shared_symptoms": [
+        "chest-pain",
+        "back-pain",
+        "hypotension",
+        "shock",
+        "dyspnea",
+        "syncope"
+      ],
+      "shared_labs": [
+        "ct-aorta",
+        "echo",
+        "creatinine",
+        "lactate",
+        "hemoglobin"
+      ]
+    },
+    {
+      "id": "sepsis",
+      "label": "Сепсис / септический шок",
+      "group": "infectious",
+      "x": 600,
+      "y": 150,
+      "radius": 24,
+      "size": 32,
+      "shared_symptoms": [
+        "fever",
+        "tachycardia",
+        "hypotension",
+        "tachypnea",
+        "altered-consciousness",
+        "oliguria"
+      ],
+      "shared_labs": [
+        "lactate",
+        "procalcitonin",
+        "wbc",
+        "crp",
+        "creatinine",
+        "abg",
+        "blood-culture"
+      ]
+    },
+    {
+      "id": "infective-endocarditis",
+      "label": "Инфекционный эндокардит",
+      "group": "infectious",
+      "x": 750,
+      "y": 180,
+      "radius": 26,
+      "size": 50,
+      "shared_symptoms": [
+        "fever",
+        "heart-murmur",
+        "embolic-events",
+        "anemia-signs",
+        "weight-loss",
+        "night-sweats"
+      ],
+      "shared_labs": [
+        "blood-culture",
+        "echo",
+        "wbc",
+        "crp",
+        "esr",
+        "hemoglobin",
+        "creatinine"
+      ]
+    },
+    {
+      "id": "meningitis-encephalitis",
+      "label": "Менингит / энцефалит",
+      "group": "infectious",
+      "x": 680,
+      "y": 300,
+      "radius": 26,
+      "size": 44,
+      "shared_symptoms": [
+        "fever",
+        "headache",
+        "neck-stiffness",
+        "altered-consciousness",
+        "seizures",
+        "photophobia"
+      ],
+      "shared_labs": [
+        "lp-csf",
+        "ct-brain",
+        "wbc",
+        "crp",
+        "procalcitonin",
+        "glucose",
+        "electrolytes"
+      ]
+    },
+    {
+      "id": "pneumonia",
+      "label": "Пневмония / сепсис лёгких",
+      "group": "infectious",
+      "x": 550,
+      "y": 280,
+      "radius": 24,
+      "size": 40,
+      "shared_symptoms": [
+        "fever",
+        "cough",
+        "dyspnea",
+        "tachypnea",
+        "hypoxemia",
+        "chest-pain"
+      ],
+      "shared_labs": [
+        "chest-xray",
+        "wbc",
+        "crp",
+        "procalcitonin",
+        "abg",
+        "sputum-culture"
+      ]
+    },
+    {
+      "id": "stroke",
+      "label": "Инсульт",
+      "group": "neurological",
+      "x": 950,
+      "y": 250,
+      "radius": 28,
+      "size": 52,
+      "shared_symptoms": [
+        "altered-consciousness",
+        "hemiparesis",
+        "aphasia",
+        "headache",
+        "nausea",
+        "vertigo"
+      ],
+      "shared_labs": [
+        "ct-brain",
+        "mri",
+        "glucose",
+        "coagulogram",
+        "electrolytes",
+        "creatinine"
+      ]
+    },
+    {
+      "id": "status-epilepticus",
+      "label": "Статус эпилептикус",
+      "group": "neurological",
+      "x": 1100,
+      "y": 280,
+      "radius": 26,
+      "size": 45,
+      "shared_symptoms": [
+        "seizures",
+        "altered-consciousness",
+        "tachycardia",
+        "hypertension",
+        "hypoxemia",
+        "fever"
+      ],
+      "shared_labs": [
+        "glucose",
+        "electrolytes",
+        "abg",
+        "creatinine",
+        "lactate",
+        "ct-brain",
+        "eeg"
+      ]
+    },
+    {
+      "id": "thyrotoxicosis",
+      "label": "Тиреотоксический криз",
+      "group": "endocrine",
+      "x": 250,
+      "y": 650,
+      "radius": 26,
+      "size": 48,
+      "shared_symptoms": [
+        "fever",
+        "tachycardia",
+        "tremor",
+        "altered-consciousness",
+        "agitation",
+        "sweating"
+      ],
+      "shared_labs": [
+        "tsh",
+        "t4-free",
+        "t3",
+        "electrolytes",
+        "glucose",
+        "creatinine",
+        "abg"
+      ]
+    },
+    {
+      "id": "dka-hnk",
+      "label": "ДКА / ГНК",
+      "group": "endocrine",
+      "x": 380,
+      "y": 750,
+      "radius": 26,
+      "size": 46,
+      "shared_symptoms": [
+        "altered-consciousness",
+        "tachycardia",
+        "hypotension",
+        "kussmaul",
+        "dehydration",
+        "nausea"
+      ],
+      "shared_labs": [
+        "glucose",
+        "ph",
+        "bicarbonate",
+        "ketones",
+        "electrolytes",
+        "creatinine",
+        "osmolality"
+      ]
+    },
+    {
+      "id": "hypoglycemia",
+      "label": "Тяжёлая гипогликемия",
+      "group": "endocrine",
+      "x": 200,
+      "y": 780,
+      "radius": 22,
+      "size": 30,
+      "shared_symptoms": [
+        "altered-consciousness",
+        "seizures",
+        "tachycardia",
+        "sweating",
+        "tremor",
+        "anxiety"
+      ],
+      "shared_labs": [
+        "glucose",
+        "electrolytes",
+        "creatinine",
+        "c-peptide",
+        "insulin"
+      ]
+    },
+    {
+      "id": "anemia",
+      "label": "Острая анемия",
+      "group": "hematological",
+      "x": 600,
+      "y": 600,
+      "radius": 26,
+      "size": 47,
+      "shared_symptoms": [
+        "dyspnea",
+        "tachycardia",
+        "pallor",
+        "weakness",
+        "chest-pain",
+        "dizziness"
+      ],
+      "shared_labs": [
+        "hemoglobin",
+        "mcv",
+        "ferritin",
+        "b12",
+        "folate",
+        "creatinine",
+        "ldh",
+        "haptoglobin"
+      ]
+    },
+    {
+      "id": "dic",
+      "label": "ДВС-синдром",
+      "group": "hematological",
+      "x": 700,
+      "y": 720,
+      "radius": 24,
+      "size": 42,
+      "shared_symptoms": [
+        "bleeding",
+        "petechiae",
+        "hypotension",
+        "tachycardia",
+        "oliguria",
+        "altered-consciousness"
+      ],
+      "shared_labs": [
+        "platelets",
+        "d-dimer",
+        "fibrinogen",
+        "pt",
+        "aptt",
+        "creatinine",
+        "lactate"
+      ]
+    },
+    {
+      "id": "ards",
+      "label": "ОРДС",
+      "group": "respiratory",
+      "x": 580,
+      "y": 480,
+      "radius": 26,
+      "size": 48,
+      "shared_symptoms": [
+        "dyspnea",
+        "tachypnea",
+        "hypoxemia",
+        "cyanosis",
+        "tachycardia",
+        "altered-consciousness"
+      ],
+      "shared_labs": [
+        "abg",
+        "chest-xray",
+        "creatinine",
+        "lactate",
+        "procalcitonin",
+        "echo"
+      ]
+    },
+    {
+      "id": "perforation-git",
+      "label": "Перфорация ЖКТ",
+      "group": "surgical",
+      "x": 900,
+      "y": 650,
+      "radius": 24,
+      "size": 40,
+      "shared_symptoms": [
+        "abdominal-pain",
+        "peritonitis",
+        "fever",
+        "tachycardia",
+        "hypotension",
+        "vomiting"
+      ],
+      "shared_labs": [
+        "free-air-ct",
+        "wbc",
+        "crp",
+        "creatinine",
+        "lactate",
+        "electrolytes"
+      ]
+    },
+    {
+      "id": "acute-pancreatitis",
+      "label": "Острый панкреатит",
+      "group": "surgical",
+      "x": 1050,
+      "y": 680,
+      "radius": 26,
+      "size": 48,
+      "shared_symptoms": [
+        "abdominal-pain",
+        "nausea",
+        "vomiting",
+        "fever",
+        "tachycardia",
+        "hypotension"
+      ],
+      "shared_labs": [
+        "amylase",
+        "lipase",
+        "ct-abdomen",
+        "wbc",
+        "crp",
+        "creatinine",
+        "electrolytes",
+        "glucose",
+        "calcium"
+      ]
+    },
+    {
+      "id": "bowel-obstruction",
+      "label": "Кишечная непроходимость",
+      "group": "surgical",
+      "x": 1000,
+      "y": 800,
+      "radius": 24,
+      "size": 42,
+      "shared_symptoms": [
+        "abdominal-pain",
+        "vomiting",
+        "constipation",
+        "distension",
+        "tachycardia",
+        "dehydration"
+      ],
+      "shared_labs": [
+        "ct-abdomen",
+        "wbc",
+        "electrolytes",
+        "creatinine",
+        "lactate",
+        "abg"
+      ]
+    },
+    {
+      "id": "hypercalcemia",
+      "label": "Гиперкальциемия",
+      "group": "endocrine",
+      "description": "Острое повышение кальция в крови",
+      "x": 180,
+      "y": 720,
+      "radius": 28,
+      "size": 33.6,
+      "shared_symptoms": [],
+      "shared_labs": []
+    },
+    {
+      "id": "adrenal-crisis",
+      "label": "Острый надпочечниковый криз",
+      "group": "endocrine",
+      "description": "Острая недостаточность коры надпочечников",
+      "x": 420,
+      "y": 750,
+      "radius": 30,
+      "size": 36.0,
+      "shared_symptoms": [],
+      "shared_labs": []
+    },
+    {
+      "id": "anaphylaxis",
+      "label": "Анафилаксия",
+      "group": "cardiovascular",
+      "description": "Острая аллергическая реакция с шоком",
+      "x": 150,
+      "y": 300,
+      "radius": 30,
+      "size": 36.0,
+      "shared_symptoms": [],
+      "shared_labs": []
+    },
+    {
+      "id": "pericarditis",
+      "label": "Перикардит",
+      "group": "cardiovascular",
+      "description": "Воспаление перикарда",
+      "x": 450,
+      "y": 280,
+      "radius": 28,
+      "size": 33.6,
+      "shared_symptoms": [],
+      "shared_labs": []
+    }
+  ],
+  "links": [
+    {
+      "source": "sepsis",
+      "target": "im",
+      "type": "shares_symptoms",
+      "weight": 0.45,
+      "shared": [
+        "tachycardia",
+        "hypotension",
+        "lactate-elevation",
+        "altered-consciousness"
+      ]
+    },
+    {
+      "source": "sepsis",
+      "target": "olzhn",
+      "type": "shares_symptoms",
+      "weight": 0.4,
+      "shared": [
+        "tachypnea",
+        "hypoxemia",
+        "tachycardia"
+      ]
+    },
+    {
+      "source": "sepsis",
+      "target": "dka-hnk",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "altered-consciousness",
+        "tachycardia",
+        "hypotension",
+        "dehydration"
+      ]
+    },
+    {
+      "source": "sepsis",
+      "target": "perforation-git",
+      "type": "shares_symptoms",
+      "weight": 0.5,
+      "shared": [
+        "fever",
+        "peritonitis",
+        "tachycardia",
+        "hypotension",
+        "lactate-elevation"
+      ]
+    },
+    {
+      "source": "sepsis",
+      "target": "acute-pancreatitis",
+      "type": "shares_symptoms",
+      "weight": 0.4,
+      "shared": [
+        "fever",
+        "tachycardia",
+        "hypotension",
+        "altered-consciousness"
+      ]
+    },
+    {
+      "source": "sepsis",
+      "target": "dic",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "bleeding",
+        "hypotension",
+        "tachycardia",
+        "oliguria"
+      ]
+    },
+    {
+      "source": "sepsis",
+      "target": "ards",
+      "type": "shares_symptoms",
+      "weight": 0.55,
+      "shared": [
+        "tachypnea",
+        "hypoxemia",
+        "abg-abnormalities",
+        "infiltrates"
+      ]
+    },
+    {
+      "source": "sepsis",
+      "target": "pneumonia",
+      "type": "shares_symptoms",
+      "weight": 0.5,
+      "shared": [
+        "fever",
+        "tachypnea",
+        "hypoxemia",
+        "wbc-abnormalities",
+        "infiltrates"
+      ]
+    },
+    {
+      "source": "sepsis",
+      "target": "infective-endocarditis",
+      "type": "shares_symptoms",
+      "weight": 0.45,
+      "shared": [
+        "fever",
+        "tachycardia",
+        "hypotension",
+        "blood-culture-positive"
+      ]
+    },
+    {
+      "source": "im",
+      "target": "olzhn",
+      "type": "shares_symptoms",
+      "weight": 0.55,
+      "shared": [
+        "dyspnea",
+        "tachycardia",
+        "chest-pain",
+        "sweating",
+        "bnp-elevation"
+      ]
+    },
+    {
+      "source": "im",
+      "target": "tela",
+      "type": "shares_symptoms",
+      "weight": 0.4,
+      "shared": [
+        "chest-pain",
+        "tachycardia",
+        "dyspnea",
+        "hypotension",
+        "troponin-elevation"
+      ]
+    },
+    {
+      "source": "im",
+      "target": "aortic-rupture",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "chest-pain",
+        "hypotension",
+        "shock",
+        "dyspnea"
+      ]
+    },
+    {
+      "source": "im",
+      "target": "anemia",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "tachycardia",
+        "dyspnea",
+        "chest-pain",
+        "weakness"
+      ]
+    },
+    {
+      "source": "im",
+      "target": "thyrotoxicosis",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "tachycardia",
+        "sweating",
+        "anxiety",
+        "tremor"
+      ]
+    },
+    {
+      "source": "olzhn",
+      "target": "tela",
+      "type": "shares_symptoms",
+      "weight": 0.5,
+      "shared": [
+        "dyspnea",
+        "tachypnea",
+        "hypoxemia",
+        "tachycardia",
+        "chest-xray-abnormalities"
+      ]
+    },
+    {
+      "source": "olzhn",
+      "target": "ards",
+      "type": "shares_symptoms",
+      "weight": 0.45,
+      "shared": [
+        "dyspnea",
+        "hypoxemia",
+        "tachypnea",
+        "cyanosis",
+        "bilateral-infiltrates"
+      ]
+    },
+    {
+      "source": "olzhn",
+      "target": "pneumonia",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "dyspnea",
+        "cough",
+        "hypoxemia",
+        "tachypnea"
+      ]
+    },
+    {
+      "source": "tela",
+      "target": "pneumonia",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "dyspnea",
+        "chest-pain",
+        "hypoxemia",
+        "tachypnea"
+      ]
+    },
+    {
+      "source": "tela",
+      "target": "aortic-rupture",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "chest-pain",
+        "hypotension",
+        "shock",
+        "dyspnea"
+      ]
+    },
+    {
+      "source": "stroke",
+      "target": "status-epilepticus",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "altered-consciousness",
+        "seizures",
+        "tachycardia",
+        "hypertension"
+      ]
+    },
+    {
+      "source": "stroke",
+      "target": "meningitis-encephalitis",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "altered-consciousness",
+        "headache",
+        "fever",
+        "nausea",
+        "ct-brain-abnormalities"
+      ]
+    },
+    {
+      "source": "stroke",
+      "target": "hypoglycemia",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "altered-consciousness",
+        "seizures",
+        "focal-neurology",
+        "glucose-abnormalities"
+      ]
+    },
+    {
+      "source": "stroke",
+      "target": "infarct-cerebellar",
+      "type": "shares_symptoms",
+      "weight": 0.5,
+      "shared": [
+        "vertigo",
+        "ataxia",
+        "nausea",
+        "vomiting",
+        "headache",
+        "mri-ischemia"
+      ]
+    },
+    {
+      "source": "status-epilepticus",
+      "target": "meningitis-encephalitis",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "seizures",
+        "altered-consciousness",
+        "fever",
+        "tachycardia"
+      ]
+    },
+    {
+      "source": "status-epilepticus",
+      "target": "thyrotoxicosis",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "tachycardia",
+        "fever",
+        "altered-consciousness",
+        "agitation"
+      ]
+    },
+    {
+      "source": "status-epilepticus",
+      "target": "hypoglycemia",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "seizures",
+        "altered-consciousness",
+        "tachycardia",
+        "sweating"
+      ]
+    },
+    {
+      "source": "thyrotoxicosis",
+      "target": "dka-hnk",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "tachycardia",
+        "altered-consciousness",
+        "dehydration",
+        "nausea",
+        "vomiting"
+      ]
+    },
+    {
+      "source": "thyrotoxicosis",
+      "target": "sepsis",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "fever",
+        "tachycardia",
+        "altered-consciousness",
+        "tachypnea"
+      ]
+    },
+    {
+      "source": "dka-hnk",
+      "target": "acute-pancreatitis",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "abdominal-pain",
+        "nausea",
+        "vomiting",
+        "altered-consciousness",
+        "dehydration"
+      ]
+    },
+    {
+      "source": "dka-hnk",
+      "target": "sepsis",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "altered-consciousness",
+        "hypotension",
+        "tachycardia",
+        "dehydration",
+        "lactate-elevation"
+      ]
+    },
+    {
+      "source": "anemia",
+      "target": "im",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "tachycardia",
+        "dyspnea",
+        "chest-pain",
+        "pallor",
+        "weakness"
+      ]
+    },
+    {
+      "source": "anemia",
+      "target": "olzhn",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "dyspnea",
+        "tachycardia",
+        "weakness",
+        "pallor"
+      ]
+    },
+    {
+      "source": "anemia",
+      "target": "infective-endocarditis",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "anemia-signs",
+        "fever",
+        "tachycardia",
+        "weakness"
+      ]
+    },
+    {
+      "source": "anemia",
+      "target": "dic",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "bleeding",
+        "tachycardia",
+        "hypotension",
+        "pallor"
+      ]
+    },
+    {
+      "source": "dic",
+      "target": "sepsis",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "bleeding",
+        "hypotension",
+        "tachycardia",
+        "oliguria",
+        "coagulopathy"
+      ]
+    },
+    {
+      "source": "dic",
+      "target": "acute-pancreatitis",
+      "type": "shares_symptoms",
+      "weight": 0.2,
+      "shared": [
+        "bleeding",
+        "abdominal-pain",
+        "hypotension",
+        "tachycardia"
+      ]
+    },
+    {
+      "source": "ards",
+      "target": "sepsis",
+      "type": "shares_symptoms",
+      "weight": 0.55,
+      "shared": [
+        "tachypnea",
+        "hypoxemia",
+        "abg-abnormalities",
+        "infiltrates",
+        "lactate-elevation"
+      ]
+    },
+    {
+      "source": "ards",
+      "target": "pneumonia",
+      "type": "shares_symptoms",
+      "weight": 0.5,
+      "shared": [
+        "hypoxemia",
+        "tachypnea",
+        "infiltrates",
+        "fever",
+        "abg-abnormalities"
+      ]
+    },
+    {
+      "source": "ards",
+      "target": "olzhn",
+      "type": "shares_symptoms",
+      "weight": 0.45,
+      "shared": [
+        "dyspnea",
+        "hypoxemia",
+        "tachypnea",
+        "bilateral-infiltrates",
+        "tachycardia"
+      ]
+    },
+    {
+      "source": "ards",
+      "target": "tela",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "hypoxemia",
+        "tachypnea",
+        "dyspnea",
+        "tachycardia",
+        "shock"
+      ]
+    },
+    {
+      "source": "pneumonia",
+      "target": "sepsis",
+      "type": "shares_symptoms",
+      "weight": 0.5,
+      "shared": [
+        "fever",
+        "tachypnea",
+        "hypoxemia",
+        "wbc-abnormalities",
+        "procalcitonin-elevation"
+      ]
+    },
+    {
+      "source": "pneumonia",
+      "target": "infective-endocarditis",
+      "type": "shares_symptoms",
+      "weight": 0.2,
+      "shared": [
+        "fever",
+        "tachycardia",
+        "hypoxemia",
+        "wbc-abnormalities"
+      ]
+    },
+    {
+      "source": "perforation-git",
+      "target": "acute-pancreatitis",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "abdominal-pain",
+        "peritonitis",
+        "fever",
+        "tachycardia",
+        "hypotension"
+      ]
+    },
+    {
+      "source": "perforation-git",
+      "target": "bowel-obstruction",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "abdominal-pain",
+        "vomiting",
+        "distension",
+        "tachycardia",
+        "dehydration"
+      ]
+    },
+    {
+      "source": "perforation-git",
+      "target": "sepsis",
+      "type": "shares_symptoms",
+      "weight": 0.5,
+      "shared": [
+        "peritonitis",
+        "fever",
+        "hypotension",
+        "tachycardia",
+        "lactate-elevation"
+      ]
+    },
+    {
+      "source": "acute-pancreatitis",
+      "target": "bowel-obstruction",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "abdominal-pain",
+        "vomiting",
+        "distension",
+        "tachycardia",
+        "dehydration"
+      ]
+    },
+    {
+      "source": "acute-pancreatitis",
+      "target": "dka-hnk",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "abdominal-pain",
+        "nausea",
+        "vomiting",
+        "altered-consciousness",
+        "glucose-elevation"
+      ]
+    },
+    {
+      "source": "infarct-cerebellar",
+      "target": "stroke",
+      "type": "shares_symptoms",
+      "weight": 0.5,
+      "shared": [
+        "vertigo",
+        "ataxia",
+        "nausea",
+        "vomiting",
+        "headache",
+        "mri-ischemia"
+      ]
+    },
+    {
+      "source": "infarct-cerebellar",
+      "target": "meningitis-encephalitis",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "headache",
+        "nausea",
+        "vomiting",
+        "altered-consciousness",
+        "fever"
+      ]
+    },
+    {
+      "source": "aortic-rupture",
+      "target": "im",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "chest-pain",
+        "hypotension",
+        "shock",
+        "dyspnea",
+        "sweating"
+      ]
+    },
+    {
+      "source": "aortic-rupture",
+      "target": "tela",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "chest-pain",
+        "hypotension",
+        "shock",
+        "dyspnea"
+      ]
+    },
+    {
+      "source": "meningitis-encephalitis",
+      "target": "sepsis",
+      "type": "shares_symptoms",
+      "weight": 0.35,
+      "shared": [
+        "fever",
+        "altered-consciousness",
+        "tachycardia",
+        "procalcitonin-elevation"
+      ]
+    },
+    {
+      "source": "meningitis-encephalitis",
+      "target": "stroke",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "altered-consciousness",
+        "headache",
+        "nausea",
+        "focal-neurology",
+        "ct-brain-abnormalities"
+      ]
+    },
+    {
+      "source": "hypoglycemia",
+      "target": "stroke",
+      "type": "shares_symptoms",
+      "weight": 0.25,
+      "shared": [
+        "altered-consciousness",
+        "seizures",
+        "focal-neurology",
+        "sweating"
+      ]
+    },
+    {
+      "source": "hypoglycemia",
+      "target": "status-epilepticus",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "seizures",
+        "altered-consciousness",
+        "tachycardia",
+        "sweating"
+      ]
+    },
+    {
+      "source": "hypoglycemia",
+      "target": "dka-hnk",
+      "type": "shares_symptoms",
+      "weight": 0.2,
+      "shared": [
+        "altered-consciousness",
+        "tachycardia",
+        "sweating",
+        "glucose-abnormalities"
+      ]
+    },
+    {
+      "source": "infective-endocarditis",
+      "target": "sepsis",
+      "type": "shares_symptoms",
+      "weight": 0.45,
+      "shared": [
+        "fever",
+        "tachycardia",
+        "hypotension",
+        "blood-culture-positive",
+        "embolic-events"
+      ]
+    },
+    {
+      "source": "infective-endocarditis",
+      "target": "stroke",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "embolic-stroke",
+        "focal-neurology",
+        "altered-consciousness",
+        "headache"
+      ]
+    },
+    {
+      "source": "infective-endocarditis",
+      "target": "anemia",
+      "type": "shares_symptoms",
+      "weight": 0.3,
+      "shared": [
+        "anemia-signs",
+        "fever",
+        "weakness",
+        "pallor"
+      ]
+    },
+    {
+      "source": "hypercalcemia",
+      "target": "thyrotoxicosis",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "hypercalcemia",
+      "target": "dka-hnk",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "adrenal-crisis",
+      "target": "sepsis",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "adrenal-crisis",
+      "target": "dka-hnk",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "adrenal-crisis",
+      "target": "hypoglycemia",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "anaphylaxis",
+      "target": "sepsis",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "anaphylaxis",
+      "target": "olzhn",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "anaphylaxis",
+      "target": "tela",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "pericarditis",
+      "target": "im",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "pericarditis",
+      "target": "olzhn",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    },
+    {
+      "source": "pericarditis",
+      "target": "aortic-rupture",
+      "type": "clinical",
+      "weight": 1,
+      "shared": []
+    }
+  ]
+}
