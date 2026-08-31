@@ -1,0 +1,207 @@
+{
+  "id": "cr-415-v2",
+  "number": 415,
+  "version": 2,
+  "title": "Язвенная болезнь желудка и двенадцатиперстной кишки",
+  "mkb10": ["K25", "K26"],
+  "specialty": "gastroenterology",
+  "status": "active",
+  "updatedAt": "2023-06-20T00:00:00Z",
+  "sourceUrl": "https://cr.minzdrav.gov.ru/recommend/415",
+  "clinicalPicture": {
+    "complaints": [
+      {
+        "id": "epigastric_pain",
+        "text": "Боль в эпигастрии",
+        "severity": "moderate",
+        "frequency": "always",
+        "variants": ["пекущая", "ноющая", "колющая", "тянущая"],
+        "location": ["в эпигастрии", "под ложечкой", "в правом подреберье"],
+        "irradiation": ["в спину", "в правую лопатку"],
+        "duration": { "min": 15, "max": 180, "unit": "min" },
+        "triggers": ["голод", "приём пищи", "стресс", "НПВС"],
+        "relievingFactors": ["приём пищи", "антациды", "ингибиторы протонной помпы"],
+        "typical": true
+      },
+      {
+        "id": "nausea_gastro",
+        "text": "Тошнота",
+        "severity": "mild",
+        "frequency": "often",
+        "variants": ["тошнота", "рвота"],
+        "location": ["эпигастрий"],
+        "irradiation": [],
+        "duration": { "min": 10, "max": 60, "unit": "min" },
+        "triggers": ["боль", "приём пищи"],
+        "relievingFactors": ["антиэмнетики", "приём пищи"],
+        "typical": true
+      },
+      {
+        "id": "heartburn",
+        "text": "Изжога",
+        "severity": "moderate",
+        "frequency": "often",
+        "variants": ["жжение", "кислый привкус"],
+        "location": ["за грудиной", "в эпигастрии"],
+        "irradiation": ["в горло"],
+        "duration": { "min": 10, "max": 120, "unit": "min" },
+        "triggers": ["приём пищи", "лежание", "кислая пища"],
+        "relievingFactors": ["антациды", "вертикальное положение"],
+        "typical": true
+      },
+      {
+        "id": "melena",
+        "text": "Чёрный дёгтеобразный стул",
+        "severity": "severe",
+        "frequency": "sometimes",
+        "variants": ["мелена", "тёмный стул", "кровь в стуле"],
+        "location": [],
+        "irradiation": [],
+        "duration": { "min": 1, "max": 3, "unit": "day" },
+        "triggers": ["язвенное кровотечение"],
+        "relievingFactors": ["гемостаз", "ППИ в/в"],
+        "typical": false
+      },
+      {
+        "id": "bloating",
+        "text": "Вздутие живота",
+        "severity": "mild",
+        "frequency": "sometimes",
+        "variants": ["метеоризм", "чувство переполнения"],
+        "location": ["эпигастрий", "вокруг пупка"],
+        "irradiation": [],
+        "duration": { "min": 30, "max": 180, "unit": "min" },
+        "triggers": ["приём пищи", "бобовые", "газированные напитки"],
+        "relievingFactors": ["прокинетики", "дефекация"],
+        "typical": false
+      }
+    ],
+    "anamnesis": [
+      { "id": "nsaid_use", "category": "medication", "label": "Приём НПВС", "description": "Аспирин, диклофенак, ибупрофен >2 недель", "weight": 0.7, "correlatesWith": ["epigastric_pain", "melena"] },
+      { "id": "hpylori", "category": "comorbidity", "label": "Инфекция H. pylori", "description": "Положительный уреазный дыхательный тест", "weight": 0.6, "correlatesWith": ["epigastric_pain", "nausea_gastro"] },
+      { "id": "smoking_gastro", "category": "risk_factor", "label": "Курение", "description": "Усиливает кислотопродукцию", "weight": 0.5, "correlatesWith": ["epigastric_pain", "heartburn"] },
+      { "id": "alcohol_gastro", "category": "risk_factor", "label": "Алкоголь", "description": "Раздражает слизистую", "weight": 0.5, "correlatesWith": ["epigastric_pain", "nausea_gastro"] },
+      { "id": "stress_ulcer", "category": "risk_factor", "label": "Стресс", "description": "Психоэмоциональный стресс", "weight": 0.4, "correlatesWith": ["epigastric_pain"] },
+      { "id": "family_ulcer", "category": "family", "label": "Семейный анамнез ЯБ", "description": "Язва у родственников", "weight": 0.3, "correlatesWith": ["epigastric_pain"] },
+      { "id": "previous_ulcer", "category": "comorbidity", "label": "Перенесённая язва", "description": "В анамнезе", "weight": 0.5, "correlatesWith": ["epigastric_pain"] },
+      { "id": "gerd_history", "category": "comorbidity", "label": "ГЭРБ", "description": "Рефлюксная болезнь", "weight": 0.4, "correlatesWith": ["heartburn", "epigastric_pain"] },
+      { "id": "anticoagulants", "category": "medication", "label": "Антикоагулянты", "description": "Варфарин, прямые оральные антикоагулянты", "weight": 0.4, "correlatesWith": ["melena"] }
+    ],
+    "physicalExam": [
+      { "id": "epigastric_tenderness", "label": "Болезненность в эпигастрии", "description": "При пальпации", "typical": true, "severity": "moderate" },
+      { "id": "guarding", "label": "Напряжение мышц живота", "description": "Мышечная защита (перитонеальный симптом)", "typical": false, "severity": "severe" },
+      { "id": "pallor_gastro", "label": "Бледность", "description": "Признак анемии/кровопотери", "typical": false, "severity": "moderate" },
+      { "id": "tachycardia_gastro", "label": "Тахикардия", "description": "При кровотечении", "typical": false, "severity": "moderate" },
+      { "id": "hypotension_gastro", "label": "Гипотензия", "description": "При массивном кровотечении", "typical": false, "severity": "severe" }
+    ]
+  },
+  "diagnostics": {
+    "lab": [
+      {
+        "id": "hemoglobin",
+        "name": "Гемоглобин",
+        "unit": "г/л",
+        "normalRange": { "min": 130, "max": 160 },
+        "valueScenarios": [
+          { "scenarioId": "bleeding", "description": "Хроническое кровотечение", "valueDistribution": { "type": "normal", "mean": 95, "stdDev": 15, "min": 70, "max": 120 }, "probability": 0.2, "correlatesWith": ["melena", "pallor_gastro"] },
+          { "scenarioId": "acute_bleed", "description": "Острое кровотечение", "valueDistribution": { "type": "normal", "mean": 110, "stdDev": 20, "min": 80, "max": 140 }, "probability": 0.15, "correlatesWith": ["melena", "tachycardia_gastro"] },
+          { "scenarioId": "normal", "description": "Норма", "valueDistribution": { "type": "normal", "mean": 140, "stdDev": 10, "min": 130, "max": 160 }, "probability": 0.65, "correlatesWith": ["epigastric_pain"] }
+        ]
+      },
+      {
+        "id": "hpylori_test",
+        "name": "H. pylori (уреазный дыхательный тест)",
+        "unit": "Ед",
+        "normalRange": { "text": "<4" },
+        "valueScenarios": [
+          { "scenarioId": "positive", "description": "Положительный", "valueDistribution": { "type": "uniform", "mean": 25, "stdDev": 10, "min": 10, "max": 50 }, "probability": 0.6, "correlatesWith": ["hpylori", "epigastric_pain"] },
+          { "scenarioId": "negative", "description": "Отрицательный", "valueDistribution": { "type": "uniform", "mean": 2, "stdDev": 1, "min": 0, "max": 3 }, "probability": 0.4, "correlatesWith": ["nsaid_use"] }
+        ]
+      },
+      {
+        "id": "feco_occult",
+        "name": "Скрытая кровь в кале",
+        "unit": "",
+        "normalRange": { "text": "отрицательно" },
+        "valueScenarios": [
+          { "scenarioId": "positive", "description": "Положительная", "valueDistribution": { "type": "uniform", "mean": 1, "stdDev": 0, "min": 1, "max": 1 }, "probability": 0.3, "correlatesWith": ["melena", "epigastric_pain"] },
+          { "scenarioId": "negative", "description": "Отрицательная", "valueDistribution": { "type": "uniform", "mean": 0, "stdDev": 0, "min": 0, "max": 0 }, "probability": 0.7, "correlatesWith": ["heartburn", "bloating"] }
+        ]
+      }
+    ],
+    "instrumental": [
+      {
+        "id": "egd",
+        "name": "Эзофагогастродуоденоскопия (ЭГДС)",
+        "modality": "endoscopy",
+        "patterns": [
+          { "id": "gastric_ulcer", "label": "Язва желудка", "description": "Овальное дефект слизистой желудка с фибринозным дном", "probability": 0.30, "correlatesWith": ["epigastric_pain", "nausea_gastro"] },
+          { "id": "duodenal_ulcer", "label": "Язва луковицы ДПК", "description": "Дефект в луковице двенадцатиперстной кишки", "probability": 0.35, "correlatesWith": ["epigastric_pain", "heartburn"] },
+          { "id": "erosive_gastritis", "label": "Эрозивный гастрит", "description": "Множественные эрозии слизистой", "probability": 0.20, "correlatesWith": ["nsaid_use", "alcohol_gastro"] },
+          { "id": "bleeding_ulcer", "label": "Кровоточащая язва", "description": "Язва с признаками кровотечения (Forrest I-III)", "probability": 0.10, "correlatesWith": ["melena", "pallor_gastro"] },
+          { "id": "egd_normal", "label": "Норма", "description": "Слизистая без патологии", "probability": 0.05, "correlatesWith": ["bloating", "heartburn"] }
+        ]
+      },
+      {
+        "id": "abdominal_us",
+        "name": "УЗИ органов брюшной полости",
+        "modality": "ultrasound",
+        "patterns": [
+          { "id": "free_fluid", "label": "Свободная жидкость", "description": "При перфорации", "probability": 0.10, "correlatesWith": ["guarding", "epigastric_pain"] },
+          { "id": "us_normal", "label": "Норма", "description": "Без патологии", "probability": 0.90, "correlatesWith": ["epigastric_pain", "heartburn"] }
+        ]
+      }
+    ],
+    "criteria": [
+      { "id": "endoscopic_ulcer", "label": "Эндоскопически верифицированная язва", "description": "Дефект слизистой >5 мм на ЭГДС", "required": true, "weight": 0.95 },
+      { "id": "hpylori_positive", "label": "H. pylori положительный", "description": "УДТ или гистология", "required": false, "weight": 0.6 },
+      { "id": "nsaid_history", "label": "Анамнез приёма НПВС", "description": "Приём в течение 1-2 недель до обострения", "required": false, "weight": 0.5 },
+      { "id": "typical_pain", "label": "Типичная язвенная боль", "description": "Связь с голодом/пищей, сезонность", "required": false, "weight": 0.5 }
+    ]
+  },
+  "differential": [
+    { "id": "gerd_diff", "label": "ГЭРБ", "mkb10": ["K21"], "keyDifferences": ["Изжога доминирует", "Боль не связана с голодом", "Нормальная ЭГДС или лёгкий эзофагит", "Ответ на ППИ быстрый"], "discriminatingFindings": ["heartburn", "egd_normal"] },
+    { "id": "gastritis_diff", "label": "Хронический гастрит", "mkb10": ["K29"], "keyDifferences": ["Диспепсия без чёткой сезонности", "ЭГДС: гиперемия, отёк, без чёткого дефекта", "Боль менее интенсивна"], "discriminatingFindings": ["epigastric_pain", "erosive_gastritis"] },
+    { "id": "pancreatitis_diff", "label": "Острый панкреатит", "mkb10": ["K85"], "keyDifferences": ["Интенсивная опоясывающая боль", "Амилаза/липаза в 3 раза выше нормы", "УЗИ: увеличение поджелудочной", "Метаболический ацидоз"], "discriminatingFindings": ["epigastric_pain", "free_fluid"] },
+    { "id": "cholelithiasis_diff", "label": "ЖКБ / билиарная колика", "mkb10": ["K80"], "keyDifferences": ["Боль в правом подреберье", "УЗИ: конкременты в ЖП", "Боль после жирной пищи", "Желтушность возможна"], "discriminatingFindings": ["epigastric_pain"] },
+    { "id": "gastric_cancer_diff", "label": "Рак желудка", "mkb10": ["C16"], "keyDifferences": ["Прогрессирующая потеря веса", "Анемия резистентная к терапии", "ЭГДС: опухолевое образование", "Возраст >50 лет"], "discriminatingFindings": ["pallor_gastro", "melena"] }
+  ],
+  "treatment": {
+    "emergency": [
+      { "id": "ppi_iv", "stage": "emergency", "label": "ППИ в/в (омепразол 80 мг болюс)", "description": "При кровотечении или тяжёлом обострении", "priority": 1 },
+      { "id": "fluid_resuscitation", "stage": "emergency", "label": "В/в инфузионная терапия", "description": "При гемодинамической нестабильности", "priority": 2 },
+      { "id": "endoscopic_hemostasis", "stage": "emergency", "label": "Эндоскопический гемостаз", "description": "При кровоточащей язве", "priority": 3 }
+    ],
+    "therapy": [
+      { "id": "ppi_therapy", "stage": "therapy", "label": "ИПП (омепразол 20 мг × 2 раза)", "description": "Стандартная эрадикационная терапия", "priority": 1 },
+      { "id": "eradication", "stage": "therapy", "label": "Эрадикация H. pylori", "description": "Тройная терапия: ППИ + амоксициллин + кларитромицин", "priority": 2 },
+      { "id": "sucralfate", "stage": "therapy", "label": "Сукральфат", "description": "Цитопротектор", "priority": 3 },
+      { "id": "nsaid_stop", "stage": "therapy", "label": "Отмена НПВС", "description": "Обязательно при НПВС-язве", "priority": 1 }
+    ],
+    "surgery": [
+      { "id": "perforation_surgery", "stage": "surgery", "label": "Шов язвы при перфорации", "description": "Операция Грехема", "priority": 1 },
+      { "id": "recurrent_surgery", "stage": "surgery", "label": "Резекция желудка", "description": "При резистентных/рецидивирующих язвах", "priority": 2 }
+    ]
+  },
+  "algorithms": [
+    {
+      "id": "ulcer_algorithm",
+      "label": "Алгоритм диагностики язвенной болезни",
+      "nodes": [
+        { "id": "dyspepsia", "label": "Диспепсия >2 недель?", "type": "decision" },
+        { "id": "egd_action", "label": "ЭГДС", "type": "action" },
+        { "id": "ulcer_confirmed", "label": "Язва верифицирована", "type": "terminal" },
+        { "id": "functional", "label": "Функциональная диспепсия", "type": "terminal" }
+      ],
+      "edges": [
+        { "from": "dyspepsia", "to": "egd_action", "condition": "да" },
+        { "from": "egd_action", "to": "ulcer_confirmed", "condition": "язва/эрозия" },
+        { "from": "egd_action", "to": "functional", "condition": "норма" }
+      ]
+    }
+  ],
+  "evidence": [
+    { "id": "maastricht_2016", "source": "Maastricht V/Florence 2016", "url": "https://gut.bmj.com", "grade": "A", "recommendation": "Тройная терапия — первый выбор эрадикации H. pylori" },
+    { "id": "acg_2017", "source": "ACG 2017 Guidelines", "url": "https://gi.org", "grade": "A", "recommendation": "ЭГДС — метод выбора при диспепсии старше 60 лет или тревожных симптомах" }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "id": "dvt-pe",
+  "label": "Тромбоэмболия лёгочной артерии / ДВТ",
+  "color": "#f59e0b",
+  "nodes": [
+    { "id": "d_dimer", "label": "Д-димер", "layer": "raw", "type": "lab", "unit": "нг/мл", "normal": "<500", "value": 3200, "group": "coagulation" },
+    { "id": "spo2", "label": "SpO₂", "layer": "raw", "type": "lab", "unit": "%", "normal": ">95", "value": 86, "group": "gasometry" },
+    { "id": "abg_ph", "label": "pH артериальной крови", "layer": "raw", "type": "lab", "unit": "", "normal": "7.35-7.45", "value": 7.48, "group": "gasometry" },
+    { "id": "abg_pco2", "label": "PaCO₂", "layer": "raw", "type": "lab", "unit": "мм рт.ст.", "normal": "35-45", "value": 30, "group": "gasometry" },
+    { "id": "abg_po2", "label": "PaO₂", "layer": "raw", "type": "lab", "unit": "мм рт.ст.", "normal": "80-100", "value": 58, "group": "gasometry" },
+    { "id": "troponin", "label": "Тропонин", "layer": "raw", "type": "lab", "unit": "нг/мл", "normal": "<0.04", "value": 0.15, "group": "cardiac" },
+    { "id": "bnp", "label": "NT-proBNP", "layer": "raw", "type": "lab", "unit": "пг/мл", "normal": "<125", "value": 1200, "group": "cardiac" },
+    { "id": "ecg_s1q3t3", "label": "ЭКГ: S1Q3T3", "layer": "raw", "type": "instrumental", "group": "ecg" },
+    { "id": "ecg_rv_strain", "label": "ЭКГ: перегрузка ПЖ", "layer": "raw", "type": "instrumental", "group": "ecg" },
+    { "id": "ct_pa", "label": "СКТ-ангиография ЛА", "layer": "raw", "type": "instrumental", "group": "imaging" },
+    { "id": "echo_rv", "label": "ЭхоКГ: дилатация ПЖ", "layer": "raw", "type": "instrumental", "group": "echo" },
+    { "id": "duplex_legs", "label": "Дуплексное сканирование вен ног", "layer": "raw", "type": "instrumental", "group": "imaging" },
+    { "id": "inr", "label": "МНО (INR)", "layer": "raw", "type": "lab", "unit": "", "normal": "0.8-1.2", "value": 1.0, "group": "coagulation" },
+    { "id": "pt", "label": "Протромбиновое время", "layer": "raw", "type": "lab", "unit": "сек", "normal": "11-14", "value": 12, "group": "coagulation" },
+    { "id": "dyspnea", "label": "Одышка", "layer": "findings", "type": "symptom", "severity": "сильная" },
+    { "id": "pleuritic_pain", "label": "Плевритическая боль", "layer": "findings", "type": "symptom" },
+    { "id": "tachycardia", "label": "Тахикардия", "layer": "findings", "type": "sign" },
+    { "id": "hypotension", "label": "Артериальная гипотензия", "layer": "findings", "type": "sign", "severity": "тяжёлая" },
+    { "id": "syncope", "label": "Обморок", "layer": "findings", "type": "symptom" },
+    { "id": "hemoptysis", "label": "Кровохарканье", "layer": "findings", "type": "symptom" },
+    { "id": "cyanosis", "label": "Цианоз", "layer": "findings", "type": "sign" },
+    { "id": "leg_swelling", "label": "Отёк ноги", "layer": "findings", "type": "sign" },
+    { "id": "leg_pain", "label": "Боль в ноге", "layer": "findings", "type": "symptom" },
+    { "id": "leg_warmth", "label": "Покраснение/тепло ноги", "layer": "findings", "type": "sign" },
+    { "id": "massive_pe", "label": "Массивная ТЭЛА", "layer": "hypotheses", "type": "diagnosis", "prevalence": "5%", "ptp": "low" },
+    { "id": "submassive_pe", "label": "Субмассивная ТЭЛА", "layer": "hypotheses", "type": "diagnosis", "prevalence": "20%", "ptp": "medium" },
+    { "id": "low_risk_pe", "label": "ТЭЛА низкого риска", "layer": "hypotheses", "type": "diagnosis", "prevalence": "75%", "ptp": "high" },
+    { "id": "dvt", "label": "Глубокая венозная тромбоз", "layer": "hypotheses", "type": "diagnosis", "prevalence": "50%", "ptp": "high" },
+    { "id": "phlegmasia", "label": "Флегмазия", "layer": "hypotheses", "type": "diagnosis", "prevalence": "2%", "ptp": "low" },
+    { "id": "pneumothorax", "label": "Пневмоторакс", "layer": "hypotheses", "type": "diagnosis", "prevalence": "1%", "ptp": "low" },
+    { "id": "aortic_dissection", "label": "Расслоение аорты", "layer": "hypotheses", "type": "diagnosis", "prevalence": "0.5%", "ptp": "low" },
+    { "id": "diff_massive_vs_submassive", "label": "Массивная vs Субмассивная ТЭЛА", "layer": "differential", "type": "comparison" },
+    { "id": "diff_pe_vs_other", "label": "ТЭЛА vs Другие причины одышки", "layer": "differential", "type": "comparison" },
+    { "id": "guideline_esc_2019", "label": "ESC Guidelines: Acute PE 2019", "layer": "evidence", "type": "guideline", "grade": "A", "year": 2019 },
+    { "id": "rct_thrombolysis_pe", "label": "RCT: тромболиз при массивной ТЭЛА", "layer": "evidence", "type": "rct", "grade": "A", "year": 2002, "n": 256 },
+    { "id": "meta_dvt_treatment", "label": "Мета-анализ: НМГ при ДВТ/ТЭЛА", "layer": "evidence", "type": "meta-analysis", "grade": "A", "year": 2018, "n": 25000 }
+  ],
+  "links": [
+    { "source": "d_dimer", "target": "low_risk_pe", "type": "key_marker", "weight": 0.85 },
+    { "source": "d_dimer", "target": "submassive_pe", "type": "key_marker", "weight": 0.85 },
+    { "source": "d_dimer", "target": "massive_pe", "type": "key_marker", "weight": 0.85 },
+    { "source": "d_dimer", "target": "dvt", "type": "key_marker", "weight": 0.90 },
+    { "source": "ct_pa", "target": "massive_pe", "type": "confirms", "weight": 0.98 },
+    { "source": "ct_pa", "target": "submassive_pe", "type": "confirms", "weight": 0.98 },
+    { "source": "ct_pa", "target": "low_risk_pe", "type": "confirms", "weight": 0.98 },
+    { "source": "duplex_legs", "target": "dvt", "type": "confirms", "weight": 0.95 },
+    { "source": "duplex_legs", "target": "phlegmasia", "type": "confirms", "weight": 0.95 },
+    { "source": "echo_rv", "target": "massive_pe", "type": "supports", "weight": 0.85 },
+    { "source": "echo_rv", "target": "submassive_pe", "type": "supports", "weight": 0.80 },
+    { "source": "ecg_s1q3t3", "target": "massive_pe", "type": "supports", "weight": 0.75 },
+    { "source": "ecg_s1q3t3", "target": "submassive_pe", "type": "supports", "weight": 0.70 },
+    { "source": "ecg_rv_strain", "target": "massive_pe", "type": "supports", "weight": 0.80 },
+    { "source": "troponin", "target": "submassive_pe", "type": "supports", "weight": 0.70 },
+    { "source": "troponin", "target": "massive_pe", "type": "supports", "weight": 0.75 },
+    { "source": "bnp", "target": "massive_pe", "type": "supports", "weight": 0.80 },
+    { "source": "bnp", "target": "submassive_pe", "type": "supports", "weight": 0.75 },
+    { "source": "spo2", "target": "massive_pe", "type": "supports", "weight": 0.85 },
+    { "source": "spo2", "target": "submassive_pe", "type": "supports", "weight": 0.75 },
+    { "source": "abg_pco2", "target": "massive_pe", "type": "supports", "weight": 0.70 },
+    { "source": "dyspnea", "target": "massive_pe", "type": "supports", "weight": 0.90 },
+    { "source": "dyspnea", "target": "submassive_pe", "type": "supports", "weight": 0.85 },
+    { "source": "dyspnea", "target": "low_risk_pe", "type": "supports", "weight": 0.80 },
+    { "source": "dyspnea", "target": "pneumothorax", "type": "supports", "weight": 0.70 },
+    { "source": "pleuritic_pain", "target": "submassive_pe", "type": "supports", "weight": 0.80 },
+    { "source": "pleuritic_pain", "target": "low_risk_pe", "type": "supports", "weight": 0.75 },
+    { "source": "pleuritic_pain", "target": "pneumothorax", "type": "supports", "weight": 0.85 },
+    { "source": "tachycardia", "target": "massive_pe", "type": "supports", "weight": 0.85 },
+    { "source": "tachycardia", "target": "submassive_pe", "type": "supports", "weight": 0.75 },
+    { "source": "hypotension", "target": "massive_pe", "type": "supports", "weight": 0.90 },
+    { "source": "syncope", "target": "massive_pe", "type": "supports", "weight": 0.85 },
+    { "source": "syncope", "target": "aortic_dissection", "type": "supports", "weight": 0.60 },
+    { "source": "hemoptysis", "target": "submassive_pe", "type": "supports", "weight": 0.70 },
+    { "source": "cyanosis", "target": "massive_pe", "type": "supports", "weight": 0.80 },
+    { "source": "leg_swelling", "target": "dvt", "type": "supports", "weight": 0.85 },
+    { "source": "leg_swelling", "target": "phlegmasia", "type": "supports", "weight": 0.90 },
+    { "source": "leg_pain", "target": "dvt", "type": "supports", "weight": 0.80 },
+    { "source": "leg_warmth", "target": "dvt", "type": "supports", "weight": 0.75 },
+    { "source": "dvt", "target": "massive_pe", "type": "causes", "weight": 0.85 },
+    { "source": "dvt", "target": "submassive_pe", "type": "causes", "weight": 0.85 },
+    { "source": "dvt", "target": "low_risk_pe", "type": "causes", "weight": 0.80 },
+    { "source": "massive_pe", "target": "diff_massive_vs_submassive", "type": "compared_in", "weight": 1.0 },
+    { "source": "submassive_pe", "target": "diff_massive_vs_submassive", "type": "compared_in", "weight": 1.0 },
+    { "source": "massive_pe", "target": "diff_pe_vs_other", "type": "compared_in", "weight": 1.0 },
+    { "source": "pneumothorax", "target": "diff_pe_vs_other", "type": "compared_in", "weight": 1.0 },
+    { "source": "aortic_dissection", "target": "diff_pe_vs_other", "type": "compared_in", "weight": 1.0 },
+    { "source": "massive_pe", "target": "rct_thrombolysis_pe", "type": "treated_in", "weight": 1.0 },
+    { "source": "submassive_pe", "target": "rct_thrombolysis_pe", "type": "treated_in", "weight": 1.0 },
+    { "source": "massive_pe", "target": "guideline_esc_2019", "type": "covered_in", "weight": 1.0 },
+    { "source": "submassive_pe", "target": "guideline_esc_2019", "type": "covered_in", "weight": 1.0 },
+    { "source": "dvt", "target": "meta_dvt_treatment", "type": "treated_in", "weight": 1.0 },
+    { "source": "diff_massive_vs_submassive", "target": "guideline_esc_2019", "type": "described_in", "weight": 1.0 }
+  ],
+  "details": {
+    "massive_pe": {
+      "description": "Массивная ТЭЛА — закупорка >50% лёгочного кровотока с гемодинамической нестабильностью. Смертность до 65% без лечения.",
+      "criteria": [
+        "Систолическое АД <90 мм рт.ст. или снижение >40 мм рт.ст.",
+        "Шок/коллапс",
+        "Острая правожелудочковая недостаточность",
+        "Дефекты наполнения >50% сосудистого русла на СКТ"
+      ],
+      "prevalence": "5% всех ТЭЛА",
+      "complications": [
+        "Острая правожелудочковая недостаточность",
+        "Кардиогенный шок",
+        "Асистолия",
+        "Печёночная/почечная недостаточность"
+      ],
+      "treatment": [
+        "Системный тромболиз (алтеплаза 100 мг в/в) — без ожидания КТ при высокой вероятностью",
+        "Хирургическая эмболэктомия при противопоказаниях к тромболизу",
+        "Антикоагулянты (гепарин) параллельно",
+        "Вазопрессоры при гипотензии",
+        "ЭКМО при рефрактерном шоке"
+      ],
+      "followup": "Пожизненная антикоагуляция, оценка риска рецидива"
+    },
+    "submassive_pe": {
+      "description": "Субмассивная (промежуточная) ТЭЛА — гемодинамически стабильная, но с признаками правожелудочковой дисфункции или миокардиального повреждения.",
+      "criteria": [
+        "Нормотензия",
+        "ЭхоКГ: дилатация ПЖ, гипокинезия",
+        "Тропонин повышен",
+        "NT-proBNP >600 пг/мл",
+        "ЭКГ: признаки перегрузки ПЖ"
+      ],
+      "prevalence": "20-25% всех ТЭЛА",
+      "complications": [
+        "Прогрессирование до массивной ТЭЛА",
+        "Хроническая тромбоэмболическая лёгочная гипертензия"
+      ],
+      "treatment": [
+        "Антикоагулянты (НМГ → варфарин/ДОАК)",
+        "Рассмотреть тромболиз при ухудшении",
+        "Мониторинг в ОРИТ",
+        "Фильтр нижней полой вены при противопоказаниях к антикоагулянтам"
+      ],
+      "followup": "3-6 месяцев антикоагуляции, оценка риска рецидива"
+    }
+  },
+  "comparisons": {
+    "diff_massive_vs_submassive": {
+      "headers": [
+        "Признак",
+        "Массивная ТЭЛА",
+        "Субмассивная ТЭЛА"
+      ],
+      "rows": [
+        {
+          "feature": "АД",
+          "massive": "<90 мм рт.ст. или снижение >40",
+          "submassive": "Нормальное"
+        },
+        {
+          "feature": "Сознание",
+          "massive": "Спутанность, обморок",
+          "submassive": "Ясное"
+        },
+        {
+          "feature": "ЭхоКГ",
+          "massive": "Дилатация ПЖ, гипокинезия",
+          "submassive": "Дилатация ПЖ"
+        },
+        {
+          "feature": "Тропонин",
+          "massive": "Повышен",
+          "submassive": "Повышен"
+        },
+        {
+          "feature": "SpO₂",
+          "massive": "<80%",
+          "submassive": "80-90%"
+        },
+        {
+          "feature": "Тромболиз",
+          "massive": "Показан немедленно",
+          "submassive": "При ухудшении"
+        },
+        {
+          "feature": "Смертность",
+          "massive": "До 65%",
+          "submassive": "5-15%"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "guideline_esc_2019": {
+      "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+      "authors": "Konstantinides SV et al.",
+      "journal": "Eur Heart J",
+      "year": 2019,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "Алгоритм YEARS + Д-димер для исключения ТЭЛА",
+        "Тромболиз при массивной ТЭЛА — класс I",
+        "ДОАК — первый выбор для стабильной ТЭЛА и ДВТ"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_thrombolysis_pe": {
+      "title": "Thrombolysis compared with heparin for the initial treatment of pulmonary embolism",
+      "authors": "Jerjes-Sanchez C et al.",
+      "journal": "Arch Intern Med",
+      "year": 2002,
+      "n": 256,
+      "design": "RCT",
+      "grade": "A",
+      "key_findings": [
+        "Тромболиз снижает смертность (4.7% vs 11.1%)",
+        "Быстрое восстановление гемодинамики",
+        "Повышен риск кровотечения (9.1% vs 3.1%)"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "meta_dvt_treatment": {
+      "title": "Direct oral anticoagulants for treatment of acute venous thromboembolism",
+      "authors": "van Es N et al.",
+      "journal": "Cochrane Database Syst Rev",
+      "year": 2018,
+      "n": 25000,
+      "design": "Meta-analysis of 19 RCTs",
+      "grade": "A",
+      "key_findings": [
+        "ДОАК не уступают НМГ + варфарину по эффективности",
+        "Снижение кровотечений на 40%",
+        "Ривароксабан и апиксабан — наиболее изучены"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "massive_pe": [
+      { "time": 0, "event": "Начало", "spo2": 95, "ad": "120/80", "symptom": "Одышка" },
+      { "time": 15, "event": "15 мин", "spo2": 88, "ad": "100/60", "symptom": "Прогрессирующая одышка" },
+      { "time": 30, "event": "30 мин", "spo2": 82, "ad": "85/50", "symptom": "Обморок, цианоз" },
+      { "time": 45, "event": "Диагностика", "spo2": 80, "ad": "80/50", "symptom": "КТ-ангиография" },
+      { "time": 60, "event": "Тромболиз", "spo2": 78, "ad": "75/45", "symptom": "Алтеплаза 100 мг" },
+      { "time": 90, "event": "90 мин", "spo2": 85, "ad": "90/55", "symptom": "Улучшение" },
+      { "time": 180, "event": "3 часа", "spo2": 92, "ad": "105/65", "symptom": "Стабилизация" }
+    ]
+  }
+}

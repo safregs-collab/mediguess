@@ -1,0 +1,239 @@
+{
+  "version": "1.0.0",
+  "nosologies": [
+    {
+      "id": "hypercalcemia",
+      "label": "Гиперкальциемия",
+      "color": "#ef4444",
+      "file": "graph-hypercalcemia.json",
+      "nodeCount": 42,
+      "linkCount": 52,
+      "status": "complete"
+    },
+    {
+      "id": "anemia",
+      "label": "Анемии",
+      "color": "#3b82f6",
+      "file": "graph-anemia.json",
+      "nodeCount": 47,
+      "linkCount": 77,
+      "status": "complete"
+    },
+    {
+      "id": "myocardial-infarction",
+      "label": "Острый коронарный синдром / Инфаркт миокарда",
+      "color": "#ef4444",
+      "file": "graph-myocardial-infarction.json",
+      "nodeCount": 42,
+      "linkCount": 52,
+      "status": "complete"
+    },
+    {
+      "id": "pneumonia",
+      "label": "Пневмония",
+      "color": "#3b82f6",
+      "file": "graph-pneumonia.json",
+      "nodeCount": 36,
+      "linkCount": 45,
+      "status": "complete"
+    },
+    {
+      "id": "meningitis",
+      "label": "Менингит",
+      "color": "#8b5cf6",
+      "file": "graph-meningitis.json",
+      "nodeCount": 42,
+      "linkCount": 70,
+      "status": "complete"
+    },
+    {
+      "id": "stroke",
+      "label": "Острое нарушение мозгового кровообращения / Инсульт",
+      "color": "#ef4444",
+      "file": "graph-stroke.json",
+      "nodeCount": 45,
+      "linkCount": 70,
+      "status": "complete"
+    },
+    {
+      "id": "dvt-pe",
+      "label": "Тромбоэмболия лёгочной артерии / ДВТ",
+      "color": "#f59e0b",
+      "file": "graph-dvt-pe.json",
+      "nodeCount": 36,
+      "linkCount": 53,
+      "status": "complete"
+    },
+    {
+      "id": "diabetic-ketoacidosis",
+      "label": "Диабетический кетоацидоз / Гипергликемические состояния",
+      "color": "#10b981",
+      "file": "graph-diabetic-ketoacidosis.json",
+      "nodeCount": 43,
+      "linkCount": 68,
+      "status": "complete"
+    },
+    {
+      "id": "gastrointestinal-bleeding",
+      "label": "Желудочно-кишечное кровотечение",
+      "color": "#dc2626",
+      "file": "graph-gastrointestinal-bleeding.json",
+      "nodeCount": 33,
+      "linkCount": 51,
+      "status": "complete"
+    },
+    {
+      "id": "sepsis",
+      "label": "Сепсис",
+      "color": "#7c3aed",
+      "file": "graph-sepsis.json",
+      "nodeCount": 32,
+      "linkCount": 53,
+      "status": "complete"
+    },
+    {
+      "id": "pancreatitis",
+      "label": "Острый панкреатит",
+      "color": "#f97316",
+      "file": "graph-pancreatitis.json",
+      "nodeCount": 33,
+      "linkCount": 61,
+      "status": "complete"
+    },
+    {
+      "id": "appendicitis",
+      "label": "Острый аппендицит",
+      "color": "#f59e0b",
+      "file": "graph-appendicitis.json",
+      "nodeCount": 31,
+      "linkCount": 53,
+      "status": "complete"
+    },
+    {
+      "id": "cholecystitis",
+      "label": "Острый холецистит",
+      "color": "#eab308",
+      "file": "graph-cholecystitis.json",
+      "nodeCount": 33,
+      "linkCount": 52,
+      "status": "complete"
+    },
+    {
+      "id": "pyelonephritis",
+      "label": "Пиелонефрит / Нефрология",
+      "color": "#06b6d4",
+      "file": "graph-pyelonephritis.json",
+      "nodeCount": 36,
+      "linkCount": 63,
+      "status": "complete"
+    },
+    {
+      "id": "ectopic-pregnancy",
+      "label": "Внематочная беременность",
+      "color": "#ec4899",
+      "file": "graph-ectopic-pregnancy.json",
+      "nodeCount": 31,
+      "linkCount": 59,
+      "status": "complete"
+    },
+    {
+      "id": "aortic-dissection",
+      "label": "Расслоение аорты",
+      "color": "#dc2626",
+      "file": "graph-aortic-dissection.json",
+      "nodeCount": 38,
+      "linkCount": 52,
+      "status": "complete"
+    },
+    {
+      "id": "thyroid-storm",
+      "label": "Тиреотоксический криз",
+      "color": "#f59e0b",
+      "file": "graph-thyroid-storm.json",
+      "nodeCount": 48,
+      "linkCount": 73,
+      "status": "complete"
+    },
+    {
+      "id": "adrenal-crisis",
+      "label": "Аддисонов криз / Острая надпочечниковая недостаточность",
+      "color": "#8b5cf6",
+      "file": "graph-adrenal-crisis.json",
+      "nodeCount": 39,
+      "linkCount": 67,
+      "status": "complete"
+    },
+    {
+      "id": "status-epilepticus",
+      "label": "Статус эпилептикус",
+      "color": "#7c3aed",
+      "file": "graph-status-epilepticus.json",
+      "nodeCount": 45,
+      "linkCount": 59,
+      "status": "complete"
+    },
+    {
+      "id": "anaphylaxis",
+      "label": "Анафилаксия / Анафилактический шок",
+      "color": "#f97316",
+      "file": "graph-anaphylaxis.json",
+      "nodeCount": 44,
+      "linkCount": 63,
+      "status": "complete"
+    },
+    {
+      "id": "acute-heart-failure",
+      "label": "Острая сердечная недостаточность / ОЛЖН",
+      "color": "#ef4444",
+      "file": "graph-acute-heart-failure.json",
+      "nodeCount": 54,
+      "linkCount": 96,
+      "status": "complete"
+    },
+    {
+      "id": "pericarditis",
+      "label": "Острый перикардит",
+      "color": "#ef4444",
+      "file": "graph-pericarditis.json",
+      "nodeCount": 45,
+      "linkCount": 74,
+      "status": "complete"
+    },
+    {
+      "id": "endocarditis",
+      "label": "Инфекционный эндокардит",
+      "color": "#ef4444",
+      "file": "graph-endocarditis.json",
+      "nodeCount": 50,
+      "linkCount": 64,
+      "status": "complete"
+    },
+    {
+      "id": "copd-exacerbation",
+      "label": "Обострение ХОБЛ",
+      "color": "#0ea5e9",
+      "file": "graph-copd-exacerbation.json",
+      "nodeCount": 46,
+      "linkCount": 71,
+      "status": "complete"
+    },
+    {
+      "id": "asthma-status",
+      "label": "Статус астматикус",
+      "color": "#0ea5e9",
+      "file": "graph-asthma-status.json",
+      "nodeCount": 46,
+      "linkCount": 76,
+      "status": "complete"
+    },
+    {
+      "id": "hypertension",
+      "label": "Артериальная гипертензия",
+      "color": "#10b981",
+      "file": null,
+      "nodeCount": 0,
+      "linkCount": 0,
+      "status": "planned"
+    }
+  ]
+}

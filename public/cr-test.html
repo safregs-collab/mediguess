@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CR Case Generator Test</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #e2e8f0; padding: 20px; line-height: 1.6; }
+  h1 { color: #38bdf8; margin-bottom: 10px; font-size: 24px; }
+  h2 { color: #94a3b8; margin: 20px 0 10px; font-size: 18px; border-bottom: 1px solid #334155; padding-bottom: 5px; }
+  .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+  button { background: #0ea5e9; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; transition: background 0.2s; }
+  button:hover { background: #0284c7; }
+  button.secondary { background: #475569; }
+  button.secondary:hover { background: #334155; }
+  .case-card { background: #1e293b; border-radius: 12px; padding: 20px; margin-bottom: 20px; border-left: 4px solid #0ea5e9; }
+  .case-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+  .case-id { font-family: monospace; color: #94a3b8; font-size: 12px; }
+  .specialty-tag { background: #0f172a; color: #38bdf8; padding: 4px 12px; border-radius: 20px; font-size: 12px; text-transform: uppercase; }
+  .patient-info { background: #0f172a; padding: 12px; border-radius: 8px; margin-bottom: 15px; }
+  .patient-info strong { color: #fbbf24; }
+  .clue { background: #0f172a; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid #f59e0b; }
+  .clue-number { color: #f59e0b; font-weight: bold; margin-right: 8px; }
+  .diagnosis { background: #0f172a; padding: 12px; border-radius: 8px; margin-top: 15px; }
+  .diagnosis strong { color: #4ade80; }
+  .diagnosis-item { display: inline-block; background: #14532d; color: #4ade80; padding: 4px 10px; border-radius: 6px; margin: 4px 4px 0 0; font-size: 13px; }
+  .explanation { background: #0f172a; padding: 12px; border-radius: 8px; margin-top: 15px; white-space: pre-wrap; font-size: 13px; color: #cbd5e1; }
+  .diff-hint { background: #0f172a; padding: 10px 14px; border-radius: 8px; margin-top: 8px; border-left: 3px solid #ef4444; color: #fca5a5; font-size: 13px; }
+  .loading { color: #94a3b8; font-style: italic; }
+  .error { color: #ef4444; background: #450a0a; padding: 12px; border-radius: 8px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 20px; }
+  .stat-box { background: #1e293b; padding: 15px; border-radius: 10px; text-align: center; }
+  .stat-value { font-size: 28px; font-weight: bold; color: #38bdf8; }
+  .stat-label { font-size: 12px; color: #94a3b8; margin-top: 5px; }
+  .seed-input { background: #1e293b; border: 1px solid #334155; color: #e2e8f0; padding: 10px 14px; border-radius: 8px; font-size: 14px; width: 200px; }
+  .seed-input:focus { outline: none; border-color: #0ea5e9; }
+</style>
+</head>
+<body>
+<h1>🩺 CR Case Generator — Live Test</h1>
+
+<div class="stats">
+  <div class="stat-box"><div class="stat-value" id="stat-crs">—</div><div class="stat-label">КР загружено</div></div>
+  <div class="stat-box"><div class="stat-value" id="stat-cases">—</div><div class="stat-label">Кейсов сгенерировано</div></div>
+  <div class="stat-box"><div class="stat-value" id="stat-specialties">—</div><div class="stat-label">Специальности</div></div>
+</div>
+
+<div class="controls">
+  <input type="text" class="seed-input" id="seed-input" placeholder="seed (optional)" value="demo-2026-08-29">
+  <button onclick="generateAll()">🎲 Сгенерировать все КР</button>
+  <button class="secondary" onclick="generateOne()">🎯 Один случайный</button>
+  <button class="secondary" onclick="clearAll()">🗑️ Очистить</button>
+</div>
+
+<div id="output"></div>
+
+<script>
+// ===== Seeded RNG (Mulberry32) =====
+class SeededRng {
+  constructor(seed) {
+    let h = 1779033703 ^ seed.length;
+    for (let i = 0; i < seed.length; i++) {
+      h = Math.imul(h ^ seed.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
+    }
+    h = Math.imul(h ^ (h >>> 16), 2246822507);
+    h = Math.imul(h ^ (h >>> 13), 3266489909);
+    this.state = (h >>> 0) || 1;
+  }
+  next() {
+    let t = (this.state += 0x6D2B79F5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  }
+  pick(arr) { return arr[Math.floor(this.next() * arr.length)]; }
+  pickN(arr, n) {
+    const shuffled = [...arr];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(this.next() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled.slice(0, n);
+  }
+  nextInt(min, max) { return Math.floor(this.next() * (max - min)) + min; }
+  chance(p) { return this.next() < p; }
+  gaussian(mean, stdDev) {
+    const u1 = this.next(), u2 = this.next();
+    const z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+    return z0 * stdDev + mean;
+  }
+  lognormal(mean, stdDev) { return Math.exp(this.gaussian(mean, stdDev)); }
+  uniform(min, max) { return this.next() * (max - min) + min; }
+}
+
+const OCCUPATIONS = ['водитель', 'менеджер', 'учитель', 'строитель', 'бухгалтер', 'врач', 'инженер', 'продавец', 'пенсионер', 'военнослужащий', 'студент', 'домохозяйка', 'электрик', 'офисный работник', 'фермер'];
+
+const SCENARIOS = {
+  cardiology: [
+    { id: 'classic_stemi', label: 'Классический STEMI', demography: { ageRange: { min: 55, max: 75 }, gender: 'male' }, comorbidities: ['smoking', 'hypertension', 'hyperlipidemia'], severity: 'severe', typicality: 'typical', stage: 'acute', complications: [] },
+    { id: 'atypical_nstemi', label: 'Атипичный NSTEMI', demography: { ageRange: { min: 60, max: 80 }, gender: 'any' }, comorbidities: ['diabetes', 'hypertension', 'obesity'], severity: 'moderate', typicality: 'atypical', stage: 'acute', complications: [] },
+    { id: 'young_smoker', label: 'ОКС у молодого курильщика', demography: { ageRange: { min: 35, max: 50 }, gender: 'male' }, comorbidities: ['smoking', 'sedentary'], severity: 'severe', typicality: 'typical', stage: 'early', complications: [] },
+    { id: 'gerd_mask', label: 'Маскировка под ГЭРБ', demography: { ageRange: { min: 45, max: 65 }, gender: 'any' }, comorbidities: ['obesity', 'sedentary'], severity: 'moderate', typicality: 'masking', stage: 'early', complications: [] },
+    { id: 'elderly_weakness', label: 'ОКС у пожилого', demography: { ageRange: { min: 75, max: 90 }, gender: 'female' }, comorbidities: ['hypertension', 'diabetes', 'family_history'], severity: 'severe', typicality: 'atypical', stage: 'acute', complications: ['ef_reduced'] },
+  ],
+  pulmonology: [
+    { id: 'classic_pneumonia', label: 'Классическая пневмония', demography: { ageRange: { min: 45, max: 70 }, gender: 'male' }, comorbidities: ['smoking_pulm', 'recent_uri'], severity: 'severe', typicality: 'typical', stage: 'acute', complications: [] },
+    { id: 'aspiration_pneumonia', label: 'Аспирационная пневмония', demography: { ageRange: { min: 60, max: 85 }, gender: 'any' }, comorbidities: ['aspiration', 'alcohol', 'immunosuppression'], severity: 'severe', typicality: 'typical', stage: 'acute', complications: [] },
+    { id: 'immunocompromised', label: 'Пневмония при иммуносупрессии', demography: { ageRange: { min: 40, max: 70 }, gender: 'any' }, comorbidities: ['immunosuppression', 'diabetes_pulm'], severity: 'moderate', typicality: 'atypical', stage: 'acute', complications: [] },
+    { id: 'copd_exacerbation', label: 'Пневмония на фоне ХОБЛ', demography: { ageRange: { min: 55, max: 80 }, gender: 'male' }, comorbidities: ['copd', 'smoking_pulm'], severity: 'moderate', typicality: 'typical', stage: 'acute', complications: [] },
+    { id: 'viral_pneumonia', label: 'Вирусная пневмония', demography: { ageRange: { min: 20, max: 60 }, gender: 'any' }, comorbidities: ['recent_uri'], severity: 'mild', typicality: 'typical', stage: 'early', complications: [] },
+  ],
+  gastroenterology: [
+    { id: 'classic_ulcer', label: 'Классическая язва', demography: { ageRange: { min: 35, max: 60 }, gender: 'male' }, comorbidities: ['hpylori', 'nsaid_use', 'smoking_gastro'], severity: 'moderate', typicality: 'typical', stage: 'acute', complications: [] },
+    { id: 'nsaid_ulcer', label: 'НПВС-язва', demography: { ageRange: { min: 50, max: 80 }, gender: 'female' }, comorbidities: ['nsaid_use', 'previous_ulcer'], severity: 'severe', typicality: 'typical', stage: 'acute', complications: [] },
+    { id: 'bleeding_ulcer', label: 'Кровоточащая язва', demography: { ageRange: { min: 45, max: 75 }, gender: 'male' }, comorbidities: ['nsaid_use', 'anticoagulants', 'alcohol_gastro'], severity: 'severe', typicality: 'atypical', stage: 'acute', complications: [] },
+    { id: 'stress_ulcer', label: 'Стрессовая язва', demography: { ageRange: { min: 30, max: 55 }, gender: 'any' }, comorbidities: ['stress_ulcer', 'nsaid_use'], severity: 'moderate', typicality: 'masking', stage: 'early', complications: [] },
+    { id: 'gerd_like', label: 'Язва с изжогой', demography: { ageRange: { min: 40, max: 65 }, gender: 'any' }, comorbidities: ['gerd_history', 'obesity'], severity: 'mild', typicality: 'masking', stage: 'early', complications: [] },
+  ],
+};
+
+let registry = null;
+let crData = {};
+
+async function loadRegistry() {
+  const res = await fetch('data/cr-registry.json');
+  registry = await res.json();
+  document.getElementById('stat-crs').textContent = registry.items.length;
+  document.getElementById('stat-specialties').textContent = new Set(registry.items.map(i => i.specialty)).size;
+
+  for (const item of registry.items) {
+    const res2 = await fetch(`data/${item.filePath}`);
+    crData[item.id] = await res2.json();
+  }
+}
+
+function generateCase(cr, seed) {
+  const rng = new SeededRng(seed);
+  const scenarios = SCENARIOS[cr.specialty] || SCENARIOS.cardiology;
+  const scenario = rng.pick(scenarios);
+
+  const gender = scenario.demography.gender === 'any' ? (rng.chance(0.5) ? 'male' : 'female') : scenario.demography.gender;
+  const age = rng.nextInt(scenario.demography.ageRange.min, scenario.demography.ageRange.max + 1);
+  const occupation = rng.pick(OCCUPATIONS);
+
+  const complaints = cr.clinicalPicture.complaints;
+  const chief = rng.pick(complaints);
+
+  const clues = [];
+  clues.push(`${cr.title}. Пациент ${rng.pick(['обратился', 'поступил', 'прибыл'])} с жалобами на ${chief.text.toLowerCase()}.`);
+
+  const anamnesis = cr.clinicalPicture.anamnesis;
+  if (anamnesis.length > 0) {
+    const items = rng.pickN(anamnesis, Math.min(3, anamnesis.length));
+    clues.push(`Из анамнеза: ${items.map(i => i.label.toLowerCase()).join(', ')}.`);
+  }
+
+  const physical = cr.clinicalPicture.physicalExam.filter(p => p.typical);
+  if (physical.length > 0) {
+    const items = rng.pickN(physical, Math.min(2, physical.length));
+    clues.push(`При осмотре: ${items.map(p => p.label.toLowerCase()).join(', ')}.`);
+  }
+
+  const labs = cr.diagnostics.lab;
+  if (labs.length > 0) {
+    const lab = rng.pick(labs);
+    const vs = rng.pick(lab.valueScenarios);
+    const dist = vs.valueDistribution;
+    let val;
+    if (dist.type === 'normal') val = rng.gaussian(dist.mean, dist.stdDev);
+    else if (dist.type === 'lognormal') val = rng.lognormal(dist.mean, dist.stdDev);
+    else val = rng.uniform(dist.min, dist.max);
+    val = Math.max(dist.min, Math.min(dist.max, val));
+    const normal = lab.normalRange.text || `${lab.normalRange.min}-${lab.normalRange.max}`;
+    clues.push(`Лаборатория: ${lab.name} — ${val.toFixed(2)} ${lab.unit} (норма: ${normal}).`);
+  }
+
+  const insts = cr.diagnostics.instrumental;
+  if (insts.length > 0) {
+    const inst = rng.pick(insts);
+    const pattern = rng.pick(inst.patterns);
+    clues.push(`${inst.name}: ${pattern.label} — ${pattern.description}.`);
+  }
+
+  const diffs = cr.differential;
+  if (diffs.length > 0) {
+    const diff = rng.pick(diffs);
+    clues.push(`Дифференциал: ${diff.label} — ${rng.pick(diff.keyDifferences)}.`);
+  }
+
+  const diagnosis = [cr.title, ...cr.mkb10];
+  if (cr.title.toLowerCase().includes('коронарный')) diagnosis.push('ОКС', 'ОИМ', 'инфаркт');
+  if (cr.title.toLowerCase().includes('пневмония')) diagnosis.push('пневмония', 'ВБП');
+  if (cr.title.toLowerCase().includes('язвенная')) diagnosis.push('язва', 'ЯБ', 'язва желудка');
+
+  const explanationLines = [
+    `Клиническая картина соответствует ${cr.title} (${cr.mkb10.join(', ')}).`,
+    `Сценарий: ${scenario.label}.`,
+    `Ключевые критерии:`,
+  ];
+  const criteria = cr.diagnostics.criteria.filter(c => c.required).concat(
+    cr.diagnostics.criteria.filter(c => !c.required).sort((a, b) => b.weight - a.weight).slice(0, 3)
+  );
+  criteria.forEach(c => explanationLines.push(`• ${c.label} — ${c.description}`));
+  explanationLines.push(`Первоочередное лечение: ${cr.treatment.emergency.slice(0, 2).map(t => t.label).join(', ')}.`);
+
+  return {
+    id: `${cr.id}-${scenario.id}-${String(rng.nextInt(1, 999)).padStart(3, '0')}`,
+    specialty: cr.specialty,
+    title: cr.title,
+    patient: `${age}-летний ${gender === 'male' ? 'мужчина' : 'женщина'}, ${occupation}`,
+    clues,
+    diagnosis: [...new Set(diagnosis)],
+    explanation: explanationLines.join('\n'),
+    differentialHints: diffs.slice(0, 2).map(d => `${d.label}: ${d.keyDifferences[0]}`),
+    scenario: scenario.label,
+  };
+}
+
+function renderCase(c) {
+  return `
+    <div class="case-card">
+      <div class="case-header">
+        <div>
+          <div style="font-size:18px;font-weight:bold;color:#e2e8f0;margin-bottom:4px;">${c.title}</div>
+          <div class="case-id">${c.id} | сценарий: ${c.scenario}</div>
+        </div>
+        <span class="specialty-tag">${c.specialty}</span>
+      </div>
+      <div class="patient-info">
+        <strong>👤 Пациент:</strong> ${c.patient}
+      </div>
+      <div>
+        <strong style="color:#fbbf24;">🔍 Подсказки (${c.clues.length}):</strong>
+        ${c.clues.map((clue, i) => `<div class="clue"><span class="clue-number">${i + 1}</span>${clue}</div>`).join('')}
+      </div>
+      <div class="diagnosis">
+        <strong>✅ Диагноз:</strong>
+        ${c.diagnosis.map(d => `<span class="diagnosis-item">${d}</span>`).join('')}
+      </div>
+      <div class="explanation">${c.explanation}</div>
+      ${c.differentialHints.map(h => `<div class="diff-hint">⚠️ ${h}</div>`).join('')}
+    </div>
+  `;
+}
+
+let generatedCount = 0;
+
+async function generateAll() {
+  const seed = document.getElementById('seed-input').value || 'default';
+  const output = document.getElementById('output');
+  output.innerHTML = '<div class="loading">Загрузка КР...</div>';
+
+  if (!registry) await loadRegistry();
+
+  let html = '';
+  generatedCount = 0;
+
+  for (const item of registry.items) {
+    const cr = crData[item.id];
+    for (let diff = 1; diff <= 3; diff++) {
+      const caseSeed = `${seed}-${cr.id}-diff${diff}`;
+      const c = generateCase(cr, caseSeed);
+      generatedCount++;
+      html += renderCase(c);
+    }
+  }
+
+  document.getElementById('stat-cases').textContent = generatedCount;
+  output.innerHTML = html;
+}
+
+async function generateOne() {
+  const seed = document.getElementById('seed-input').value || 'default';
+  const output = document.getElementById('output');
+
+  if (!registry) await loadRegistry();
+
+  const item = registry.items[Math.floor(Math.random() * registry.items.length)];
+  const cr = crData[item.id];
+  const diff = Math.floor(Math.random() * 3) + 1;
+  const caseSeed = `${seed}-${cr.id}-diff${diff}-${Date.now()}`;
+  const c = generateCase(cr, caseSeed);
+  generatedCount++;
+
+  document.getElementById('stat-cases').textContent = generatedCount;
+  output.innerHTML = renderCase(c);
+}
+
+function clearAll() {
+  document.getElementById('output').innerHTML = '';
+  generatedCount = 0;
+  document.getElementById('stat-cases').textContent = '—';
+}
+
+// Auto-load on start
+loadRegistry().then(() => {
+  document.getElementById('output').innerHTML = '<div class="loading">КР загружены. Нажмите «Сгенерировать» для теста.</div>';
+});
+</script>
+</body>
+</html>

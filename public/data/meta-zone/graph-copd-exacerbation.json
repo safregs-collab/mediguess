@@ -1,0 +1,1004 @@
+{
+  "id": "copd-exacerbation",
+  "label": "Обострение ХОБЛ",
+  "color": "#0ea5e9",
+  "nodes": [
+    {
+      "id": "fvc",
+      "label": "ФЖЕЛ (FVC)",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "л",
+      "normal": ">80%",
+      "value": 2.8,
+      "group": "spirometry"
+    },
+    {
+      "id": "fev1",
+      "label": "ОФВ1 (FEV1)",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "л",
+      "normal": ">80%",
+      "value": 1.2,
+      "group": "spirometry"
+    },
+    {
+      "id": "fev1_fvc",
+      "label": "Индекс Тифно (FEV1/FVC)",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "%",
+      "normal": ">70",
+      "value": 43,
+      "group": "spirometry"
+    },
+    {
+      "id": "abg_ph",
+      "label": "pH артериальной крови",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "",
+      "normal": "7.35-7.45",
+      "value": 7.32,
+      "group": "gasometry"
+    },
+    {
+      "id": "abg_pco2",
+      "label": "PaCO₂",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": "35-45",
+      "value": 58,
+      "group": "gasometry"
+    },
+    {
+      "id": "abg_po2",
+      "label": "PaO₂",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мм рт.ст.",
+      "normal": "80-100",
+      "value": 55,
+      "group": "gasometry"
+    },
+    {
+      "id": "abg_hco3",
+      "label": "HCO₃⁻",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "ммоль/л",
+      "normal": "22-26",
+      "value": 30,
+      "group": "gasometry"
+    },
+    {
+      "id": "spo2",
+      "label": "SpO₂",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "%",
+      "normal": ">95",
+      "value": 85,
+      "group": "gasometry"
+    },
+    {
+      "id": "wbc",
+      "label": "Лейкоциты",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "×10⁹/л",
+      "normal": "4.0-9.0",
+      "value": 12.5,
+      "group": "hematology"
+    },
+    {
+      "id": "crp",
+      "label": "СРБ",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "мг/л",
+      "normal": "<5",
+      "value": 65,
+      "group": "inflammation"
+    },
+    {
+      "id": "procalcitonin",
+      "label": "Прокальцитонин",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "нг/мл",
+      "normal": "<0.05",
+      "value": 0.25,
+      "group": "inflammation"
+    },
+    {
+      "id": "chest_xray",
+      "label": "Рентген ОГК",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging"
+    },
+    {
+      "id": "ct_chest",
+      "label": "КТ грудной клетки",
+      "layer": "raw",
+      "type": "instrumental",
+      "group": "imaging"
+    },
+    {
+      "id": "sputum_culture",
+      "label": "Посев мокроты",
+      "layer": "raw",
+      "type": "lab",
+      "group": "microbiology"
+    },
+    {
+      "id": "temp",
+      "label": "Температура",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "°C",
+      "normal": "36.0-37.0",
+      "value": 38.2,
+      "group": "vitals"
+    },
+    {
+      "id": "hr",
+      "label": "ЧСС",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "уд/мин",
+      "normal": "60-100",
+      "value": 105,
+      "group": "vitals"
+    },
+    {
+      "id": "rr",
+      "label": "ЧДД",
+      "layer": "raw",
+      "type": "lab",
+      "unit": "вдох/мин",
+      "normal": "12-20",
+      "value": 28,
+      "group": "vitals"
+    },
+    {
+      "id": "dyspnea",
+      "label": "Одышка",
+      "layer": "findings",
+      "type": "symptom",
+      "severity": "сильная"
+    },
+    {
+      "id": "wheezing",
+      "label": "Свистящие хрипы",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "cough",
+      "label": "Кашель",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "sputum_increase",
+      "label": "Увеличение объёма мокроты",
+      "layer": "findings",
+      "type": "symptom"
+    },
+    {
+      "id": "sputum_purulence",
+      "label": "Гнойная мокрота",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "tachypnea",
+      "label": "Тахипноэ",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "tachycardia",
+      "label": "Тахикардия",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "fever",
+      "label": "Лихорадка",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "cyanosis",
+      "label": "Цианоз",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "use_accessory_muscles",
+      "label": "Участие вспомогательной мускулатуры",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "prolonged_expiration",
+      "label": "Удлинённый выдох",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "barrel_chest",
+      "label": "Бочкообразная грудная клетка",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "confusion",
+      "label": "Спутанность сознания",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "peripheral_edema",
+      "label": "Периферические отёки",
+      "layer": "findings",
+      "type": "sign"
+    },
+    {
+      "id": "smoking_history",
+      "label": "Курение в анамнезе",
+      "layer": "findings",
+      "type": "history"
+    },
+    {
+      "id": "copd_history",
+      "label": "ХОБЛ в анамнезе",
+      "layer": "findings",
+      "type": "history"
+    },
+    {
+      "id": "recent_infection",
+      "label": "Недавняя инфекция (ОРВИ)",
+      "layer": "findings",
+      "type": "history"
+    },
+    {
+      "id": "copd_exacerbation_infectious",
+      "label": "Инфекционное обострение ХОБЛ",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "70%",
+      "ptp": "high"
+    },
+    {
+      "id": "copd_exacerbation_noninfectious",
+      "label": "Неинфекционное обострение ХОБЛ",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "30%",
+      "ptp": "medium"
+    },
+    {
+      "id": "pneumonia",
+      "label": "Пневмония",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "15%",
+      "ptp": "medium"
+    },
+    {
+      "id": "pe",
+      "label": "Тромбоэмболия лёгочной артерии",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low"
+    },
+    {
+      "id": "pneumothorax",
+      "label": "Пневмоторакс",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "2%",
+      "ptp": "low"
+    },
+    {
+      "id": "heart_failure",
+      "label": "Сердечная недостаточность",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "10%",
+      "ptp": "low"
+    },
+    {
+      "id": "asthma_exacerbation",
+      "label": "Обострение бронхиальной астмы",
+      "layer": "hypotheses",
+      "type": "diagnosis",
+      "prevalence": "5%",
+      "ptp": "low"
+    },
+    {
+      "id": "diff_copd_vs_asthma",
+      "label": "ХОБЛ vs Астма",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "diff_infectious_vs_noninfectious",
+      "label": "Инфекционное vs Неинфекционное обострение",
+      "layer": "differential",
+      "type": "comparison"
+    },
+    {
+      "id": "guideline_gold_2023",
+      "label": "GOLD Guidelines 2023",
+      "layer": "evidence",
+      "type": "guideline",
+      "grade": "A",
+      "year": 2023
+    },
+    {
+      "id": "rct_antibiotics_copd",
+      "label": "RCT: антибиотики при обострении ХОБЛ",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 2008,
+      "n": 265
+    },
+    {
+      "id": "rct_corticosteroids_copd",
+      "label": "RCT: системные кортикостероиды при обострении ХОБЛ",
+      "layer": "evidence",
+      "type": "rct",
+      "grade": "A",
+      "year": 1999,
+      "n": 271
+    }
+  ],
+  "links": [
+    {
+      "source": "fev1",
+      "target": "copd_exacerbation_infectious",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "fev1",
+      "target": "copd_exacerbation_noninfectious",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "fvc",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "fev1_fvc",
+      "target": "copd_exacerbation_infectious",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "fev1_fvc",
+      "target": "asthma_exacerbation",
+      "type": "excludes",
+      "weight": 0.7
+    },
+    {
+      "source": "abg_ph",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "abg_pco2",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "abg_pco2",
+      "target": "copd_exacerbation_noninfectious",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "abg_po2",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "abg_hco3",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "spo2",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "spo2",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "spo2",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "wbc",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "wbc",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "crp",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "crp",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "crp",
+      "target": "copd_exacerbation_noninfectious",
+      "type": "excludes",
+      "weight": 0.6
+    },
+    {
+      "source": "procalcitonin",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "procalcitonin",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "chest_xray",
+      "target": "pneumonia",
+      "type": "confirms",
+      "weight": 0.85
+    },
+    {
+      "source": "chest_xray",
+      "target": "pneumothorax",
+      "type": "confirms",
+      "weight": 0.95
+    },
+    {
+      "source": "chest_xray",
+      "target": "copd_exacerbation_infectious",
+      "type": "excludes",
+      "weight": 0.7
+    },
+    {
+      "source": "ct_chest",
+      "target": "pe",
+      "type": "confirms",
+      "weight": 0.98
+    },
+    {
+      "source": "ct_chest",
+      "target": "pneumonia",
+      "type": "confirms",
+      "weight": 0.9
+    },
+    {
+      "source": "sputum_culture",
+      "target": "copd_exacerbation_infectious",
+      "type": "confirms",
+      "weight": 0.8
+    },
+    {
+      "source": "temp",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "temp",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "temp",
+      "target": "copd_exacerbation_noninfectious",
+      "type": "excludes",
+      "weight": 0.65
+    },
+    {
+      "source": "hr",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "hr",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "rr",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "rr",
+      "target": "asthma_exacerbation",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "dyspnea",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "dyspnea",
+      "target": "copd_exacerbation_noninfectious",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "dyspnea",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "dyspnea",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "dyspnea",
+      "target": "asthma_exacerbation",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "wheezing",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "wheezing",
+      "target": "asthma_exacerbation",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "cough",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "cough",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "cough",
+      "target": "copd_exacerbation_noninfectious",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "sputum_increase",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "sputum_purulence",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "sputum_purulence",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachypnea",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "tachypnea",
+      "target": "pe",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "tachycardia",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.75
+    },
+    {
+      "source": "fever",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "fever",
+      "target": "pneumonia",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "cyanosis",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "use_accessory_muscles",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "use_accessory_muscles",
+      "target": "asthma_exacerbation",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "prolonged_expiration",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "barrel_chest",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "confusion",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.8
+    },
+    {
+      "source": "peripheral_edema",
+      "target": "heart_failure",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "peripheral_edema",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.6
+    },
+    {
+      "source": "smoking_history",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "source": "copd_history",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.95
+    },
+    {
+      "source": "copd_history",
+      "target": "copd_exacerbation_noninfectious",
+      "type": "supports",
+      "weight": 0.95
+    },
+    {
+      "source": "recent_infection",
+      "target": "copd_exacerbation_infectious",
+      "type": "supports",
+      "weight": 0.85
+    },
+    {
+      "source": "copd_exacerbation_infectious",
+      "target": "diff_copd_vs_asthma",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "asthma_exacerbation",
+      "target": "diff_copd_vs_asthma",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "copd_exacerbation_infectious",
+      "target": "diff_infectious_vs_noninfectious",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "copd_exacerbation_noninfectious",
+      "target": "diff_infectious_vs_noninfectious",
+      "type": "compared_in",
+      "weight": 1.0
+    },
+    {
+      "source": "copd_exacerbation_infectious",
+      "target": "guideline_gold_2023",
+      "type": "covered_in",
+      "weight": 1.0
+    },
+    {
+      "source": "copd_exacerbation_infectious",
+      "target": "rct_antibiotics_copd",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "copd_exacerbation_infectious",
+      "target": "rct_corticosteroids_copd",
+      "type": "treated_in",
+      "weight": 1.0
+    },
+    {
+      "source": "diff_copd_vs_asthma",
+      "target": "guideline_gold_2023",
+      "type": "described_in",
+      "weight": 1.0
+    }
+  ],
+  "details": {
+    "copd_exacerbation_infectious": {
+      "description": "Инфекционное обострение ХОБЛ — усугубление симптомов на фоне вирусной или бактериальной инфекции. Вирусы (50%), бактерии (40%), атипичные (5-10%).",
+      "criteria": [
+        "Усиление одышки",
+        "Увеличение объёма мокроты",
+        "Изменение характера мокроты (гнойная)",
+        "Лихорадка, повышение СРБ/лейкоцитов",
+        "Снижение SpO₂, повышение PaCO₂"
+      ],
+      "prevalence": "70% обострений ХОБЛ",
+      "complications": [
+        "Дыхательная недостаточность",
+        "Респираторный ацидоз",
+        "Пневмония",
+        "Пневмоторакс",
+        "Сердечная недостаточность",
+        "Интубация и ИВЛ"
+      ],
+      "treatment": [
+        "Кислород (цель SpO₂ 88-92%)",
+        "Бронходилататоры (сальбутамол + ипратропий)",
+        "Системные кортикостероиды (преднизолон 40 мг/сут 5 дней)",
+        "Антибиотики (амоксициллин/клавуланат или макролид/фторхинолон)",
+        "НИВЛ (BiPAP) при гиперкапнии",
+        "ИВЛ при прогрессировании",
+        "Физиотерапия, реабилитация"
+      ],
+      "followup": "Вакцинация (грипп, пневмококк), отказ от курения, базисная терапия (ЛАБА+ЛАМА+ИГКС при частых обострениях)"
+    },
+    "copd_exacerbation_noninfectious": {
+      "description": "Неинфекционное обострение ХОБЛ — усугубление без признаков инфекции. Триггеры: загрязнение воздуха, аллергены, погода, сердечная недостаточность.",
+      "criteria": [
+        "Усиление одышки, кашля, мокроты",
+        "Отсутствие лихорадки",
+        "Нормальные/умеренно повышенные СРБ, лейкоциты",
+        "Отсутствие гнойной мокроты"
+      ],
+      "prevalence": "30% обострений ХОБЛ",
+      "complications": [
+        "Дыхательная недостаточность",
+        "Респираторный ацидоз"
+      ],
+      "treatment": [
+        "Бронходилататоры (сальбутамол + ипратропий)",
+        "Системные кортикостероиды (преднизолон 40 мг/сут)",
+        "Кислород",
+        "Без антибиотиков (если нет инфекционных признаков)",
+        "Устранение триггера"
+      ],
+      "followup": "Коррекция базисной терапии, пульмонологическое наблюдение"
+    }
+  },
+  "comparisons": {
+    "diff_copd_vs_asthma": {
+      "headers": [
+        "Признак",
+        "ХОБЛ",
+        "Астма"
+      ],
+      "rows": [
+        {
+          "feature": "Возраст начала",
+          "copd": ">40 лет",
+          "asthma": "Любой (часто детство)"
+        },
+        {
+          "feature": "Курение",
+          "copd": "Обязательно (обычно >20 пачко-лет)",
+          "asthma": "Необязательно"
+        },
+        {
+          "feature": "Атопия",
+          "copd": "Редко",
+          "asthma": "Часто"
+        },
+        {
+          "feature": "ОФВ1",
+          "copd": "Необратимо снижен",
+          "asthma": "Обратимо снижен"
+        },
+        {
+          "feature": "Индекс Тифно",
+          "copd": "<70% (постоянно)",
+          "asthma": "<70% (при обострении)"
+        },
+        {
+          "feature": "Мокрота",
+          "copd": "Хроническая, обильная",
+          "asthma": "Сухой кашель или вязкая мокрота"
+        },
+        {
+          "feature": "Ночные симптомы",
+          "copd": "Редко",
+          "asthma": "Часто"
+        },
+        {
+          "feature": "Ответ на бронходилататоры",
+          "copd": "Частичный",
+          "asthma": "Хороший"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "guideline_gold_2023": {
+      "title": "Global Strategy for the Diagnosis, Management, and Prevention of Chronic Obstructive Pulmonary Disease (2023 Report)",
+      "authors": "GOLD Scientific Committee",
+      "journal": "GOLD",
+      "year": 2023,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "Обострение — усугубление 2 из 3 симптомов (одышка, кашель, мокрота)",
+        "Антибиотики показаны при гнойной мокроте, механической ИВЛ, 2 из 3 признаков (лихорадка, гнойная мокрота, лейкоцитоз)",
+        "Системные стероиды 40 мг/сут 5 дней — стандарт"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_antibiotics_copd": {
+      "title": "Antibiotics for exacerbations of chronic obstructive pulmonary disease",
+      "authors": "El Moussaoui R et al.",
+      "journal": "Thorax",
+      "year": 2008,
+      "n": 265,
+      "design": "RCT",
+      "grade": "A",
+      "key_findings": [
+        "Антибиотики снижают смертность (RR 0.77)",
+        "Ускоряют выздоровление на 1.5 дня",
+        "Наиболее эффективны при гнойной мокроте"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_corticosteroids_copd": {
+      "title": "Oral corticosteroids in patients hospitalized for exacerbations of COPD",
+      "authors": "Niewoehner DE et al.",
+      "journal": "N Engl J Med",
+      "year": 1999,
+      "n": 271,
+      "design": "RCT",
+      "grade": "A",
+      "key_findings": [
+        "Системные стероиды сокращают госпитализацию (1.5 дня)",
+        "Улучшают FEV1 на 100 мл",
+        "Снижают риск рецидива",
+        "Длительность 5-7 дней оптимальна"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "copd_exacerbation_infectious": [
+      {
+        "time": 0,
+        "event": "Начало",
+        "spo2": "92",
+        "pco2": "45",
+        "symptom": "Усиление кашля, мокрота"
+      },
+      {
+        "time": 24,
+        "event": "1 сутки",
+        "spo2": "88",
+        "pco2": "52",
+        "symptom": "Одышка, гнойная мокрота, лихорадка 38.2"
+      },
+      {
+        "time": 48,
+        "event": "2 суток",
+        "spo2": "85",
+        "pco2": "58",
+        "symptom": "Тахипноэ 28/мин, цианоз"
+      },
+      {
+        "time": 72,
+        "event": "Госпитализация",
+        "spo2": "84",
+        "pco2": "60",
+        "symptom": "Спутанность, ABG: pH 7.30"
+      },
+      {
+        "time": 74,
+        "event": "Терапия",
+        "spo2": "88",
+        "pco2": "55",
+        "symptom": "O₂ + сальбутамол + ипратропий + преднизолон + амокс/клав"
+      },
+      {
+        "time": 96,
+        "event": "4 суток",
+        "spo2": "90",
+        "pco2": "50",
+        "symptom": "Улучшение, ясное сознание"
+      },
+      {
+        "time": 168,
+        "event": "7 суток",
+        "spo2": "92",
+        "pco2": "48",
+        "symptom": "Стабилизация, отмена O₂"
+      },
+      {
+        "time": 240,
+        "event": "10 суток",
+        "spo2": "93",
+        "pco2": "46",
+        "symptom": "Выписка, продолжение АБ 5 дней"
+      }
+    ]
+  }
+}

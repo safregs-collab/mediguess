@@ -1,0 +1,269 @@
+{
+  "id": "pyelonephritis",
+  "label": "Пиелонефрит / Нефрология",
+  "color": "#06b6d4",
+  "nodes": [
+    { "id": "wbc", "label": "Лейкоциты", "layer": "raw", "type": "lab", "unit": "×10⁹/л", "normal": "4-9", "value": 14, "group": "cbc" },
+    { "id": "neutrophils", "label": "Нейтрофилы", "layer": "raw", "type": "lab", "unit": "%", "normal": "40-70", "value": 88, "group": "cbc" },
+    { "id": "crp", "label": "СРБ", "layer": "raw", "type": "lab", "unit": "мг/л", "normal": "<5", "value": 95, "group": "inflammation" },
+    { "id": "creatinine", "label": "Креатинин", "layer": "raw", "type": "lab", "unit": "мкмоль/л", "normal": "62-115", "value": 85, "group": "kidney" },
+    { "id": "bun", "label": "Мочевина", "layer": "raw", "type": "lab", "unit": "ммоль/л", "normal": "2.5-8.3", "value": 6, "group": "kidney" },
+    { "id": "urine_leukocytes", "label": "Лейкоциты в моче", "layer": "raw", "type": "lab", "unit": "в п/зр", "normal": "<5", "value": 50, "group": "urine" },
+    { "id": "urine_erythrocytes", "label": "Эритроциты в моче", "layer": "raw", "type": "lab", "unit": "в п/зр", "normal": "<3", "value": 10, "group": "urine" },
+    { "id": "urine_bacteria", "label": "Бактериурия", "layer": "raw", "type": "lab", "group": "urine" },
+    { "id": "urine_nitrites", "label": "Нитриты в моче", "layer": "raw", "type": "lab", "group": "urine" },
+    { "id": "urine_protein", "label": "Белок в моче", "layer": "raw", "type": "lab", "unit": "г/л", "normal": "<0.15", "value": 1.5, "group": "urine" },
+    { "id": "urine_culture", "label": "Посев мочи", "layer": "raw", "type": "lab", "group": "microbiology" },
+    { "id": "blood_culture", "label": "Гемокультура", "layer": "raw", "type": "lab", "group": "microbiology" },
+    { "id": "ultrasound_kidneys", "label": "УЗИ почек", "layer": "raw", "type": "instrumental", "group": "imaging" },
+    { "id": "ct_kub", "label": "КТ без контраста (КУБ)", "layer": "raw", "type": "instrumental", "group": "imaging" },
+    { "id": "fever", "label": "Лихорадка / озноб", "layer": "findings", "type": "symptom", "severity": "высокая" },
+    { "id": "flank_pain", "label": "Боль в пояснице", "layer": "findings", "type": "symptom", "severity": "тупая" },
+    { "id": "costovertebral_tenderness", "label": "Симптом поколачивания", "layer": "findings", "type": "sign" },
+    { "id": "dysuria", "label": "Дизурия", "layer": "findings", "type": "symptom" },
+    { "id": "frequency", "label": "Частое мочеиспускание", "layer": "findings", "type": "symptom" },
+    { "id": "urgency", "label": "Непроизвольные позывы", "layer": "findings", "type": "symptom" },
+    { "id": "nausea", "label": "Тошнота", "layer": "findings", "type": "symptom" },
+    { "id": "vomiting", "label": "Рвота", "layer": "findings", "type": "symptom" },
+    { "id": "cloudy_urine", "label": "Мутная моча", "layer": "findings", "type": "sign" },
+    { "id": "hematuria", "label": "Гематурия (макро/микро)", "layer": "findings", "type": "sign" },
+    { "id": "tachycardia", "label": "Тахикардия", "layer": "findings", "type": "sign" },
+    { "id": "acute_pyelonephritis", "label": "Острый пиелонефрит", "layer": "hypotheses", "type": "diagnosis", "prevalence": "60%", "ptp": "high" },
+    { "id": "renal_colic", "label": "Почечная колика (нефролитиаз)", "layer": "hypotheses", "type": "diagnosis", "prevalence": "20%", "ptp": "medium" },
+    { "id": "acute_kidney_injury", "label": "Острая почечная недостаточность", "layer": "hypotheses", "type": "diagnosis", "prevalence": "5%", "ptp": "low" },
+    { "id": "infected_stone", "label": "Инфицированный камень (стривит)", "layer": "hypotheses", "type": "diagnosis", "prevalence": "3%", "ptp": "low" },
+    { "id": "acute_cystitis", "label": "Острый цистит", "layer": "hypotheses", "type": "diagnosis", "prevalence": "10%", "ptp": "medium" },
+    { "id": "interstitial_nephritis", "label": "Острый интерстициальный нефрит", "layer": "hypotheses", "type": "diagnosis", "prevalence": "2%", "ptp": "low" },
+    { "id": "diff_pyelo_vs_cystitis", "label": "Пиелонефрит vs Цистит", "layer": "differential", "type": "comparison" },
+    { "id": "diff_pyelo_vs_colic", "label": "Пиелонефрит vs Почечная колика", "layer": "differential", "type": "comparison" },
+    { "id": "guideline_idsa_2011", "label": "IDSA Guidelines: Pyelonephritis 2011", "layer": "evidence", "type": "guideline", "grade": "A", "year": 2011 },
+    { "id": "rct_short_course", "label": "RCT: короткий курс (5 дней) vs стандартный (14 дней)", "layer": "evidence", "type": "rct", "grade": "A", "year": 2012, "n": 250 },
+    { "id": "meta_fluoroquinolones", "label": "Мета-анализ: фторхинолоны при пиелонефрите", "layer": "evidence", "type": "meta-analysis", "grade": "A", "year": 2018, "n": 5000 }
+  ],
+  "links": [
+    { "source": "wbc", "target": "acute_pyelonephritis", "type": "key_marker", "weight": 0.90 },
+    { "source": "wbc", "target": "acute_kidney_injury", "type": "supports", "weight": 0.70 },
+    { "source": "wbc", "target": "infected_stone", "type": "supports", "weight": 0.80 },
+    { "source": "neutrophils", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.85 },
+    { "source": "crp", "target": "acute_pyelonephritis", "type": "key_marker", "weight": 0.85 },
+    { "source": "crp", "target": "infected_stone", "type": "supports", "weight": 0.80 },
+    { "source": "creatinine", "target": "acute_kidney_injury", "type": "key_marker", "weight": 0.95 },
+    { "source": "creatinine", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.60 },
+    { "source": "bun", "target": "acute_kidney_injury", "type": "key_marker", "weight": 0.90 },
+    { "source": "urine_leukocytes", "target": "acute_pyelonephritis", "type": "key_marker", "weight": 0.90 },
+    { "source": "urine_leukocytes", "target": "acute_cystitis", "type": "key_marker", "weight": 0.90 },
+    { "source": "urine_leukocytes", "target": "interstitial_nephritis", "type": "supports", "weight": 0.70 },
+    { "source": "urine_erythrocytes", "target": "renal_colic", "type": "key_marker", "weight": 0.90 },
+    { "source": "urine_erythrocytes", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.70 },
+    { "source": "urine_erythrocytes", "target": "infected_stone", "type": "supports", "weight": 0.75 },
+    { "source": "urine_bacteria", "target": "acute_pyelonephritis", "type": "key_marker", "weight": 0.90 },
+    { "source": "urine_bacteria", "target": "acute_cystitis", "type": "key_marker", "weight": 0.90 },
+    { "source": "urine_bacteria", "target": "infected_stone", "type": "key_marker", "weight": 0.85 },
+    { "source": "urine_nitrites", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.80 },
+    { "source": "urine_nitrites", "target": "acute_cystitis", "type": "supports", "weight": 0.80 },
+    { "source": "urine_protein", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.70 },
+    { "source": "urine_protein", "target": "interstitial_nephritis", "type": "supports", "weight": 0.75 },
+    { "source": "urine_culture", "target": "acute_pyelonephritis", "type": "confirms", "weight": 0.95 },
+    { "source": "urine_culture", "target": "acute_cystitis", "type": "confirms", "weight": 0.95 },
+    { "source": "urine_culture", "target": "infected_stone", "type": "confirms", "weight": 0.90 },
+    { "source": "blood_culture", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.80 },
+    { "source": "blood_culture", "target": "infected_stone", "type": "supports", "weight": 0.75 },
+    { "source": "ultrasound_kidneys", "target": "acute_pyelonephritis", "type": "confirms", "weight": 0.85 },
+    { "source": "ultrasound_kidneys", "target": "renal_colic", "type": "confirms", "weight": 0.90 },
+    { "source": "ultrasound_kidneys", "target": "infected_stone", "type": "confirms", "weight": 0.85 },
+    { "source": "ultrasound_kidneys", "target": "acute_kidney_injury", "type": "supports", "weight": 0.75 },
+    { "source": "ct_kub", "target": "renal_colic", "type": "confirms", "weight": 0.98 },
+    { "source": "ct_kub", "target": "infected_stone", "type": "confirms", "weight": 0.90 },
+    { "source": "fever", "target": "acute_pyelonephritis", "type": "key_marker", "weight": 0.90 },
+    { "source": "fever", "target": "infected_stone", "type": "supports", "weight": 0.85 },
+    { "source": "fever", "target": "acute_cystitis", "type": "supports", "weight": 0.60 },
+    { "source": "flank_pain", "target": "acute_pyelonephritis", "type": "key_marker", "weight": 0.95 },
+    { "source": "flank_pain", "target": "renal_colic", "type": "key_marker", "weight": 0.95 },
+    { "source": "flank_pain", "target": "acute_kidney_injury", "type": "supports", "weight": 0.50 },
+    { "source": "costovertebral_tenderness", "target": "acute_pyelonephritis", "type": "key_marker", "weight": 0.90 },
+    { "source": "costovertebral_tenderness", "target": "renal_colic", "type": "supports", "weight": 0.85 },
+    { "source": "dysuria", "target": "acute_cystitis", "type": "key_marker", "weight": 0.90 },
+    { "source": "dysuria", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.75 },
+    { "source": "frequency", "target": "acute_cystitis", "type": "key_marker", "weight": 0.90 },
+    { "source": "frequency", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.70 },
+    { "source": "urgency", "target": "acute_cystitis", "type": "key_marker", "weight": 0.85 },
+    { "source": "nausea", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.70 },
+    { "source": "nausea", "target": "renal_colic", "type": "supports", "weight": 0.80 },
+    { "source": "vomiting", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.65 },
+    { "source": "vomiting", "target": "renal_colic", "type": "supports", "weight": 0.80 },
+    { "source": "cloudy_urine", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.75 },
+    { "source": "cloudy_urine", "target": "acute_cystitis", "type": "supports", "weight": 0.75 },
+    { "source": "hematuria", "target": "renal_colic", "type": "key_marker", "weight": 0.90 },
+    { "source": "hematuria", "target": "infected_stone", "type": "supports", "weight": 0.75 },
+    { "source": "tachycardia", "target": "acute_pyelonephritis", "type": "supports", "weight": 0.70 },
+    { "source": "acute_pyelonephritis", "target": "diff_pyelo_vs_cystitis", "type": "compared_in", "weight": 1.0 },
+    { "source": "acute_cystitis", "target": "diff_pyelo_vs_cystitis", "type": "compared_in", "weight": 1.0 },
+    { "source": "acute_pyelonephritis", "target": "diff_pyelo_vs_colic", "type": "compared_in", "weight": 1.0 },
+    { "source": "renal_colic", "target": "diff_pyelo_vs_colic", "type": "compared_in", "weight": 1.0 },
+    { "source": "acute_pyelonephritis", "target": "guideline_idsa_2011", "type": "covered_in", "weight": 1.0 },
+    { "source": "acute_pyelonephritis", "target": "rct_short_course", "type": "treated_in", "weight": 1.0 },
+    { "source": "acute_pyelonephritis", "target": "meta_fluoroquinolones", "type": "treated_in", "weight": 1.0 },
+    { "source": "diff_pyelo_vs_cystitis", "target": "guideline_idsa_2011", "type": "described_in", "weight": 1.0 }
+  ],
+  "details": {
+    "acute_pyelonephritis": {
+      "description": "Острый пиелонефрит — острое инфекционное воспаление почечной паренхимы и чашечно-лоханочной системы. Возбудитель чаще E. coli (80%).",
+      "criteria": [
+        "Лихорадка >38°C, озноб",
+        "Боль в пояснице, симптом поколачивания положительный",
+        "Дизурия, частое мочеиспускание",
+        "Лейкоцитурия, бактериурия, нитриты",
+        "Посев мочи >10⁵ КОЕ/мл"
+      ],
+      "prevalence": "15-17 на 10 000 женщин, 3-4 на 10 000 мужчин",
+      "complications": [
+        "Эмпиема почки",
+        "Почечный абсцесс",
+        "Сепсис",
+        "Острая почечная недостаточность",
+        "Хронический пиелонефрит"
+      ],
+      "treatment": [
+        "Антибиотики: цефтриаксон 1-2 г/сут, ципрофлоксацин 500 мг ×2 (перорально при лёгком), фторхинолоны",
+        "Продолжительность: 7-14 дней (5-7 дней при парентеральном, затем перорально)",
+        "Обильное питьё",
+        "Анальгетики, спазмолитики",
+        "Контроль посева мочи через 1-2 недели"
+      ],
+      "followup": "УЗИ почек через 6 недель (исключить абсцесс), контроль посева мочи"
+    },
+    "renal_colic": {
+      "description": "Почечная колика — острая боль при обструкции мочевыводящих путей камнем. Наиболее частая причина острой боли в урологии.",
+      "criteria": [
+        "Внезапная интенсивная коликообразная боль в пояснице",
+        "Иррадиация в пах, половые органы, бедро",
+        "Гематурия (микро/макро)",
+        "Тошнота, рвота",
+        "УЗИ/КТ: камень, гидронефроз"
+      ],
+      "prevalence": "5-10% населения (жизненный риск камней)",
+      "complications": [
+        "Гидронефроз",
+        "Инфицированный камень",
+        "Острая почечная недостаточность (при двусторонней обструкции)"
+      ],
+      "treatment": [
+        "НПВС (диклофенак, кеторолак) — первый выбор",
+        "Спазмолитики (тамсулозин 0.4 мг — медицинская экспульсивная терапия)",
+        "Обильное питьё",
+        "При камне <10 мм — консервативная терапия",
+        "При >10 мм, осложнениях — литотрипсия, уретероскопия"
+      ],
+      "followup": "КТ/УЗИ контроль, анализ камня, метаболическое обследование"
+    }
+  },
+  "comparisons": {
+    "diff_pyelo_vs_cystitis": {
+      "headers": [
+        "Признак",
+        "Пиелонефрит",
+        "Цистит"
+      ],
+      "rows": [
+        {
+          "feature": "Температура",
+          "pyelo": ">38°C, озноб",
+          "cystitis": "Норма или субфебрилитет"
+        },
+        {
+          "feature": "Боль",
+          "pyelo": "В пояснице, симптом поколачивания",
+          "cystitis": "Супрапубическая"
+        },
+        {
+          "feature": "Дизурия",
+          "pyelo": "Может быть",
+          "cystitis": "Выраженная"
+        },
+        {
+          "feature": "Частота мочеиспускания",
+          "pyelo": "Может быть",
+          "cystitis": "Выраженная"
+        },
+        {
+          "feature": "Лейкоцитоз",
+          "pyelo": "Выраженный",
+          "cystitis": "Умеренный или нет"
+        },
+        {
+          "feature": "СРБ",
+          "pyelo": "Повышен",
+          "cystitis": "Норма или незначительно"
+        },
+        {
+          "feature": "Посев мочи",
+          "pyelo": ">10⁵ КОЕ/мл",
+          "cystitis": ">10² КОЕ/мл"
+        },
+        {
+          "feature": "Лечение",
+          "pyelo": "Парентеральные АБ 7-14 дней",
+          "cystitis": "Пероральные АБ 3-5 дней"
+        }
+      ]
+    }
+  },
+  "evidence": {
+    "guideline_idsa_2011": {
+      "title": "IDSA Guidelines: Diagnosis and Treatment of Acute Pyelonephritis in Women",
+      "authors": "Gupta K et al.",
+      "journal": "Clin Infect Dis",
+      "year": 2011,
+      "design": "Clinical guideline",
+      "grade": "A",
+      "key_findings": [
+        "Фторхинолоны — препараты первого выбора при неосложнённом пиелонефрите",
+        "Короткий курс (5-7 дней) при парентеральном переходе на пероральное",
+        "Посев мочи обязателен"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "rct_short_course": {
+      "title": "Five-day vs 14-day course of antibiotics for acute pyelonephritis",
+      "authors": "Millar LK et al.",
+      "journal": "Obstet Gynecol",
+      "year": 2012,
+      "n": 250,
+      "design": "RCT",
+      "grade": "A",
+      "key_findings": [
+        "5-дневный курс не уступает 14-дневному",
+        "При условии парентерального начала и перорального завершения",
+        "Меньше побочных эффектов"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    },
+    "meta_fluoroquinolones": {
+      "title": "Fluoroquinolones for acute pyelonephritis: systematic review and meta-analysis",
+      "authors": "Talan DA et al.",
+      "journal": "J Urol",
+      "year": 2018,
+      "n": 5000,
+      "design": "Meta-analysis of 15 RCTs",
+      "grade": "A",
+      "key_findings": [
+        "Фторхинолоны: клинический успех 90-95%",
+        "Ципрофлоксацин 500 мг ×2 — стандарт",
+        "Растёт резистентность (>10% в некоторых регионах)"
+      ],
+      "quality": "Высокое (GRADE: A)"
+    }
+  },
+  "timelines": {
+    "acute_pyelonephritis": [
+      { "time": 0, "event": "Начало", "wbc": 7, "crp": 5, "symptom": "Дизурия" },
+      { "time": 12, "event": "12 часов", "wbc": 10, "crp": 40, "symptom": "Боль в пояснице" },
+      { "time": 24, "event": "24 часа", "wbc": 12, "crp": 80, "symptom": "Лихорадка 38.5°C" },
+      { "time": 36, "event": "36 часов", "wbc": 14, "crp": 120, "symptom": "Озноб, тахикардия" },
+      { "time": 48, "event": "Госпитализация + АБ", "wbc": 14, "crp": 150, "symptom": "Цефтриаксон" },
+      { "time": 72, "event": "72 часа", "wbc": 10, "crp": 80, "symptom": "Улучшение" },
+      { "time": 120, "event": "5 дней", "wbc": 8, "crp": 20, "symptom": "Пероральные АБ" },
+      { "time": 240, "event": "10 дней", "wbc": 7, "crp": 5, "symptom": "Ремиссия" }
+    ]
+  }
+}
