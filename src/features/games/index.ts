@@ -1,0 +1,9 @@
+export { GameBoard } from './components/GameBoard';
+export { ArchiveGrid } from './components/ArchiveGrid';
+export { AttemptsGrid } from './components/AttemptsGrid';
+export { CluesList } from './components/CluesList';
+export { DiagnosisInput } from './components/DiagnosisInput';
+export { ResultPanel } from './components/ResultPanel';
+export { ProfessionScreen } from './components/ProfessionScreen';
+export { ProfessionModeScreen } from './components/ProfessionModeScreen';
+export { SimulatorBoard } from './components/SimulatorBoard';
