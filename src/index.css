@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "./shared/styles/theme.css";
+@import "./shared/styles/components.css";
+@import "./shared/styles/modal.css";
+@import "./shared/styles/graph.css";
+@import "./shared/styles/skeleton.css";
+@import "./shared/styles/accessibility.css";

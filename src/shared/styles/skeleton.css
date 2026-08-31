@@ -1,0 +1,84 @@
+/* ── Skeleton loading placeholders ──────────────────────────────── */
+@keyframes skeleton-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-line,
+.skeleton-dot,
+.skeleton-input,
+.skeleton-badge {
+  background: linear-gradient(90deg, var(--border) 25%, var(--card) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.5s infinite;
+  border-radius: 6px;
+}
+
+.skeleton-card {
+  padding: 24px;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 24px;
+  margin-bottom: 8px;
+}
+
+.skeleton-tag {
+  width: 80px;
+  height: 22px;
+}
+
+.skeleton-attempts {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+.skeleton-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.skeleton-clues {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.skeleton-clues .skeleton-line {
+  height: 16px;
+}
+
+.skeleton-input {
+  width: 100%;
+  height: 48px;
+  margin-top: 16px;
+  border-radius: 8px;
+}
+
+/* Meta skeleton */
+.skeleton-meta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skeleton-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.skeleton-meta-card {
+  border-radius: 12px;
+}
+
+@media (max-width: 640px) {
+  .skeleton-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

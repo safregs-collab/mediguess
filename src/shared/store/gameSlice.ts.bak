@@ -1,0 +1,334 @@
+import type { StateCreator } from 'zustand';
+import type { Case, DailyState, EndlessState, GameMode, Role, RoleplayCase, RoleplayState, SimulationCase, SimulationState } from '../../types';
+import type { AchievementDef } from '../../features/gamification/types';
+import { createDatabase } from '../../lib/db';
+import {
+  getDailyCase,
+  initDailyState,
+  processGuess,
+  shouldResetStreak,
+  getTodayStr,
+} from '../../features/games/logic/gameLogic';
+import { loadRoleplayState, saveRoleplayState, loadSimulationState, saveSimulationState } from '../../features/games/logic/storage';
+import { processRoleplayGuess } from '../../features/games/logic/roleplayLogic';
+import { getRandomRoleplayCase } from '../../features/games/logic/roleplayCases';
+import { getProximityHint } from '../../features/games/logic/hintEngine';
+import {
+  finalizeDailyOrEndless,
+  finalizeRoleplay,
+  playGameSounds,
+  buildToast,
+} from './utils/finalizeGame';
+import type { GameStore } from './types';
+
+const db = createDatabase();
+
+export interface GameSlice {
+  cases: readonly Case[];
+  roleplayCases: readonly RoleplayCase[];
+  simulationCases: readonly SimulationCase[];
+  loading: boolean;
+  currentMode: GameMode;
+  dailyState: DailyState | null;
+  endlessState: EndlessState | null;
+  roleplayState: RoleplayState | null;
+  simulationCase: SimulationCase | null;
+  simulationState: SimulationState | null;
+  activeFilter: string;
+  roleplayRoleFilter: Role | 'all';
+  selectedAutocomplete: number;
+  currentMatches: string[];
+
+  init: () => Promise<void>;
+  switchMode: (mode: GameMode) => void;
+  checkDiagnosis: (mode: 'daily' | 'endless', input: string) => void;
+  checkRoleplayDiagnosis: (input: string) => void;
+  loadEndlessCase: () => void;
+  loadRoleplayCase: (role?: Role | null) => void;
+  setActiveFilter: (filter: string) => void;
+  setRoleplayRoleFilter: (filter: Role | 'all') => void;
+  setSelectedAutocomplete: (idx: number) => void;
+  setCurrentMatches: (matches: string[]) => void;
+  loadArchiveCase: (caseId: number) => void;
+  loadRoleplayArchiveCase: (caseId: number) => void;
+  loadSimulationArchiveCase: (caseId: string | number) => void;
+  resetRoleplayState: () => void;
+  resetSimulationState: () => void;
+}
+
+export const createGameSlice: StateCreator<GameStore, [], [], GameSlice> = (set, get) => ({
+  cases: [],
+  roleplayCases: [],
+  simulationCases: [],
+  loading: true,
+  currentMode: 'daily',
+  dailyState: null,
+  endlessState: null,
+  roleplayState: null,
+  simulationCase: null,
+  simulationState: null,
+  activeFilter: 'all',
+  roleplayRoleFilter: 'all',
+  selectedAutocomplete: -1,
+  currentMatches: [],
+
+  init: async () => {
+    const cases = await db.loadCases();
+    const roleplayCases = await db.loadRoleplayCases();
+    const simulationCases = await db.loadSimulationCases();
+
+    let savedDaily = db.loadDailyState();
+    let stats = db.loadStats();
+    const savedRoleplay = loadRoleplayState();
+    const savedSimulation = loadSimulationState();
+
+    const tauriDb = db as any;
+    if (typeof tauriDb.asyncLoadStats === 'function') {
+      stats = await tauriDb.asyncLoadStats();
+    }
+    if (typeof tauriDb.asyncLoadDailyState === 'function') {
+      savedDaily = await tauriDb.asyncLoadDailyState();
+    }
+
+    const dailyState = initDailyState(savedDaily, cases);
+
+    const today = getTodayStr();
+    if (shouldResetStreak(stats.lastPlayedDate, today)) {
+      stats = { ...stats, currentStreak: 0 };
+      db.saveStats(stats);
+    }
+
+    set({ cases, roleplayCases, simulationCases, dailyState, stats, loading: false });
+
+    if (savedRoleplay) {
+      const caseExists = roleplayCases.some((c) => c.id === savedRoleplay.caseId);
+      if (caseExists && !savedRoleplay.finished) {
+        set({ roleplayState: savedRoleplay });
+      } else if (savedRoleplay.finished) {
+        set({ roleplayState: savedRoleplay });
+      }
+    }
+
+    if (savedSimulation) {
+      set({ simulationState: savedSimulation });
+    }
+  },
+
+  switchMode: (mode) => {
+    set({ currentMode: mode });
+    if (mode === 'endless' && !get().endlessState) {
+      get().loadEndlessCase();
+    }
+    if (mode === 'roleplay') {
+      set({ roleplayState: null });
+    }
+    if (mode === 'simulation') {
+      set({ simulationCase: null, simulationState: null });
+    }
+  },
+
+  checkDiagnosis: (mode, input) => {
+    const state = get();
+    const currentCase =
+      mode === 'daily'
+        ? getDailyCase(state.cases)
+        : state.cases.find((c) => c.id === state.endlessState?.caseId) || null;
+
+    if (!currentCase) return;
+
+    const gameState = mode === 'daily' ? state.dailyState! : state.endlessState!;
+    const result = processGuess(input, currentCase, gameState.attempts);
+
+    if (mode === 'daily') {
+      const newDaily: DailyState = {
+        ...state.dailyState!,
+        attempts: result.attempts,
+        history: [...state.dailyState!.history, result.correct ? 'correct' : 'wrong'],
+        finished: result.finished,
+        won: result.won,
+      };
+      db.saveDailyState(newDaily);
+
+      let newStats = state.stats;
+      let xpGained = 0;
+      let newAchievements: AchievementDef[] = [];
+      if (result.finished) {
+        const outcome = finalizeDailyOrEndless(state.stats, result, currentCase.id, currentCase.specialty, 'daily');
+        newStats = outcome.newStats;
+        xpGained = outcome.xpGained;
+        newAchievements = outcome.newAchievements;
+        playGameSounds(result.won, newAchievements, get().soundEnabled);
+      }
+
+      let toastMsg = buildToast(result.message, xpGained, newAchievements);
+      if (!result.correct && !result.finished) {
+        const hint = getProximityHint(input, currentCase, state.cases, result.attempts);
+        if (hint.hint) toastMsg += `\n💡 ${hint.hint}`;
+      }
+
+      set({
+        dailyState: newDaily,
+        stats: newStats,
+        toast: toastMsg,
+        confetti: result.won,
+      });
+    } else {
+      const newEndless: EndlessState = {
+        ...state.endlessState!,
+        attempts: result.attempts,
+        history: [...state.endlessState!.history, result.correct ? 'correct' : 'wrong'],
+        finished: result.finished,
+        won: result.won,
+      };
+
+      let newStats = state.stats;
+      let xpGained = 0;
+      let newAchievements: AchievementDef[] = [];
+      if (result.finished) {
+        const outcome = finalizeDailyOrEndless(state.stats, result, currentCase.id, currentCase.specialty, 'endless');
+        newStats = outcome.newStats;
+        xpGained = outcome.xpGained;
+        newAchievements = outcome.newAchievements;
+        playGameSounds(result.won, newAchievements, get().soundEnabled);
+      }
+
+      let toastMsgEndless = buildToast(result.message, xpGained, newAchievements);
+      if (!result.correct && !result.finished) {
+        const hint = getProximityHint(input, currentCase, state.cases, result.attempts);
+        if (hint.hint) toastMsgEndless += `\n💡 ${hint.hint}`;
+      }
+
+      set({
+        endlessState: newEndless,
+        stats: newStats,
+        toast: toastMsgEndless,
+        confetti: result.won,
+      });
+    }
+  },
+
+  checkRoleplayDiagnosis: (input) => {
+    const state = get();
+    const currentCase = state.roleplayCases.find((c) => c.id === state.roleplayState?.caseId);
+    if (!currentCase || !state.roleplayState) return;
+
+    const result = processRoleplayGuess(input, currentCase, state.roleplayState.attempts);
+
+    const newRoleplayState: RoleplayState = {
+      ...state.roleplayState,
+      attempts: result.attempts,
+      history: [...state.roleplayState.history, result.correct ? 'correct' : 'wrong'],
+      finished: result.finished,
+      won: result.won,
+    };
+
+    let newStats = state.stats;
+    let xpGained = 0;
+    let newAchievements: AchievementDef[] = [];
+    if (result.finished) {
+      const outcome = finalizeRoleplay(state.stats, result, currentCase.id, currentCase.role, currentCase.difficulty);
+      newStats = outcome.newStats;
+      xpGained = outcome.xpGained;
+      newAchievements = outcome.newAchievements;
+      playGameSounds(result.won, newAchievements, get().soundEnabled);
+    }
+
+    set({
+      roleplayState: newRoleplayState,
+      stats: newStats,
+      toast: buildToast(result.message, xpGained, newAchievements),
+      confetti: result.won,
+    });
+    saveRoleplayState(newRoleplayState);
+  },
+
+  loadEndlessCase: () => {
+    const cases = get().cases;
+    if (cases.length === 0) return;
+    const idx = Math.floor(Math.random() * cases.length);
+    set({
+      endlessState: {
+        caseId: cases[idx].id,
+        attempts: 0,
+        history: [],
+        finished: false,
+        won: false,
+      },
+    });
+  },
+
+  loadRoleplayCase: (role) => {
+    const roleplayCases = get().roleplayCases;
+    if (roleplayCases.length === 0) return;
+    const newCase = getRandomRoleplayCase(role);
+    if (!newCase) return;
+    const newState: RoleplayState = {
+      caseId: newCase.id,
+      role: newCase.role,
+      attempts: 0,
+      history: [],
+      finished: false,
+      won: false,
+    };
+    set({ roleplayState: newState });
+    saveRoleplayState(newState);
+  },
+
+  setActiveFilter: (filter) => set({ activeFilter: filter }),
+  setRoleplayRoleFilter: (filter) => set({ roleplayRoleFilter: filter }),
+  setSelectedAutocomplete: (idx) => set({ selectedAutocomplete: idx }),
+  setCurrentMatches: (matches) => set({ currentMatches: matches }),
+
+  loadArchiveCase: (caseId) => {
+    const c = get().cases.find((c) => c.id === caseId);
+    if (!c) return;
+    set({
+      endlessState: {
+        caseId: c.id,
+        attempts: 0,
+        history: [],
+        finished: false,
+        won: false,
+      },
+      currentMode: 'endless',
+    });
+  },
+
+  loadRoleplayArchiveCase: (caseId) => {
+    const c = get().roleplayCases.find((c) => c.id === caseId);
+    if (!c) return;
+    const newState: RoleplayState = {
+      caseId: c.id,
+      role: c.role,
+      attempts: 0,
+      history: [],
+      finished: false,
+      won: false,
+    };
+    set({
+      roleplayState: newState,
+      currentMode: 'roleplay',
+    });
+    saveRoleplayState(newState);
+  },
+
+  loadSimulationArchiveCase: (caseId) => {
+    const c = get().simulationCases.find((c) => c.id === caseId);
+    if (!c) return;
+    set({
+      simulationCase: c,
+      simulationState: null,
+      currentMode: 'simulation',
+    });
+  },
+
+  resetRoleplayState: () => {
+    set({ roleplayState: null });
+    saveRoleplayState(null);
+  },
+
+  resetSimulationState: () => {
+    set({ simulationCase: null, simulationState: null });
+    saveSimulationState(null);
+  },
+});

@@ -1,0 +1,29 @@
+/* ── prefers-reduced-motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Confetti */
+  .confetti,
+  .confetti-container {
+    display: none !important;
+  }
+
+  /* MiniGraph pulse animation */
+  .mini-graph-node--focus circle animate {
+    display: none;
+  }
+
+  /* Animated icons / spinners */
+  .animate-spin,
+  .animate-pulse,
+  .animate-bounce {
+    animation: none !important;
+  }
+}
