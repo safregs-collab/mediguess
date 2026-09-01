@@ -128,7 +128,7 @@ export const createUISlice: StateCreator<GameStore, [], [], UISlice> = (set) => 
   goToMetaHome: () => set({ currentScreen: 'home' }),
   goToHome: () => set({ currentScreen: 'home' }),
   goToGames: () => set({ currentScreen: 'games', currentMode: 'professionSelect' }),
-  goToMetaZone: () => { window.location.href = './medical-meta-zone/'; },
+  goToMetaZone: () => set({ currentScreen: 'metaZone' }),
   toggleSound: () => {
     set((state) => {
       const next = !state.soundEnabled;
