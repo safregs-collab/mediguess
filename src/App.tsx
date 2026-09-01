@@ -52,6 +52,13 @@ export function App() {
   }
 
   if (currentScreen === 'home') return <I18nProvider><HomeScreen /></I18nProvider>;
+  if (currentScreen === 'metaZone') return (
+    <I18nProvider>
+      <ErrorBoundary>
+        <Suspense fallback={<MetaSkeleton />}><MetaZonePage /></Suspense>
+      </ErrorBoundary>
+    </I18nProvider>
+  );
   if (currentMode === 'professionSelect') return <I18nProvider><ProfessionScreen key='professionSelect' /></I18nProvider>;
   if (currentMode === 'specialtySelect') return <I18nProvider><ProfessionModeScreen key='specialtySelect' /></I18nProvider>;
 
